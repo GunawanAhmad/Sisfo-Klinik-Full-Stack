@@ -1,0 +1,194 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Poppins;
+  padding-left: 20rem;
+  padding-right: 5rem;
+}
+
+.flexlogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 2rem;
+  width: 7rem;
+}
+
+.back img {
+  transform: rotate(180deg);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.back {
+  margin-top: 1rem;
+  display: flex;
+}
+.back p {
+  margin: auto;
+  color: #f7b702;
+}
+.back a {
+  text-decoration: none;
+  margin: auto;
+  font-size: 1.5rem;
+}
+nav {
+  margin-top: 2rem;
+}
+
+.title {
+  font-size: 5.4rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  margin-bottom: 20px;
+}
+
+.user {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.info h2 {
+  color: #0d7286;
+}
+.telpon button {
+  padding: 5px 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.teks {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+.form {
+  width: 70%;
+}
+.section {
+  display: grid;
+  grid-template-areas: "label input";
+  grid-template-columns: 1fr 2.5fr;
+  margin: 5px 0;
+  align-items: center;
+  justify-content: center;
+}
+.section .label {
+  grid-area: "label";
+}
+.section .input {
+  grid-area: "input";
+
+  border: none;
+  outline: none;
+  height: 2.5rem;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.berat .input,
+.tinggi .input {
+  width: 5rem;
+  background-color: #f1f1f1;
+}
+
+.ttl .input {
+  width: 12rem;
+}
+
+.makan .input,
+.alamat .input,
+.nama .input,
+.riwayat .input,
+.pekerjaan .input,
+.ttl .input,
+.diagnosis .input,
+.catatan .input,
+.lain .input {
+  background-color: #f1f1f1;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+}
+
+.radio label {
+  margin-right: 2rem;
+}
+
+.radio input {
+  margin-right: 0.5rem;
+}
+
+.btn {
+  width: 100%;
+  background-color: #2c2c2c;
+  border: none;
+  outline: none;
+  height: 2.5rem;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 3px 0;
+  margin-bottom: 20px;
+}
+
+.warn {
+  margin: 20px 0;
+}
+@media only screen and (max-width: 550px) {
+  .img img {
+    display: none;
+  }
+  nav {
+    width: 100%;
+  }
+  .user {
+    margin-right: 10px;
+  }
+  .logo {
+    margin-left: 10px;
+  }
+  .back {
+    margin-left: 10px;
+  }
+}
+@media only screen and (max-width: 1230px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+  .img img {
+    margin-bottom: 50px;
+  }
+  .keluhan {
+    left: -80px;
+  }
+  .form {
+    flex-direction: column;
+    width: 100%;
+    margin-left: 30px;
+  }
+  .dot {
+    display: none;
+  }
+  .user {
+    flex-direction: column;
+  }
+}

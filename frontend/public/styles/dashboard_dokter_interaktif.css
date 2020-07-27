@@ -1,0 +1,160 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Poppins;
+}
+
+.logo img {
+  margin-left: 5rem;
+  margin-top: 4rem;
+}
+#waveleft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 40%;
+  height: 80%;
+}
+#waveright {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  width: 50%;
+  height: 80%;
+}
+.teks {
+  width: 40rem;
+  margin: auto;
+}
+.teks h1 {
+  width: 30rem;
+  margin: auto;
+  font-size: 5rem;
+}
+.teks p {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+}
+
+.account {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  margin-top: 5rem;
+}
+.photo {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background-color: grey;
+  margin-right: 2rem;
+}
+.user {
+  margin-top: 1.3rem;
+  font-weight: lighter;
+}
+.user h1 {
+  font-size: 2rem;
+}
+.user p {
+  font-size: 1.5rem;
+  margin-top: -0.3rem;
+}
+.foto a {
+  text-decoration: none;
+  color: black;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+span {
+  display: inline-block;
+  color: #f7b702;
+}
+.title {
+  width: 50rem;
+  height: 3rem;
+  background-color: #0d7286;
+  border-radius: 20px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  text-align: center;
+  padding-top: 0.2rem;
+  font-size: 1.5rem;
+}
+.pasien {
+  width: 45rem;
+  height: 16rem;
+  border: 0.5rem solid #303838;
+  position: absolute;
+  z-index: -1;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.daftar {
+  padding: 3rem;
+}
+.pas2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pas1 {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pas1 img,
+.pas2 img {
+  height: 1.3rem;
+}
+.pas1 h1,
+.pas2 h1 {
+  color: #0d7286;
+  font-size: 1.5rem;
+}
+
+.pas1 p,
+.pas2 p {
+  color: #9a9a9a;
+}
+.lainnya a {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  text-decoration: none;
+  color: #0d7286;
+}
+
+.tombol button {
+  width: 50rem;
+  height: 6rem;
+  background-color: #0d7286;
+  border-radius: 40px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  border: none;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  font-family: Poppins;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: #0d7286;
+}

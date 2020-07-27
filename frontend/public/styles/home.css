@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+*html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navigasi {
+  margin-right: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+}
+.logoo {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.navigasi li {
+  list-style: none;
+}
+.navigasi li a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.container {
+  position: relative;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image img {
+  margin-right: 0;
+  width: 35rem;
+  height: 32rem;
+}
+
+.teks {
+  margin-top: 4rem;
+  top: 5rem;
+  font-weight: 500;
+}
+.teks .deks {
+  margin-top: 2rem;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+.started a {
+  text-decoration: none;
+}
+
+.started {
+  margin-top: 2rem;
+  position: relative;
+  height: 4rem;
+  width: 15rem;
+  font-size: 1.5rem;
+}
+
+.started img {
+  position: absolute;
+  top: 0.1rem;
+  height: 2rem;
+  margin: auto 1rem;
+}
+.started a {
+  color: #f69b00;
+}
+
+.klinik .klini {
+  color: #083884;
+}
+.klinik .ku {
+  color: #77bfbb;
+}
+
+@media only screen and (max-width: 720px) {
+  .image img {
+    display: none;
+  }
+
+  .teks {
+    font-size: 3rem;
+  }
+  .navigasi li {
+    margin-left: 1rem;
+  }
+}

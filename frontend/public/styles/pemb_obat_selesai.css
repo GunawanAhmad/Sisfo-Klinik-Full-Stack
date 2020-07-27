@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.back img {
+  transform: rotate(180deg);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.back {
+  display: flex;
+}
+.back p {
+  margin: auto;
+  color: #f7b702;
+}
+.back a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: 500;
+}
+
+.logo img {
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.container h1 {
+  font-size: 4.4rem;
+  font-weight: 500;
+}
+
+.container .back {
+  margin-top: 1rem;
+}

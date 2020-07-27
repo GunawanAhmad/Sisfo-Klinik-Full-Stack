@@ -1,0 +1,207 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: Poppins;
+}
+.foto-user {
+	background-color: rgb(117, 117, 117);
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+}
+
+.wave img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 70rem;
+	height: 30rem;
+	z-index: -999;
+}
+
+.logo {
+	margin-left: 10rem;
+}
+
+.back img {
+	transform: rotate(180deg);
+	width: 2.5rem;
+	height: 2.5rem;
+}
+.back {
+	margin-top: 1rem;
+	display: flex;
+	margin-left: 9.5rem;
+}
+.back p {
+	margin: auto;
+	color: #f7b702;
+}
+.back a {
+	text-decoration: none;
+	margin: auto;
+	font-size: 1.5rem;
+}
+
+nav {
+	margin-top: 5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.user {
+	display: flex;
+	margin-right: 10rem;
+}
+.user .nama {
+	margin-top: 2rem;
+	margin-right: 2rem;
+	color: black;
+}
+.halo {
+	margin-left: 10rem;
+	margin-top: 3rem;
+	margin-bottom: 4rem;
+}
+.halo h1 {
+	font-size: 4rem;
+}
+.halo p {
+	font-size: 3rem;
+}
+
+.dot img {
+	width: 10rem;
+	height: 15rem;
+	position: absolute;
+	top: 5rem;
+	right: 45rem;
+}
+.foto .data a {
+	text-decoration: none;
+	color: #f7b702;
+}
+
+.img img {
+	width: 45rem;
+	height: 30rem;
+}
+.container {
+	display: flex;
+	justify-content: space-evenly;
+
+	margin: 50px auto;
+	width: 90%;
+	font-size: 1.5rem;
+	color: #0d7286;
+	font-weight: bolder;
+}
+.table {
+	display: flex;
+	justify-content: space-evenly;
+	justify-content: left;
+	align-items: center;
+	width: 100%;
+}
+#salah a {
+	text-decoration: none;
+	color: #f7b702;
+}
+#salah {
+	flex: 1.5;
+	text-align: right;
+}
+.form {
+	flex: 1.5;
+	margin-left: 100px;
+}
+.kiri {
+	flex: 1;
+}
+.kiri p {
+	margin-bottom: 5px;
+}
+.kanan p {
+	margin-bottom: 5px;
+}
+.kanan {
+	flex: 1;
+}
+#zero {
+	opacity: 0;
+}
+.keluhan textarea {
+	width: 100%;
+	background-color: #e2f1f4;
+	height: 20rem;
+	font-family: Poppins;
+	border: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+.submit button {
+	background-color: black;
+	color: white;
+	width: 100%;
+	border: none;
+	height: 30px;
+	border-radius: 5px;
+}
+.teks {
+	margin: 5rem 10rem;
+	font-size: 2.5rem;
+}
+.teks p {
+	font-size: 1.5rem;
+}
+.user .nama {
+	margin-right: 0;
+}
+
+@media only screen and (max-width: 550px) {
+	.img img {
+		display: none;
+	}
+	nav {
+		width: 100%;
+	}
+	.user {
+		margin-right: 10px;
+	}
+	.logo {
+		margin-left: 10px;
+	}
+	.back {
+		margin-left: 10px;
+	}
+}
+@media only screen and (max-width: 1230px) {
+	.container {
+		flex-direction: column;
+		align-items: center;
+		margin-left: 0;
+	}
+	.img img {
+		margin-bottom: 50px;
+	}
+	.keluhan {
+		left: -80px;
+	}
+	.form {
+		flex-direction: column;
+		width: 100%;
+		margin-left: 30px;
+	}
+	.dot {
+		display: none;
+	}
+	.user {
+		flex-direction: column;
+	}
+}

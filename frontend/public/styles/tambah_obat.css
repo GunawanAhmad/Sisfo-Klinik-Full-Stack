@@ -1,0 +1,90 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  padding-left: 20rem;
+  padding-right: 5rem;
+}
+
+.flexlogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back img {
+  transform: rotate(180deg);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.back {
+  margin-top: 1rem;
+  display: flex;
+}
+.back p {
+  margin: auto;
+  color: #f7b702;
+}
+.back a {
+  text-decoration: none;
+  margin: auto;
+  font-size: 1.5rem;
+}
+nav {
+  margin-top: 2rem;
+}
+
+.logo img {
+  height: 2rem;
+  width: 7rem;
+}
+
+h1 {
+  text-align: right;
+  font-size: 4.4rem;
+  font-weight: 500;
+}
+
+.form {
+  margin-left: 9rem;
+}
+.section {
+  display: grid;
+  grid-template-areas: "label input";
+  grid-template-columns: 1fr 5fr;
+  margin: 10px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.section .label {
+  grid-area: "label";
+  font-size: 1.4rem;
+}
+
+.section .input {
+  grid-area: "input";
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  height: 3rem;
+  padding: 5px;
+}
+
+.satuan .input,
+.jumlah .input,
+.tombol .input {
+  width: 7rem;
+}
+
+.tombol .input {
+  background-color: black;
+  color: white;
+}

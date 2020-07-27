@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  padding-left: 20rem;
+  padding-right: 5rem;
+}
+
+.flexlogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back img {
+  transform: rotate(180deg);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.back {
+  margin-top: 1rem;
+  display: flex;
+}
+.back p {
+  margin: auto;
+  color: #f7b702;
+}
+.back a {
+  text-decoration: none;
+  margin: auto;
+  font-size: 1.5rem;
+}
+nav {
+  margin-top: 2rem;
+}
+
+.container {
+  margin-left: 9rem;
+  margin-top: 10rem;
+}
+
+.container h1 {
+  font-size: 4.4rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.pasien {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 3rem;
+}
+.pasien h2 {
+  color: #0d7286;
+}
+
+.pasien h3 {
+  color: #9a9a9a;
+}
+
+.pasien img {
+  height: 15px;
+}

@@ -1,0 +1,80 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: Poppins;
+}
+
+.logo img {
+	margin-left: 5rem;
+	margin-top: 4rem;
+}
+.backg-img img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: 100%;
+	z-index: -2;
+}
+.komp img {
+	position: absolute;
+	height: 40rem;
+	width: auto;
+	right: 10rem;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: -1;
+}
+.teks h1 {
+	margin-left: 5rem;
+	font-size: 7.1rem;
+	font-weight: 500;
+	margin-top: 5rem;
+}
+.list-fungsi img {
+	height: 20px;
+	align-self: center;
+}
+.list-fungsi p {
+	align-self: center;
+}
+.list-fungsi {
+	display: flex;
+	font-size: 1.4rem;
+	font-weight: 200;
+	width: 30rem;
+	height: 6rem;
+	justify-content: space-between;
+	padding: 0 1rem 0 1rem;
+	background-color: #f6f6f6;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px grey;
+	margin-bottom: 3rem;
+}
+.list {
+	margin-left: 5rem;
+	margin-top: 5rem;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+
+@media only screen and (max-width: 1110px) {
+	.komp img {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 678px) {
+	.teks h1 {
+		text-align: center;
+		margin-left: 0;
+	}
+}

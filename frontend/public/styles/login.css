@@ -1,0 +1,183 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Poppins;
+}
+
+.container {
+  display: flex;
+  margin: 6rem 7rem 0 14rem;
+}
+.form {
+  background-color: #77bfbb;
+  width: 30rem;
+  height: 48rem;
+  border: 0.2rem solid black;
+}
+.teks {
+  width: 60rem;
+  margin-top: 5rem;
+  margin-left: 8rem;
+}
+
+.teks h1 {
+  font-size: 5rem;
+}
+.teks p {
+  font-size: 2rem;
+}
+
+.logo {
+  position: absolute;
+  bottom: 10%;
+  right: 8%;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.circle1 {
+  margin-right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border: 0.2rem solid black;
+  border-radius: 50%;
+}
+.circle2 {
+  margin-right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  border: 0.2rem solid black;
+  border-radius: 50%;
+}
+.circle3 {
+  width: 1rem;
+  height: 1rem;
+  border: 0.2rem solid black;
+  border-radius: 50%;
+}
+
+.regis h1 {
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  font-size: 3.2rem;
+}
+.regis p {
+  text-align: center;
+  color: white;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+.username {
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+.username h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 2rem;
+}
+
+.username input {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 2px solid white;
+  width: 80%;
+  align-items: center;
+  height: 3.5rem;
+  padding-left: 1rem;
+  color: white;
+  font-size: 2rem;
+}
+
+.password {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+}
+.password h1 {
+  color: white;
+  font-weight: 100;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+.password input {
+  margin-top: 0.5rem;
+  background: transparent;
+  border: 2px solid white;
+  width: 80%;
+  align-items: center;
+  height: 3.5rem;
+  padding-left: 1rem;
+  color: white;
+  font-size: 2rem;
+}
+
+button {
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 6rem;
+  width: 21.2rem;
+  height: 3.5rem;
+  border: none;
+  text-decoration: none;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.smile img {
+  width: 20rem;
+  position: absolute;
+  top: 5rem;
+  right: 8%;
+  z-index: -1;
+}
+
+.regis a {
+  text-decoration: none;
+  color: white;
+}
+.kumpulan {
+  display: none;
+}
+
+@media only screen and (max-width: 1120px) {
+  .smile img {
+    display: none;
+  }
+  .teks {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .logo {
+    top: 2rem;
+    left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  .teks {
+    margin: auto;
+  }
+  .form {
+    margin: auto;
+  }
+  .logo {
+    left: 50%;
+    transform: translate(-50% -50%);
+  }
+}
