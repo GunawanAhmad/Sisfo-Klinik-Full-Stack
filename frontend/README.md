@@ -1,8 +1,8 @@
 # sisfo-klinik
 
 
-Rest API Sisfo Klinik 
-Build with NodeJs, MongoDB, Express
+Front End web App for Sisfo Klinik 
+Build with VueJs
 
 
 ## Project setup
