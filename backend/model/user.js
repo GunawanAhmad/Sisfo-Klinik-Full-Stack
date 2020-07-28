@@ -6,7 +6,7 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  imageProfile: {
+  avatar: {
     type: String
   },
   name: {
@@ -16,6 +16,21 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true
+  },
+  alamat: {
+    type: String
+  },
+  ttl: {
+    type: String
+  },
+  tinggi: {
+    type: Number
+  },
+  berat: {
+    type: Number
+  },
+  riwayat: {
+    type: Array
   }
 });
 

@@ -121,13 +121,14 @@ export default {
       // };
       // console.log(body);
       axios
-        .post("http://localhost:5000/signup", {
+        .post("/signup", {
           name: this.nama,
           username: this.username,
           password: this.password
         })
         .then(res => {
           console.log(res);
+          this.$router.push({ path: "/login" });
         })
         .catch(err => console.log(err));
     }

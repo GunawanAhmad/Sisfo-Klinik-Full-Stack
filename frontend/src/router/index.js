@@ -6,6 +6,7 @@ import Signup from "../views/signup.vue";
 import DashboardPasien from "../views/dashboardPasien.vue";
 import editDataPasien from "../views/editDataPasien.vue";
 import DataPasien from "../views/DataPasien.vue";
+import Konsultasi from "../views/konsultasi.vue";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/data-pasien",
     name: "Data Pasien",
     component: DataPasien
+  },
+  {
+    path: "/konsultasi",
+    name: "Konsultasi",
+    component: Konsultasi
   }
 
   // {

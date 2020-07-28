@@ -3,9 +3,44 @@ const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
+const multer = require("multer");
+const { v4: uuidv4 } = require("uuid");
 const authRouter = require("./routes/auth");
+const userRoutes = require("./routes/user");
+
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, uuidv4());
+  }
+});
+
+const filterImg = (req, file, cb) => {
+  if (
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/jpeg"
+  ) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
 
 app.use(bodyParser.json());
+
+app.use(
+  multer({ storage: fileStorage, fileFilter: filterImg }).fields([
+    {
+      name: "avatar",
+      maxCount: 1
+    }
+  ])
+);
+
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -18,8 +53,9 @@ app.use((req, res, next) => {
 });
 
 app.use(authRouter);
+app.use(userRoutes);
 
-mongoose
+let server = mongoose
   .connect("mongodb://localhost:27017/db", {
     dbName: "Sisfo-Klinik"
   })

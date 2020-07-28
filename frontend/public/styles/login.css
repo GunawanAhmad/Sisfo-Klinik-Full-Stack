@@ -163,6 +163,7 @@ button {
   .logo {
     top: 2rem;
     left: 2rem;
+    bottom: 0;
   }
 }
 
@@ -179,5 +180,6 @@ button {
   .logo {
     left: 50%;
     transform: translate(-50% -50%);
+    bottom: unset;
   }
 }

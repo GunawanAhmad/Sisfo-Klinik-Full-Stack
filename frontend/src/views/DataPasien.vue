@@ -33,23 +33,23 @@
         <h1 class="label">nama lengkap</h1>
 
         <!--Disesuaikan-->
-        <h1 class="content">Faris Azizy</h1>
+        <h1 class="content">{{ nama }}</h1>
         <h1 class="label">alamat</h1>
 
         <!--Disesuaikan-->
-        <h1 class="content">malang</h1>
+        <h1 class="content">{{ alamat }}</h1>
         <h1 class="label">tanggal lahir</h1>
 
         <!--Disesuaikan-->
-        <h1 class="content">21 Juni 2020</h1>
+        <h1 class="content">{{ ttl }}</h1>
         <h1 class="label">tinggi badan</h1>
 
         <!--Disesuaikan-->
-        <h1 class="content">150 cm</h1>
+        <h1 class="content">{{ tinggi }} cm</h1>
         <h1 class="label">berat badan</h1>
 
         <!--Disesuaikan-->
-        <h1 class="content">40kg</h1>
+        <h1 class="content">{{ berat }}</h1>
         <h1 class="label">riwayat penyakit</h1>
 
         <!--Disesuaikan-->
@@ -89,7 +89,31 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      nama: "",
+      ttl: "",
+      alamat: "",
+      tinggi: "",
+      berat: ""
+    };
+  },
+  created() {
+    axios
+      .get("/get-user-data")
+      .then(res => {
+        console.log(res);
+        this.nama = res.data.user.name;
+        this.alamat = res.data.user.alamat;
+        this.tinggi = res.data.user.tinggi;
+        this.berat = res.data.user.berat;
+        this.ttl = res.data.user.ttl;
+      })
+      .catch(err => console.log(err));
+  }
+};
 </script>
 
 <style scoped src="../../public/styles/data_pasien.css">

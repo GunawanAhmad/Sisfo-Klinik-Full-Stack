@@ -127,11 +127,14 @@ export default {
         username: this.username,
         password: this.password
       };
-      console.log(body);
+
       axios
-        .post("http://localhost:5000/login", body)
+        .post("/login", body)
         .then(res => {
-          console.log(res);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("username", res.data.username);
+          console.log(localStorage.getItem("token"));
+          this.$router.push({ path: "/" });
         })
         .catch(err => console.log(err));
     }

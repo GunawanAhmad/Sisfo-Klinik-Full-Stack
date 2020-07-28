@@ -2,7 +2,7 @@
   <div class="asasd">
     <!--Navigasi Bar-->
     <nav>
-      <div class="logoo">
+      <div class="logo">
         <img src="../../public/img/kliniku.png" alt />
       </div>
       <ul class="navigasi">
@@ -20,11 +20,13 @@
     <div class="container">
       <!--text kliniku-->
       <div class="teks">
-        <p>feeling better</p>
-        <div class="klinik">
-          <span>with &nbsp;</span>
-          <span class="klini">klini</span>
-          <span class="ku">ku</span>
+        <div class="top">
+          <p>feeling better</p>
+          <div class="klinik">
+            <span>with &nbsp;</span>
+            <span class="klini">klini</span>
+            <span class="ku">ku</span>
+          </div>
         </div>
 
         <p class="deks">
