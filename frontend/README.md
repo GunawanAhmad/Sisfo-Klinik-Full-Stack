@@ -1,5 +1,10 @@
 # sisfo-klinik
 
+
+Rest API Sisfo Klinik 
+Build with NodeJs, MongoDB, Express
+
+
 ## Project setup
 ```
 npm install
