@@ -31,6 +31,10 @@ const userSchema = new Schema({
   },
   riwayat: {
     type: Array
+  },
+  role: {
+    type: String,
+    required: true
   }
 });
 

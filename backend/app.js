@@ -55,9 +55,19 @@ app.use((req, res, next) => {
 app.use(authRouter);
 app.use(userRoutes);
 
+app.use((error, req, res, next) => {
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  console.log(message);
+  res.status(422).json({ message: message, errorData: data });
+});
+
 let server = mongoose
   .connect("mongodb://localhost:27017/db", {
-    dbName: "Sisfo-Klinik"
+    dbName: "Sisfo-Klinik",
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   })
   .then(result => {
     app.listen(5000);

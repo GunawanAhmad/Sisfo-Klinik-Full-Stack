@@ -34,16 +34,6 @@ exports.editDataPasien = (req, res, next) => {
     });
 };
 
-exports.getUserData = (req, res, next) => {
-  const username = "test";
-  User.findOne({ username: username })
-    .then(user => {
-      //   this.username = res.data.user.username;
-      res.status(201).json({ msg: "succes", user: user });
-    })
-    .catch(err => console.log(err));
-};
-
 exports.getUserbyId = (req, res, next) => {
   const userId = req.userId;
   User.findById(userId)

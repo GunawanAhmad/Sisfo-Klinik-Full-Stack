@@ -5,8 +5,6 @@ const isAuth = require("../middleware/isAuth");
 
 router.post("/edit-data-pasien", userControl.editDataPasien);
 
-router.get("/get-user-data", userControl.getUserData);
-
 router.get("/getUser", isAuth, userControl.getUserbyId);
 
 module.exports = router;
