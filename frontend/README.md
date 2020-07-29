@@ -1,5 +1,10 @@
 # sisfo-klinik
 
+
+Front End web App for Sisfo Klinik 
+Build with VueJs
+
+
 ## Project setup
 ```
 npm install
