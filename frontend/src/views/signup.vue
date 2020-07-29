@@ -28,7 +28,9 @@
           </div>
           <button id="button" @click="register">REGISTER</button>
         </div>
+        <p class="error" v-if="errorMsg.length > 0">{{ errorMsg }}</p>
       </div>
+
       <div class="teks"></div>
     </div>
     <div class="wave">
@@ -108,7 +110,8 @@ export default {
     return {
       nama: "",
       password: "",
-      username: ""
+      username: "",
+      errorMsg: ""
     };
   },
   methods: {
@@ -130,7 +133,10 @@ export default {
           console.log(res);
           this.$router.push({ path: "/login" });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err.response);
+          this.errorMsg = err.response.data.message || "error";
+        });
     }
   },
   mounted() {

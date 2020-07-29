@@ -23,6 +23,7 @@
             <input type="password" v-model="password" />
           </div>
           <button @click="login">LOG IN</button>
+          <p class="error" v-if="errorMsg.length > 0">{{ errorMsg }}</p>
         </div>
       </div>
       <div class="teks"></div>
@@ -103,7 +104,8 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      errorMsg: ""
     };
   },
   mounted() {
@@ -136,7 +138,10 @@ export default {
           console.log(localStorage.getItem("token"));
           this.$router.push({ path: "/" });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err.response);
+          this.errorMsg = err.response.data.message || "error";
+        });
     }
   }
 };

@@ -8,7 +8,7 @@
       <div class="profil">
         <div class="foto-user">
           <div class="foto">
-            <img src alt />
+            <img :src="avatar" alt />
           </div>
           <div class="edit-foto">
             <a href="#" style="position: relative; z-index: 10;">ubah foto profil</a>
@@ -16,7 +16,7 @@
         </div>
         <div class="nama">
           <!--nama dan status akun sesuai dengan user yang login/register-->
-          <div class="username">nama</div>
+          <div class="username">{{ nama }}</div>
           <div class="account">Unverfied account</div>
         </div>
       </div>
@@ -54,13 +54,16 @@
 
         <!--Disesuaikan-->
         <h1 class="content">
-          <span class="penyakit">asma</span>
-          <span class="penyakit">diabetes</span>
+          <span
+            v-for="(penyakit,index) in riwayat"
+            :key="index"
+            class="penyakit"
+          >{{riwayat[index]}}&nbsp;</span>
         </h1>
         <div class="label" id="ubah">
-          <a href>
-            <h2>kelola akun</h2>
-          </a>
+          <router-link to="/edit-data-pasien">
+            <h2>ubah data</h2>
+          </router-link>
           <img src="img/arrow.png" alt />
         </div>
       </div>
@@ -80,9 +83,9 @@
       </p>
     </div>
     <div class="kanan">
-      <a href="index.html">
+      <router-link to="/">
         <img id="logo" src="img/kliniku.png" alt />
-      </a>
+      </router-link>
       <img id="bunga" src="img/bunga.png" alt />
     </div>
   </div>
@@ -97,12 +100,19 @@ export default {
       ttl: "",
       alamat: "",
       tinggi: "",
-      berat: ""
+      berat: "",
+      riwayat: [],
+      avatar: ""
     };
   },
   created() {
+    let token = localStorage.getItem("token");
     axios
-      .get("/get-user-data")
+      .get("/getUser", {
+        headers: {
+          Authorization: "Barier " + token
+        }
+      })
       .then(res => {
         console.log(res);
         this.nama = res.data.user.name;
@@ -110,6 +120,8 @@ export default {
         this.tinggi = res.data.user.tinggi;
         this.berat = res.data.user.berat;
         this.ttl = res.data.user.ttl;
+        this.riwayat = res.data.user.riwayat;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
       })
       .catch(err => console.log(err));
   }

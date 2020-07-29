@@ -151,6 +151,13 @@ button {
   display: none;
 }
 
+.error {
+  color: rgb(253, 42, 42);
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 14rem;
+}
+
 @media only screen and (max-width: 1120px) {
   .smile img {
     display: none;

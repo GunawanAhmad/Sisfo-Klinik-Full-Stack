@@ -34,10 +34,10 @@
           <br />hubungi dokter anda kapan saja dan di mana saja
         </p>
         <div class="started">
-          <a href="#">get started</a>
-          <a href>
+          <router-link to="/dashboard-pasien">get started</router-link>
+          <router-link to="/dashboard-pasien">
             <img src="../../public/img/arrow.png" alt />
-          </a>
+          </router-link>
         </div>
       </div>
 

@@ -60,7 +60,7 @@
             <p id="berat">{{ berat }} kg</p>
 
             <!--spesialis sesuai dengan username yang sudah login/register-->
-            <p id="spesialis">kardiologi</p>
+            <p id="spesialis">umum</p>
             <p id="zero">a</p>
           </div>
           <p id="salah">
