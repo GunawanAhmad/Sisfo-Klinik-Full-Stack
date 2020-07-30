@@ -1,6 +1,4 @@
 const User = require("../model/user");
-const Staff = require("../model/staff");
-const Dokter = require("../model/dokter");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -47,55 +45,42 @@ exports.login = (req, res, next) => {
   const password = req.body.password;
   let loadedUser = null;
 
-  if (username[0] === "_") {
-    Dokter.findOne({ username: username })
-      .then(dokter => {
-        if (!dokter) {
-          const err = new Error("invalid username");
-          throw err;
-        }
-        if (dokter.password !== "123") {
-          console.log("pass error");
-          const err = new Error("invalid password");
-          throw err;
-        }
-        req.dokterId = dokter._id;
-      })
-      .catch(err => {
-        next(err);
-      });
-  } else {
-    User.findOne({ username: username })
-      .then(user => {
-        if (!user) {
-          throw new Error("username is invalid");
-        }
-        loadedUser = user;
+  User.findOne({ username: username })
+    .then(user => {
+      if (!user) {
+        throw new Error("username is invalid");
+      }
+      loadedUser = user;
 
-        return bcrypt.compare(password, user.password);
-      })
-      .then(isEqual => {
-        if (!isEqual) {
-          const error = new Error("Wrong password");
-          error.statusCode = 401;
-          throw error;
-        }
-        const token = jwt.sign(
-          {
-            username: loadedUser.username,
-            userId: loadedUser._id.toString()
-          },
-          "thisissecretkey",
-          { expiresIn: "1h" }
-        );
-        res.status(200).json({ token: token, username: loadedUser.username });
-        console.log("login succes");
-      })
-      .catch(err => {
-        if (!err.statusCode) {
-          err.statusCode = 500;
-        }
-        next(err);
-      });
-  }
+      return bcrypt.compare(password, user.password);
+    })
+    .then(isEqual => {
+      if (!isEqual) {
+        const error = new Error("Wrong password");
+        error.statusCode = 401;
+        throw error;
+      }
+      const token = jwt.sign(
+        {
+          username: loadedUser.username,
+          userId: loadedUser._id.toString()
+        },
+        "thisissecretkey",
+        { expiresIn: "1h" }
+      );
+      res
+        .status(200)
+        .json({
+          token: token,
+          username: loadedUser.username,
+          role: loadedUser.role
+        });
+      console.log("login succes");
+    })
+    .catch(err => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const konsulSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
+    ref: "User",
     required: true
   },
   keluhan: {
@@ -48,7 +49,11 @@ const konsulSchema = new Schema({
         type: String
       }
     }
-  ]
+  ],
+  tanggal: {
+    type: String,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Konsul", konsulSchema);

@@ -7,6 +7,8 @@ import DashboardPasien from "../views/dashboardPasien.vue";
 import editDataPasien from "../views/editDataPasien.vue";
 import DataPasien from "../views/DataPasien.vue";
 import Konsultasi from "../views/konsultasi.vue";
+import dashboardDokter from "../views/dashboardDokter.vue";
+import dashboardStaff from "../views/dashboardStaff.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +47,16 @@ const routes = [
     path: "/konsultasi",
     name: "Konsultasi",
     component: Konsultasi
+  },
+  {
+    path: "/dashboard-dokter",
+    name: "Dashboard Dokter",
+    component: dashboardDokter
+  },
+  {
+    path: "/dashboard-staff",
+    name: "Dashboard Staff",
+    component: dashboardStaff
   }
 
   // {
