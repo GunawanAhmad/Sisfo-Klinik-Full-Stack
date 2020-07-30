@@ -135,8 +135,13 @@ export default {
         .then(res => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("username", res.data.username);
-          console.log(localStorage.getItem("token"));
-          this.$router.push({ path: "/" });
+          // console.log(res);
+          if (res.data.role === "pasien")
+            this.$router.push({ path: "/dashboard-pasien" });
+          else if (res.data.role === "dokter")
+            this.$router.push({ path: "/dashboard-dokter" });
+          else if (res.data.role === "staff")
+            this.$router.push({ path: "/dashboard-staff" });
         })
         .catch(err => {
           console.log(err.response);

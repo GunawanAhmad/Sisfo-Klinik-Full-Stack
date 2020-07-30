@@ -69,10 +69,10 @@
         </div>
         <form action class="keluhan">
           <div>
-            <textarea name="keluhan" id="keluhan" cols="30" rows="10"></textarea>
+            <textarea name="keluhan" id="keluhan" cols="30" rows="10" v-model="keluhan"></textarea>
           </div>
           <div class="submit">
-            <button type="submit">KONSUL</button>
+            <button type="submit" @click="submitKonsul">KONSUL</button>
           </div>
         </form>
       </div>
@@ -115,8 +115,30 @@ export default {
       berat: "",
       tinggi: "",
       //   avatar: "",
-      username: ""
+      username: "",
+      keluhan: ""
     };
+  },
+  methods: {
+    submitKonsul(e) {
+      e.preventDefault();
+      let token = localStorage.getItem("token");
+      let body = {
+        keluhan: this.keluhan
+      };
+      axios
+        .post("/pasien/konsultasi", body, {
+          headers: {
+            Authorization: "Barier " + token
+          }
+        })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>
