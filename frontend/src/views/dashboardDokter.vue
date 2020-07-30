@@ -34,7 +34,7 @@
       </div>
       <div class="fungsi">
         <div class="daftar hidden">
-          <span @click="showPasien">daftar pasien</span>
+          <span @click="showPasien('.daftar', '.daftar-user')">daftar pasien</span>
           <div class="daftar-user hidden">
             <div class="user" v-for="(user,index) in daftarPasien" :key="index">
               <div class="info">
@@ -43,10 +43,11 @@
               </div>
               <img src="img/arrow2.png" alt />
             </div>
+            <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
           </div>
         </div>
         <div class="riwayat hidden">
-          <span @click="showRiwayat">riwayat pemeriksaan</span>
+          <span @click="showPasien('.riwayat', '.riwayat-user')">riwayat pemeriksaan</span>
           <div class="riwayat-user hidden">
             <div class="user">
               <div class="info">
@@ -74,32 +75,32 @@ import axios from "axios";
 export default {
   created() {
     let token = localStorage.getItem("token");
+    let requestDataUser = axios.get("/getUser", {
+      headers: {
+        Authorization: "Barier " + token
+      }
+    });
+    let requestKonsul = axios.get("/getKonsul", {
+      headers: {
+        Authorization: "Barier " + token
+      }
+    });
     axios
-      .get("/getUser", {
-        headers: {
-          Authorization: "Barier " + token
-        }
-      })
-      .then(res => {
-        console.log(res);
-        this.nama = res.data.user.name;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
-      })
+      .all([requestDataUser, requestKonsul])
+      .then(
+        axios.spread((...responses) => {
+          const dataUser = responses[0];
+          const dataKonsul = responses[1];
+
+          this.nama = dataUser.data.user.name;
+          this.avatar = "http://localhost:5000/" + dataUser.data.user.avatar;
+          this.daftarPasien = dataKonsul.data.konsul;
+          // console.log(dataUser, dataKonsul);
+        })
+      )
       .catch(err => {
         console.log(err);
       });
-
-    axios
-      .get("/getKonsul", {
-        headers: {
-          Authorization: "Barier " + token
-        }
-      })
-      .then(res => {
-        this.daftarPasien = res.data.konsul;
-        console.log(this.daftarPasien);
-      })
-      .catch(err => console.log(err.response));
   },
   data() {
     return {
@@ -109,20 +110,12 @@ export default {
     };
   },
   methods: {
-    showPasien() {
-      const daftar = document.querySelector(".daftar");
+    showPasien(class1, class2) {
+      const daftar = document.querySelector(class1);
       daftar.classList.toggle("hidden");
-      const user = document.querySelector(".daftar-user");
+      const user = document.querySelector(class2);
       user.classList.toggle("hidden");
-      const span = document.querySelector(".daftar span");
-      span.classList.toggle("hidden");
-    },
-    showRiwayat() {
-      const riwayat = document.querySelector(".riwayat");
-      riwayat.classList.toggle("hidden");
-      const user = document.querySelector(".riwayat-user");
-      user.classList.toggle("hidden");
-      const span = document.querySelector(".riwayat span");
+      const span = document.querySelector(`${class1} span`);
       span.classList.toggle("hidden");
     }
   }
