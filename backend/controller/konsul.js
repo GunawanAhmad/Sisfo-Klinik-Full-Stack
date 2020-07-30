@@ -30,3 +30,15 @@ exports.getKonsul = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getAllKonsul = (req, res, next) => {
+  Konsul.find()
+    .populate("userId", "name riwayat")
+    .exec()
+    .then(result => {
+      res.status(200).json({ msg: "succes", konsul: result });
+    })
+    .catch(err => {
+      next(err);
+    });
+};

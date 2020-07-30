@@ -8,4 +8,11 @@ router.post("/pasien/konsultasi", isAuth, konsulControl.postKeluhan);
 
 router.get("/getKonsul", isAuth, dokterRole, konsulControl.getKonsul);
 
+router.get(
+  "/get-Allpasien-konsul",
+  isAuth,
+  dokterRole,
+  konsulControl.getAllKonsul
+);
+
 module.exports = router;

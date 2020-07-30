@@ -4,7 +4,7 @@ function dokterRole(req, res, next) {
   const userId = req.userId;
   User.findById(userId)
     .then(user => {
-      console.log(user.role);
+      //   console.log(user.role);
       if (user.role !== "dokter") {
         const error = new Error("Acces Denied");
         error.statusCode = 402;

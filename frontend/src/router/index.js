@@ -9,6 +9,7 @@ import DataPasien from "../views/DataPasien.vue";
 import Konsultasi from "../views/konsultasi.vue";
 import dashboardDokter from "../views/dashboardDokter.vue";
 import dashboardStaff from "../views/dashboardStaff.vue";
+import daftarPasien from "../views/daftarPasien.vue";
 
 Vue.use(VueRouter);
 
@@ -57,6 +58,11 @@ const routes = [
     path: "/dashboard-staff",
     name: "Dashboard Staff",
     component: dashboardStaff
+  },
+  {
+    path: "/dashboard-dokter/daftar-pasien",
+    name: "Daftar Pasien",
+    component: daftarPasien
   }
 
   // {
