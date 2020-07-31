@@ -38,6 +38,12 @@ body {
 }
 nav {
   margin-top: 2rem;
+  padding-right: 20rem;
+  padding-left: 5rem;
+}
+.list {
+  padding-right: 20rem;
+  padding-left: 5rem;
 }
 
 .top {
@@ -117,6 +123,19 @@ nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+.list-obat {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  min-height: 30px;
+  max-height: 30px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
 }
 
 li {

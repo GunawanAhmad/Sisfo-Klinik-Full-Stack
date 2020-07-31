@@ -70,11 +70,7 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 10px grey;
-  border-radius: 10px;
-  width: 50px;
-  min-height: 30px;
-  max-height: 30px;
+  display: none;
 }
 
 /* Handle */

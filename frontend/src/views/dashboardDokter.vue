@@ -41,7 +41,7 @@
                 <h2>{{ user.userId.name }}</h2>
                 <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt />
+              <img src="img/arrow2.png" alt @click="goToForm(index)" style="cursor:pointer;" />
             </div>
             <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
           </div>
@@ -77,13 +77,13 @@ export default {
     let token = localStorage.getItem("token");
     let requestDataUser = axios.get("/getUser", {
       headers: {
-        Authorization: "Barier " + token
-      }
+        Authorization: "Barier " + token,
+      },
     });
     let requestKonsul = axios.get("/getKonsul", {
       headers: {
-        Authorization: "Barier " + token
-      }
+        Authorization: "Barier " + token,
+      },
     });
     axios
       .all([requestDataUser, requestKonsul])
@@ -91,14 +91,15 @@ export default {
         axios.spread((...responses) => {
           const dataUser = responses[0];
           const dataKonsul = responses[1];
-
+          console.log(dataKonsul);
           this.nama = dataUser.data.user.name;
           this.avatar = "http://localhost:5000/" + dataUser.data.user.avatar;
           this.daftarPasien = dataKonsul.data.konsul;
+
           // console.log(dataUser, dataKonsul);
         })
       )
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   },
@@ -106,7 +107,7 @@ export default {
     return {
       nama: "",
       avatar: "",
-      daftarPasien: []
+      daftarPasien: [],
     };
   },
   methods: {
@@ -117,8 +118,12 @@ export default {
       user.classList.toggle("hidden");
       const span = document.querySelector(`${class1} span`);
       span.classList.toggle("hidden");
-    }
-  }
+    },
+    goToForm(index) {
+      let id = this.daftarPasien[index]._id;
+      this.$router.push({ path: "/dokter/form-pemeriksaan-pasien/" + id });
+    },
+  },
 };
 </script>
 

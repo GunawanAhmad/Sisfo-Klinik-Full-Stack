@@ -1,15 +1,6 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: Poppins;
+.app {
   padding-left: 20rem;
-  padding-right: 5rem;
+  padding-right: 10rem;
 }
 
 .flexlogo {
@@ -92,12 +83,17 @@ nav {
 }
 .section .input {
   grid-area: "input";
-
   border: none;
   outline: none;
   height: 2.5rem;
   border-radius: 7px;
   padding: 5px;
+}
+
+.riwayat.section .input {
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .berat .input,
@@ -113,13 +109,21 @@ nav {
 .makan .input,
 .alamat .input,
 .nama .input,
-.riwayat .input,
 .pekerjaan .input,
 .ttl .input,
 .diagnosis .input,
 .catatan .input,
 .lain .input {
   background-color: #f1f1f1;
+}
+
+span.penyakit {
+  background-color: #f1f1f1;
+  margin-right: 1rem;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 1.1rem;
+  padding: 3px 5px;
 }
 
 .radio {
