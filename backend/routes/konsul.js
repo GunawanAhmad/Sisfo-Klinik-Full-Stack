@@ -15,4 +15,11 @@ router.get(
   konsulControl.getAllKonsul
 );
 
+router.get(
+  "/get-pasien-konsul/:id",
+  isAuth,
+  dokterRole,
+  konsulControl.getKonsulById
+);
+
 module.exports = router;

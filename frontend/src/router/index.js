@@ -11,6 +11,8 @@ import dashboardDokter from "../views/dashboardDokter.vue";
 import dashboardStaff from "../views/dashboardStaff.vue";
 import daftarPasien from "../views/daftarPasien.vue";
 import tambahObat from "../views/tambahObat.vue";
+import daftarObat from "../views/daftarObat.vue";
+import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
 
 Vue.use(VueRouter);
 
@@ -69,6 +71,16 @@ const routes = [
     path: "/staff/tambah-obat",
     name: "Tambah Obat",
     component: tambahObat
+  },
+  {
+    path: "/daftar-obat",
+    name: "Daftar Obat",
+    component: daftarObat
+  },
+  {
+    path: "/dokter/form-pemeriksaan-pasien/:id",
+    name: "Form Pemeriksaan Pasien",
+    component: formPemeriksaanPasien
   }
 
   // {

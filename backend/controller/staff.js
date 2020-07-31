@@ -25,3 +25,13 @@ exports.addObat = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getObat = (req, res, next) => {
+  Obat.find()
+    .then(obat => {
+      res.status(200).json({ msg: "succes", obat: obat });
+    })
+    .catch(err => {
+      next(err);
+    });
+};

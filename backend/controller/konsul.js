@@ -21,7 +21,7 @@ exports.postKeluhan = (req, res, next) => {
 
 exports.getKonsul = (req, res, next) => {
   Konsul.find()
-    .populate("userId", "name")
+    .populate("userId", "name username")
     .exec()
     .then(result => {
       res.status(201).json({ msg: "succes", konsul: result });
@@ -37,6 +37,19 @@ exports.getAllKonsul = (req, res, next) => {
     .exec()
     .then(result => {
       res.status(200).json({ msg: "succes", konsul: result });
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+exports.getKonsulById = (req, res, next) => {
+  const konsulId = req.params.id;
+  Konsul.findById(konsulId)
+    .populate("userId", "name riwayat")
+    .exec()
+    .then(konsul => {
+      res.status(200).json({ msg: "succes", konsul: konsul });
     })
     .catch(err => {
       next(err);
