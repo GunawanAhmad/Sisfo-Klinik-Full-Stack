@@ -14,4 +14,9 @@
 html {
   font-size: 62.5%;
 }
+
+.logo img {
+  height: 2.5rem;
+  width: 10rem;
+}
 </style>
