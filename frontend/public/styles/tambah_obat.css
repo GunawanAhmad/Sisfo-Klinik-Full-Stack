@@ -8,8 +8,10 @@ html {
 }
 body {
   font-family: "Poppins", sans-serif;
-  padding-left: 20rem;
-  padding-right: 5rem;
+}
+.container {
+  padding-right: 20rem;
+  padding-left: 5rem;
 }
 
 .flexlogo {
@@ -38,6 +40,8 @@ body {
 }
 nav {
   margin-top: 2rem;
+  padding-right: 20rem;
+  padding-left: 5rem;
 }
 
 .logo img {
