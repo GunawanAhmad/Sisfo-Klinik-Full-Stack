@@ -24,6 +24,7 @@
         </div>
         <div class="telpon">
           <button>TELEPON</button>
+          <button @click="chat">CHAT</button>
         </div>
       </div>
       <div class="teks">
@@ -153,16 +154,39 @@
         >* data dimasukan setelah/saat konsultasi secara langsung melalui telepon atau keluhan pasien</p>
         <button class="btn">SUBMIT</button>
       </div>
+      <div class="chat" v-if="isChat">
+        <span class="close" @click="isChat = false">
+          <i class="fas fa-times"></i>
+        </span>
+        <div class="user">
+          <div class="photo">
+            <img src alt />
+          </div>
+          <div class="name">Name</div>
+        </div>
+        <div class="message">
+          <p class="from">hahah</p>
+          <p class="from">hahah</p>
+          <p class="from">hahah</p>
+          <p class="to">hahah</p>
+        </div>
+        <div class="control">
+          <input type="text" placeholder="type here..." />
+          <button>SEND</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
  <script>
 import axios from "axios";
+import io from "socket.io-client";
 export default {
   created() {
     let token = localStorage.getItem("token");
     let id = this.$route.params.id;
+
     axios
       .get("/get-pasien-konsul/" + id, {
         headers: {
@@ -184,7 +208,17 @@ export default {
       user: {},
       keluhan: "",
       tanggal: "",
+      isChat: false,
     };
+  },
+  methods: {
+    chat() {
+      this.isChat = true;
+      let socket = io("http://localhost:5000");
+      socket.on("connect", function () {
+        console.log("connect");
+      });
+    },
   },
 };
 </script>
