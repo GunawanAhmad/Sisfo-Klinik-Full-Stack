@@ -51,6 +51,7 @@ app.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
 
@@ -67,13 +68,17 @@ app.use((error, req, res, next) => {
   res.status(422).json({ message: message, errorData: data });
 });
 
-let server = mongoose
+mongoose
   .connect("mongodb://localhost:27017/db", {
     dbName: "Sisfo-Klinik",
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(result => {
-    app.listen(5000);
+    const server = app.listen(5000);
+    const io = require("socket.io")(server);
+    io.on("connection", socket => {
+      console.log("socket connected", socket.id);
+    });
   })
   .catch(err => console.log(err));
