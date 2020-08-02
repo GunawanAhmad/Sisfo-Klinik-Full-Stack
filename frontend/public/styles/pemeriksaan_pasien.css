@@ -45,7 +45,7 @@ nav {
 
 .user {
   display: flex;
-  width: 36%;
+  width: 30%;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
@@ -158,7 +158,7 @@ span.penyakit {
   margin: 20px 0;
 }
 
-.chat {
+/* .chat {
   position: fixed;
   right: 2rem;
   bottom: 2rem;
@@ -171,6 +171,7 @@ span.penyakit {
   flex-direction: column;
   overflow: hidden;
   background-color: #e0e0e0;
+  animation: animate 0.5s ease;
 }
 .chat .user {
   display: flex;
@@ -205,8 +206,9 @@ span.penyakit {
   outline: none;
   border: none;
   background-color: #0d7286;
-  padding: 3px 5px;
+  padding: 1.5px 10px;
   color: white;
+  font-size: 1.6rem;
   margin-left: 1rem;
   box-sizing: border-box;
 }
@@ -258,6 +260,27 @@ span.penyakit {
   font-size: 1.6rem;
   cursor: pointer;
 }
+.fas {
+  pointer-events: none;
+}
+
+@keyframes animate {
+  from {
+    transform: translateX(5rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes back {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(5rem);
+  }
+} */
 @media only screen and (max-width: 550px) {
   .img img {
     display: none;

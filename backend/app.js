@@ -9,6 +9,7 @@ const authRouter = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const konsulRoutes = require("./routes/konsul");
 const staffRoutes = require("./routes/staff");
+const user = require("./model/user");
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -68,6 +69,8 @@ app.use((error, req, res, next) => {
   res.status(422).json({ message: message, errorData: data });
 });
 
+let users = [];
+
 mongoose
   .connect("mongodb://localhost:27017/db", {
     dbName: "Sisfo-Klinik",
@@ -75,10 +78,42 @@ mongoose
     useUnifiedTopology: true
   })
   .then(result => {
-    const server = app.listen(5000);
-    const io = require("socket.io")(server);
-    io.on("connection", socket => {
-      console.log("socket connected", socket.id);
-    });
+    app.listen(5000);
+    // const server = app.listen(5000);
+    // const io = require("socket.io")(server);
+    // io.on("connection", socket => {
+    //   console.log("socket connected", socket.id);
+    //   socket.on("chat", function (data) {
+    //     for (let i = 0; i < users.length; i++) {
+    //       if (users[i].username == data.user) {
+    //         console.log("sama");
+    //         // users[i].socketId = socket.id;
+    //         io.to(users[i].socketId).emit("chat", data);
+    //         return;
+    //       }
+    //     }
+    //     console.log(users);
+    //     let user = {
+    //       username: data.user,
+    //       socketId: socket.id
+    //     };
+    //     users.push(user);
+    //     // io.sockets.emit("chat", data);
+    //     // io.to("5RpdQZJNYt_zXUKYAAAj").emit("chat", data);
+    //   });
+    //   socket.on("username", data => {
+    //     console.log(data);
+    //     socket.username = data;
+    //     let user = {
+    //       username: data.user,
+    //       socketId: socket.id
+    //     };
+    //     users.push(user);
+    //     io.sockets.emit(
+    //       "username",
+    //       JSON.stringify(user.username) + JSON.stringify(users)
+    //     );
+    //   });
+    // });
   })
   .catch(err => console.log(err));

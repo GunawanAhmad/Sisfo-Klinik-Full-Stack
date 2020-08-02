@@ -13,6 +13,7 @@ import daftarPasien from "../views/daftarPasien.vue";
 import tambahObat from "../views/tambahObat.vue";
 import daftarObat from "../views/daftarObat.vue";
 import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
+import chat from "../views/chat.vue";
 
 Vue.use(VueRouter);
 
@@ -81,6 +82,11 @@ const routes = [
     path: "/dokter/form-pemeriksaan-pasien/:id",
     name: "Form Pemeriksaan Pasien",
     component: formPemeriksaanPasien
+  },
+  {
+    path: "/chat",
+    name: "chat",
+    component: chat
   }
 
   // {
