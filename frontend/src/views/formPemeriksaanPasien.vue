@@ -24,7 +24,7 @@
         </div>
         <div class="telpon">
           <button>TELEPON</button>
-          <button @click="chat">CHAT</button>
+          <!-- <button @click="chat">CHAT</button> -->
         </div>
       </div>
       <div class="teks">
@@ -48,14 +48,14 @@
           <label for="tinggi" class="label">Tinggi badan</label>
           <div>
             <input type="number" name="tinggi" step="0.1" class="input" />
-            <span>cm</span>
+            <span>&nbsp;cm</span>
           </div>
         </div>
         <div class="berat section">
           <label for="berat" class="label">Berat badan</label>
           <div>
             <input type="number" name="berat" step="0.1" class="input" />
-            <span>kg</span>
+            <span>&nbsp;kg</span>
           </div>
         </div>
         <div class="riwayat section">
@@ -154,7 +154,7 @@
         >* data dimasukan setelah/saat konsultasi secara langsung melalui telepon atau keluhan pasien</p>
         <button class="btn">SUBMIT</button>
       </div>
-      <div class="chat" v-if="isChat">
+      <!-- <div class="chat" v-if="isChat">
         <span class="close" @click="isChat = false">
           <i class="fas fa-times"></i>
         </span>
@@ -171,17 +171,19 @@
           <p class="to">hahah</p>
         </div>
         <div class="control">
-          <input type="text" placeholder="type here..." />
-          <button>SEND</button>
+          <input type="text" placeholder="type here..." v-model="chatInput" />
+          <button @click="sendMessage">
+            <i class="fas fa-paper-plane"></i>
+          </button>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
 
  <script>
 import axios from "axios";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 export default {
   created() {
     let token = localStorage.getItem("token");
@@ -208,17 +210,28 @@ export default {
       user: {},
       keluhan: "",
       tanggal: "",
-      isChat: false,
+      // isChat: false,
+      // chatInput: "",
     };
   },
   methods: {
-    chat() {
-      this.isChat = true;
-      let socket = io("http://localhost:5000");
-      socket.on("connect", function () {
-        console.log("connect");
-      });
-    },
+    // chat() {
+    //   this.isChat = true;
+    //   let socket = io("http://localhost:5000");
+    //   socket.on("connect", function () {
+    //     console.log("connect");
+    //   });
+    //   socket.on("chat", (data) => {
+    //     console.log(data);
+    //   });
+    // },
+    // sendMessage() {
+    //   let socket = io("http://localhost:5000");
+    //   socket.emit("chat", {
+    //     user: "dokter",
+    //     pesan: this.chatInput,
+    //   });
+    // },
   },
 };
 </script>
