@@ -22,7 +22,7 @@
         </div>
         <div class="foto">
           <div class="foto-user">
-            <img src alt />
+            <img :src="avatar" alt />
           </div>
           <div class="data">
             <a href>
@@ -95,18 +95,18 @@ export default {
     axios
       .get("/getUser", {
         headers: {
-          Authorization: "Barier " + token
-        }
+          Authorization: "Barier " + token,
+        },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
 
         this.username = res.data.user.username;
         this.berat = res.data.user.berat;
         this.tinggi = res.data.user.tinggi;
-        // this.avatar = res.data
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   },
@@ -114,9 +114,9 @@ export default {
     return {
       berat: "",
       tinggi: "",
-      //   avatar: "",
+      avatar: "",
       username: "",
-      keluhan: ""
+      keluhan: "",
     };
   },
   methods: {
@@ -124,22 +124,22 @@ export default {
       e.preventDefault();
       let token = localStorage.getItem("token");
       let body = {
-        keluhan: this.keluhan
+        keluhan: this.keluhan,
       };
       axios
         .post("/pasien/konsultasi", body, {
           headers: {
-            Authorization: "Barier " + token
-          }
+            Authorization: "Barier " + token,
+          },
         })
-        .then(res => {
+        .then((res) => {
           console.log(res);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -14,6 +14,7 @@ import tambahObat from "../views/tambahObat.vue";
 import daftarObat from "../views/daftarObat.vue";
 import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
 import chat from "../views/chat.vue";
+import dataDiri from "../views/dataDiri.vue";
 
 Vue.use(VueRouter);
 
@@ -87,6 +88,11 @@ const routes = [
     path: "/chat",
     name: "chat",
     component: chat
+  },
+  {
+    path: "/data-diri",
+    name: "data diri",
+    component: dataDiri
   }
 
   // {

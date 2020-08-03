@@ -8,7 +8,7 @@
       <div class="profil">
         <div class="foto-user">
           <div class="foto">
-            <img id="sourceImg" />
+            <img id="sourceImg" :src="avatar" />
           </div>
           <div class="edit-foto">
             <input type="file" @change="onFileSelected" />
@@ -114,11 +114,11 @@ export default {
       console.log(username);
       axios
         .post("/edit-data-pasien", formData)
-        .then(res => {
+        .then((res) => {
           console.log(res);
           this.$router.push({ path: "/konsultasi" });
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err));
     },
     getFile() {
       let input = document.querySelector(".edit-foto input").click();
@@ -137,7 +137,7 @@ export default {
       this.isInput = !this.isInput;
       this.riwayat = this.riwayatInput.split(",");
       console.log(this.riwayat.length);
-    }
+    },
   },
   data() {
     return {
@@ -151,7 +151,7 @@ export default {
       username: "",
       riwayatInput: "",
       riwayat: [],
-      isInput: true
+      isInput: true,
     };
   },
   created() {
@@ -159,10 +159,10 @@ export default {
     axios
       .get("/getUser", {
         headers: {
-          Authorization: "Barier " + token
-        }
+          Authorization: "Barier " + token,
+        },
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
         this.name = res.data.user.name;
         this.address = res.data.user.alamat;
@@ -173,12 +173,13 @@ export default {
         this.username = res.data.user.username;
         this.riwayat = res.data.user.riwayat;
         this.riwayatInput = this.riwayat.join();
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
         if (this.riwayat.length > 0) this.isInput = false;
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
-  }
+  },
 };
 </script>
 
