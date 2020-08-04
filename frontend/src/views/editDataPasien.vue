@@ -73,9 +73,9 @@
         </div>
       </div>
       <div class="edit">
-        <a href>
+        <router-link to="/account">
           <h2>kelola akun</h2>
-        </a>
+        </router-link>
         <img src="img/arrow.png" alt />
       </div>
     </form>
@@ -152,6 +152,7 @@ export default {
       riwayatInput: "",
       riwayat: [],
       isInput: true,
+      id: "",
     };
   },
   created() {
@@ -164,6 +165,7 @@ export default {
       })
       .then((res) => {
         console.log(res);
+        this.id = res.data.user._id;
         this.name = res.data.user.name;
         this.address = res.data.user.alamat;
         this.height = res.data.user.tinggi;
