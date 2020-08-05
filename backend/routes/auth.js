@@ -7,4 +7,6 @@ router.post("/signup", authControl.createUser);
 
 router.post("/login", authControl.login);
 
+router.post("/change-username", authControl.changeUsername);
+
 module.exports = router;

@@ -84,9 +84,10 @@ exports.login = (req, res, next) => {
 };
 
 exports.changeUsername = (req, res, next) => {
-  const newUsername = req.body.Newusername;
+  const newUsername = req.body.newUsername;
   const oldUsername = req.body.oldUsername;
   const password = req.body.password;
+  console.log(oldUsername, newUsername, password);
   let loadedUser = null;
   User.findOne({ username: oldUsername })
     .then(user => {
