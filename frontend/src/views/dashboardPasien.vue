@@ -7,19 +7,29 @@
         </a>
       </div>
       <div class="user">
+        <div class="help"></div>
         <div class="nama">
           <!--username dan status sesuai dengan username yang sudah login/register-->
-          <h1 id="user">gunone</h1>
-          <p id="status">verified account</p>
+          <h1 class="username" @click="showMenu">{{ username }}</h1>
+          <p class="status">patient account</p>
+          <div class="activity">
+            <div class="kelola-akun">
+              <p>kelola akun</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+            <div class="logout" @click="logout">
+              <p>logout</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+          </div>
         </div>
         <div class="foto">
           <div class="foto-user">
-            <img src alt />
+            <img :src="avatar" alt />
           </div>
           <div class="data">
-            <a href>
-              <router-link to="/edit-data-pasien">kelola data ></router-link>
-            </a>
+            <router-link to="/edit-data-pasien">kelola data</router-link>
+            <img src="../../public/img/arrow.png" alt />
           </div>
         </div>
       </div>
@@ -75,9 +85,45 @@
 </template>
 
 <script>
-export default {};
+import { logout } from "../../mixin";
+import axios from "axios";
+export default {
+  mixins: [logout],
+  methods: {
+    showMenu() {
+      const help = document.querySelector(".help");
+      const activity = document.querySelector(".activity");
+      help.classList.toggle("show");
+      activity.classList.toggle("show");
+    },
+  },
+  created() {
+    let token = localStorage.getItem("token");
+    axios
+      .get("/getUser", {
+        headers: {
+          Authorization: "Barier " + token,
+        },
+      })
+      .then((res) => {
+        this.username = res.data.user.username;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+      })
+      .catch((err) => {
+        console.log(err.response);
+        if (err.response.data.message === "jwt expired") {
+          this.$router.push({ path: "/login" });
+        }
+      });
+  },
+  data() {
+    return {
+      username: "",
+      avatar: "",
+    };
+  },
+};
 </script>
 
 <style scoped src="../../public/styles/dashbord_pasien.css">
-/* @import "../../public/styles/dashbord_pasien.css"; */
 </style>

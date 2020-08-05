@@ -16,6 +16,12 @@ body {
   border-radius: 50%;
 }
 
+.foto-user img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
 .wave img {
   position: absolute;
   top: 0;
@@ -32,14 +38,78 @@ nav {
   margin-top: 5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 .user {
   display: flex;
   margin-right: 10rem;
+  align-items: flex-start;
+  height: 15rem;
+  padding: 2rem;
+  transition: height 0.5s ease;
+  position: relative;
+}
+.help {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.help.show {
+  opacity: 1;
+  position: absolute;
+  background-color: white;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 20rem;
+  z-index: -99;
+  top: 0;
+  left: 0;
+}
+.user .username {
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.user .status {
+  color: #888888;
+}
+.foto .data {
+  display: flex;
+  align-items: center;
+}
+
+.foto .data a {
+  color: #f7b702;
+  text-decoration: none;
+}
+
+.activity {
+  margin-top: 2.5rem;
+  color: #f7b702;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.kelola-akun,
+.logout {
+  cursor: pointer;
+}
+
+.activity.show {
+  display: block;
+}
+
+.activity div {
+  display: flex;
+  align-items: center;
+}
+.activity img,
+.foto .data img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 .user .nama {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-right: 2rem;
   color: black;
 }
@@ -60,6 +130,7 @@ nav {
   justify-content: flex-start;
   margin-left: 10rem;
   flex-wrap: wrap;
+  position: absolute;
 }
 .fungsi a {
   text-decoration: none;
@@ -171,15 +242,11 @@ nav {
   top: 5rem;
   right: 45rem;
 }
-.foto .data a {
-  text-decoration: none;
-  color: black;
-}
 
 .suster img {
   position: absolute;
-  width: 20rem;
-  height: 50rem;
+  width: 17rem;
+  height: 45rem;
   bottom: 0;
   right: 15rem;
   z-index: -9;
@@ -195,6 +262,7 @@ nav {
   .fungsi {
     justify-content: center;
     margin: auto;
+    width: 100%;
   }
   .suster img {
     display: none;

@@ -38,12 +38,6 @@ body {
   bottom: 1rem;
 }
 
-.form {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  margin-left: 25rem;
-}
 .username {
   font-size: 4rem;
   font-weight: bolder;
@@ -114,8 +108,8 @@ h1 {
 
 .edit img,
 .label img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .back img {
@@ -138,30 +132,42 @@ h1 {
   width: 90%;
 }
 
-.dot {
-  height: 0.5rem;
-  width: 0.5rem;
-  border-radius: 50%;
-  background-color: black;
-  margin: 0.2rem;
-  display: inline-block;
-}
-
 .info {
   display: grid;
   grid-template-areas: "label content";
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   width: 40%;
   font-weight: 500;
   position: relative;
   height: auto;
   font-size: 1.8rem;
+  margin: auto;
 }
-.ubah-username,
-.ubah-password {
+
+.username-lama {
+  color: #808080;
+}
+
+::placeholder {
+  color: #616161;
+}
+
+.info input {
+  outline: none;
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+}
+
+.password {
   display: flex;
   margin: 0.5rem 0;
   align-items: center;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.password a {
+  margin-right: 4rem;
 }
 .info a {
   text-decoration: none;

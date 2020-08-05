@@ -2,7 +2,7 @@
   <div class="app">
     <div class="back">
       <img src="../../public/img/arrow.png" alt />
-      <router-link to="/dashboard-pasien">kembali ke halaman utama</router-link>
+      <router-link to="/account">kembali</router-link>
     </div>
     <div class="container">
       <div class="profil">
@@ -23,33 +23,23 @@
     </div>
     <div class="form">
       <div class="info">
-        <div class="label">username</div>
-        <div class="content">{{ username }}</div>
-        <router-link to="/ganti-username" class="ubah-username label">
-          <p>ubah username</p>
-          <img src="../../public/img/arrow.png" alt />
-        </router-link>
-        <div class="content"></div>
+        <div class="label">username lama</div>
+        <div class="username-lama content">{{ username }}</div>
+        <div class="ubah-username label">
+          <p>username baru</p>
+        </div>
+        <div class="content">
+          <input type="text" placeholder="tulis username kamu..." v-model="newUsername" />
+        </div>
         <div class="label">password</div>
         <div class="content">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+          <input type="password" placeholder="tulis password kamu..." v-model="password" />
         </div>
-        <div class="ubah-password label">
-          <router-link to="/">ubah password</router-link>
+        <div @click="gantiUsername" class="password label">
+          <p>simpan</p>
           <img src="../../public/img/arrow.png" alt />
         </div>
         <div class="content"></div>
-      </div>
-      <div class="edit">
-        <router-link to="/edit-data-pasien">
-          <h2>kelola data diri</h2>
-        </router-link>
-        <img src="../../public/img/arrow.png" alt />
       </div>
     </div>
 
@@ -81,6 +71,10 @@ export default {
       })
       .catch((err) => {
         console.log(err);
+        console.log(err.response);
+        if (err.response.data.message === "jwt expired") {
+          this.$router.push({ path: "/login" });
+        }
       });
   },
   data() {
@@ -88,10 +82,36 @@ export default {
       username: "",
       name: "",
       avatar: "",
+      password: "",
+      newUsername: "",
     };
+  },
+  methods: {
+    gantiUsername() {
+      let body = {
+        newUsername: this.newUsername,
+        oldUsername: this.username,
+        password: this.password,
+      };
+      console.log(body);
+      let token = localStorage.getItem("token");
+      axios
+        .post("/change-username", body, {
+          headers: {
+            Authorization: "Barier " + token,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          this.$router.push({ path: "/account" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
 
-<style scoped src="../../public/styles/data_diri.css">
+<style scoped src="../../public/styles/ganti_username.css">
 </style>

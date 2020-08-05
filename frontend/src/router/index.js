@@ -15,6 +15,7 @@ import daftarObat from "../views/daftarObat.vue";
 import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
 import chat from "../views/chat.vue";
 import dataAkun from "../views/dataAkun.vue";
+import gantiUsername from "../views/gantiUsername.vue";
 
 Vue.use(VueRouter);
 
@@ -93,6 +94,11 @@ const routes = [
     path: "/account",
     name: "data akun",
     component: dataAkun
+  },
+  {
+    path: "/ganti-username",
+    name: "Ganti Username",
+    component: gantiUsername
   }
 
   // {

@@ -107,7 +107,10 @@ export default {
         this.avatar = "http://localhost:5000/" + res.data.user.avatar;
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
+        if (err.response.data.message === "jwt expired") {
+          this.$router.push({ path: "/login" });
+        }
       });
   },
   data() {
