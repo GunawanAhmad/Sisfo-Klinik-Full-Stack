@@ -4,7 +4,7 @@ const userControl = require("../controller/user");
 const isAuth = require("../middleware/isAuth");
 const { dokterRole } = require("../middleware/roleCheck");
 
-router.post("/edit-data-pasien", userControl.editDataPasien);
+router.post("/edit-data-pasien", isAuth, userControl.editDataPasien);
 
 router.get("/getUser", isAuth, userControl.getUserbyId);
 

@@ -2,6 +2,8 @@ const User = require("../model/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const { validationResult } = require("express-validator");
+
 exports.createUser = (req, res, next) => {
   const username = req.body.username;
   const name = req.body.name;
@@ -11,6 +13,10 @@ exports.createUser = (req, res, next) => {
   //     image = req.files['avatar'][0].path.replace("\\" ,"/")
   // }
 
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   User.findOne({ username: username })
     .then(user => {
       if (user) {
@@ -44,7 +50,10 @@ exports.login = (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
   let loadedUser = null;
-
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   User.findOne({ username: username })
     .then(user => {
       if (!user) {
@@ -120,7 +129,12 @@ exports.changePassword = (req, res, next) => {
   const newPassword = req.body.newPassword;
   const oldPassword = req.body.oldPassword;
   const username = req.body.username;
+  const confirmPassword = req.body.confirmPassword;
   let loadedUser = null;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   User.findOne({ username: username })
     .then(user => {
       if (!user) {
