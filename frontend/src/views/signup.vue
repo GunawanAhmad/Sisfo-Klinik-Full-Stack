@@ -28,7 +28,7 @@
           </div>
           <button id="button" @click="register">REGISTER</button>
         </div>
-        <p class="error" v-if="errorMsg.length > 0">{{ errorMsg }}</p>
+        <p class="error" v-if="errorMsg">{{ errorMsg }}</p>
       </div>
 
       <div class="teks"></div>
@@ -111,7 +111,7 @@ export default {
       nama: "",
       password: "",
       username: "",
-      errorMsg: ""
+      errorMsg: "",
     };
   },
   methods: {
@@ -127,17 +127,19 @@ export default {
         .post("/signup", {
           name: this.nama,
           username: this.username,
-          password: this.password
+          password: this.password,
         })
-        .then(res => {
+        .then((res) => {
           console.log(res);
           this.$router.push({ path: "/login" });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.response);
-          this.errorMsg = err.response.data.message || "error";
+
+          this.errorMsg =
+            err.response.data.message || err.response.data.errors[0].msg;
         });
-    }
+    },
   },
   mounted() {
     const a = document.querySelectorAll(".teks");
@@ -146,14 +148,14 @@ export default {
     let i = 0;
     a[0].innerHTML = b[i].innerHTML;
     i = 1;
-    setInterval(function() {
+    setInterval(function () {
       if (i > 4) {
         i = 0;
       }
       a[0].innerHTML = b[i].innerHTML;
       i += 1;
     }, 30000);
-  }
+  },
 };
 </script>
 

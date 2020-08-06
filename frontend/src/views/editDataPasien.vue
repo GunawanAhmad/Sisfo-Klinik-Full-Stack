@@ -5,6 +5,10 @@
       <a href="dashboard_pasien.html">kembali ke halaman utama</a>
     </div>-->
     <div class="container">
+      <div class="back">
+        <img src="../../public/img/arrow.png" alt />
+        <router-link to="/account">kembali</router-link>
+      </div>
       <div class="profil">
         <div class="foto-user">
           <div class="foto">
@@ -31,7 +35,7 @@
     <form action>
       <div class="info">
         <h1 class="label">username</h1>
-        <h1 class="content">{{ username }}</h1>
+        <h1 class="content user-username">{{ username }}</h1>
 
         <h1 class="label">nama lengkap</h1>
         <input type="text" class="content" v-model="name" placeholder="nama" />
@@ -43,10 +47,16 @@
         <input type="date" class="content" v-model="birthday" placeholder="tanggal lahir" />
 
         <h1 class="label">tinggi badan</h1>
-        <input type="number" class="content" v-model="height" placeholder="tinggi badan" />
+        <div class="content tinggi">
+          <input type="number" v-model="height" placeholder="tinggi badan" />
+          <span>cm</span>
+        </div>
 
-        <h1 class="label">berat badan</h1>
-        <input type="number" class="content" v-model="weight" placeholder="berat badan" />
+        <h1 class="label berat">berat badan</h1>
+        <div class="content berat">
+          <input type="number" class="content" v-model="weight" placeholder="berat badan" />
+          <span>Kg</span>
+        </div>
 
         <h1 class="label">riwayat penyakit</h1>
         <h1 class="content">
@@ -68,7 +78,6 @@
         </h1>
         <div class="label" id="ubah" @click="editData">
           <h2>Simpan</h2>
-
           <img src="img/arrow.png" alt />
         </div>
       </div>
@@ -79,18 +88,20 @@
         <img src="img/arrow.png" alt />
       </div>
     </form>
-    <div class="tulisan">
-      <p id="1">kenapa kami tanyakan tinggi dan berat badan?</p>
-      <p id="2">
-        tinggi badan dan berat badan digunakan untuk dosis yang pas buat
-        kamu
-      </p>
-    </div>
-    <div class="kanan">
-      <a href="index.html">
-        <img id="logo" src="img/kliniku.png" alt />
-      </a>
-      <img id="bunga" src="img/bunga.png" alt />
+    <div class="bottom">
+      <div class="tulisan">
+        <p id="1">kenapa kami tanyakan tinggi dan berat badan?</p>
+        <p id="2">
+          tinggi badan dan berat badan digunakan untuk dosis yang pas buat
+          kamu
+        </p>
+      </div>
+      <div class="kanan">
+        <router-link to="/">
+          <img id="logo" src="img/kliniku.png" alt />
+        </router-link>
+        <img id="bunga" src="img/bunga.png" alt />
+      </div>
     </div>
   </div>
 </template>
@@ -109,11 +120,13 @@ export default {
       formData.append("berat", this.weight);
       formData.append("avatar", this.file);
       formData.append("riwayat", this.riwayat);
-      let username = localStorage.getItem("username");
-      formData.append("username", username);
-      console.log(username);
+      let token = localStorage.getItem("token");
       axios
-        .post("/edit-data-pasien", formData)
+        .post("/edit-data-pasien", formData, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
         .then((res) => {
           console.log(res);
           this.$router.push({ path: "/konsultasi" });

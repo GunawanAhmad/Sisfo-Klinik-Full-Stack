@@ -40,7 +40,7 @@
           <span class="dot"></span>
         </div>
         <div class="ubah-password label">
-          <router-link to="/">ubah password</router-link>
+          <router-link to="/ganti-password">ubah password</router-link>
           <img src="../../public/img/arrow.png" alt />
         </div>
         <div class="content"></div>

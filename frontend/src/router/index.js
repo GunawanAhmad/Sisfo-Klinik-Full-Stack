@@ -16,6 +16,7 @@ import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
 import chat from "../views/chat.vue";
 import dataAkun from "../views/dataAkun.vue";
 import gantiUsername from "../views/gantiUsername.vue";
+import gantiPass from "../views/gantiPass.vue";
 
 Vue.use(VueRouter);
 
@@ -99,6 +100,11 @@ const routes = [
     path: "/ganti-username",
     name: "Ganti Username",
     component: gantiUsername
+  },
+  {
+    path: "/ganti-password",
+    name: "Ganti password",
+    component: gantiPass
   }
 
   // {

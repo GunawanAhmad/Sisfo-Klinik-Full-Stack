@@ -9,8 +9,23 @@ html {
 body {
   font-family: Poppins;
 }
+
+.tinggi,
+.berat {
+  display: flex;
+  align-items: center;
+}
+
+.tinggi input,
+.berat input {
+  width: 22%;
+}
+.berat span,
+.tinggi span {
+  font-size: 2.4rem;
+}
 .container {
-  margin: 12rem auto 2rem auto;
+  margin: 7rem auto 2rem auto;
 }
 .foto-user {
   width: 10rem;
@@ -39,15 +54,15 @@ body {
 form {
   display: flex;
   align-items: flex-start;
-  justify-content: space-evenly;
   margin-left: 25rem;
+  justify-content: center;
+  /* border: 1px solid black; */
 }
 .username {
   font-size: 4rem;
   font-weight: bolder;
 }
 .account {
-  margin-top: -1rem;
   font-size: 2rem;
   color: grey;
 }
@@ -87,9 +102,14 @@ input {
   grid-template-areas: "label content";
   grid-template-columns: 1fr 1fr;
   width: 50%;
-  font-weight: lighter;
   position: relative;
+  font-weight: lighter;
   height: auto;
+  /* border: 1px solid black; */
+}
+
+.user-username {
+  margin-left: 0.5rem;
 }
 .label {
   grid-area: "label";
@@ -100,10 +120,13 @@ input {
   grid-area: "content";
 }
 .penyakit {
-  background-color: lightgrey;
+  background-color: #e0e0e0;
   padding: 5px;
   border-radius: 10px;
   margin-right: 10px;
+  margin-bottom: 1rem;
+  /* border: 10px solod black; */
+  display: inline-block;
 }
 .tombol button {
   width: 50rem;
@@ -114,20 +137,22 @@ input {
   border: none;
   border-radius: 5px;
 }
-.tulisan {
+.bottom {
   position: absolute;
-  left: 8rem;
-  bottom: 3rem;
+  display: flex;
+  z-index: -99;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 3rem 0rem 3rem;
+  transform: translate(-50%, -10rem);
   font-size: 1.4rem;
-}
-.kanan {
-  position: absolute;
-  right: 8rem;
-  bottom: 2rem;
+  /* border: 1px solid black; */
+  width: 90%;
+  left: 50%;
 }
 
 #logo {
-  height: 3rem;
+  height: 2rem;
   width: 7rem;
   margin-bottom: 2rem;
 }
@@ -140,9 +165,11 @@ input {
   display: flex;
   align-items: center;
   font-style: Poppins;
-  justify-content: center;
+
   align-items: center;
+  margin-top: 5rem;
   margin-left: 5rem;
+  /* border: 1px solid black; */
 }
 .edit a {
   text-decoration: none;
@@ -178,11 +205,15 @@ input {
   margin-top: 3rem;
   color: #f7b702;
   cursor: pointer;
+  align-items: center;
+  position: relative;
+  z-index: 999;
 }
 
 #ubah img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 5rem;
 }
 
 input {
@@ -195,13 +226,13 @@ input {
   font-weight: bolder;
   font-size: 2rem;
 }
-@media only screen and (max-width: 1110px) {
+@media only screen and (max-width: 1210px) {
   .info {
-    width: 60%;
+    width: 80%;
   }
-  .kanan {
-    position: static;
-    margin-left: 30%;
+  form {
+    margin: auto;
+    align-items: center;
   }
   .tulisan {
     position: static;
