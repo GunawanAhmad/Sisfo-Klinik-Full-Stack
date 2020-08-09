@@ -42,17 +42,16 @@ const konsulSchema = new Schema({
   },
   obat: [
     {
-      namaObat: {
-        type: String
-      },
-      jumlah: {
-        type: String
-      }
+      type: Schema.Types.ObjectId,
+      ref: "Obat"
     }
   ],
   tanggal: {
     type: String,
     required: true
+  },
+  telahDiperiksa: {
+    type: Boolean
   }
 });
 
