@@ -34,7 +34,7 @@
           <p>password baru</p>
         </div>
         <div class="content">
-          <input type="text" placeholder="password baru kamu..." v-model="passwordBaru" />
+          <input type="password" placeholder="password baru kamu..." v-model="passwordBaru" />
         </div>
         <div class="label">konfirmasi password baru</div>
         <div class="content">

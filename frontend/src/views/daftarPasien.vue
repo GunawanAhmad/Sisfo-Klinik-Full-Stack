@@ -50,23 +50,23 @@ import axios from "axios";
 export default {
   data() {
     return {
-      konsul: []
+      konsul: [],
     };
   },
   created() {
     let token = localStorage.getItem("token");
     axios
-      .get("/get-Allpasien-konsul", {
+      .get("/getKonsul", {
         headers: {
-          Authorization: "Barier " + token
-        }
+          Authorization: "Barier " + token,
+        },
       })
-      .then(res => {
+      .then((res) => {
         this.konsul = res.data.konsul;
         console.log(res);
       })
-      .catch(err => console.log(err));
-  }
+      .catch((err) => console.log(err));
+  },
 };
 </script>
 

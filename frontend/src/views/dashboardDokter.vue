@@ -20,10 +20,10 @@
             <img :src="avatar" alt />
           </div>
           <p>
-            <a href>
-              kelola akun
-              <span class="kelola">&nbsp; ></span>
-            </a>
+            <router-link to="/account" class="kelola-akun">
+              <p>kelola akun</p>
+              <img src="../../public/img/arrow.png" alt />
+            </router-link>
           </p>
         </div>
         <div class="user-info">
@@ -49,20 +49,14 @@
         <div class="riwayat hidden">
           <span @click="showPasien('.riwayat', '.riwayat-user')">riwayat pemeriksaan</span>
           <div class="riwayat-user hidden">
-            <div class="user">
+            <div class="user" v-for="(user,index) in riwayatPemeriksaan" :key="index">
               <div class="info">
-                <h2>Nama</h2>
-                <h4>tanggal</h4>
+                <h2>{{ user.userId.name }}</h2>
+                <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt />
+              <img src="img/arrow2.png" alt @click="goToForm(index)" style="cursor:pointer;" />
             </div>
-            <div class="user">
-              <div class="info">
-                <h2>Nama</h2>
-                <h4>tanggal</h4>
-              </div>
-              <img src="img/arrow2.png" alt />
-            </div>
+            <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
           </div>
         </div>
       </div>
@@ -94,7 +88,7 @@ export default {
           console.log(dataKonsul);
           this.nama = dataUser.data.user.name;
           this.avatar = "http://localhost:5000/" + dataUser.data.user.avatar;
-          this.daftarPasien = dataKonsul.data.konsul;
+          this.daftarKonsulFilter(dataKonsul.data.konsul);
 
           // console.log(dataUser, dataKonsul);
         })
@@ -108,6 +102,7 @@ export default {
       nama: "",
       avatar: "",
       daftarPasien: [],
+      riwayatPemeriksaan: [],
     };
   },
   methods: {
@@ -122,6 +117,16 @@ export default {
     goToForm(index) {
       let id = this.daftarPasien[index]._id;
       this.$router.push({ path: "/dokter/form-pemeriksaan-pasien/" + id });
+    },
+    daftarKonsulFilter(konsul) {
+      for (let i = 0; i < konsul.length; i++) {
+        console.log(konsul[i].telahDiperiksa);
+        if (konsul[i].telahDiperiksa) {
+          this.riwayatPemeriksaan.push(konsul[i]);
+        } else {
+          this.daftarPasien.push(konsul[i]);
+        }
+      }
     },
   },
 };

@@ -87,7 +87,7 @@ nav {
   grid-area: "input";
   border: none;
   outline: none;
-  height: 2.5rem;
+  height: 2rem;
   border-radius: 7px;
   padding: 5px;
 }
@@ -113,10 +113,17 @@ nav {
 .nama .input,
 .pekerjaan .input,
 .ttl .input,
-.diagnosis .input,
 .catatan .input,
 .lain .input {
   background-color: #f1f1f1;
+}
+
+.diagnosis {
+  color: #0d7286;
+}
+.diagnosis .input {
+  background-color: #d4ebe9;
+  width: 20rem;
 }
 
 span.penyakit {
