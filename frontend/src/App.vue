@@ -16,7 +16,7 @@ html {
 }
 
 .logo img {
-  height: 2.5rem;
+  height: 2.2rem;
   width: 10rem;
 }
 </style>

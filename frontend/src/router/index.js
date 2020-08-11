@@ -17,6 +17,8 @@ import chat from "../views/chat.vue";
 import dataAkun from "../views/dataAkun.vue";
 import gantiUsername from "../views/gantiUsername.vue";
 import gantiPass from "../views/gantiPass.vue";
+import formPemberianObat from "../views/formPemberianObat.vue";
+import listPemberianObat from "../views/listPemberianObat.vue";
 
 Vue.use(VueRouter);
 
@@ -105,6 +107,16 @@ const routes = [
     path: "/ganti-password",
     name: "Ganti password",
     component: gantiPass
+  },
+  {
+    path: "/form-pemberian-obat/:id",
+    name: "Pemberian Obat",
+    component: formPemberianObat
+  },
+  {
+    path: "/list-pemberian-obat",
+    name: "List Pemberian Obat",
+    component: listPemberianObat
   }
 
   // {
