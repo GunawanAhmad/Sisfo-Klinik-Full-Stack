@@ -2,16 +2,16 @@ const express = require("express");
 const router = express.Router();
 const konsulControl = require("../controller/konsul");
 const isAuth = require("../middleware/isAuth");
-const { dokterRole } = require("../middleware/roleCheck");
+const { dokterRole, dokterOrStaff } = require("../middleware/roleCheck");
 
 router.post("/pasien/konsultasi", isAuth, konsulControl.postKeluhan);
 
-router.get("/getKonsul", isAuth, dokterRole, konsulControl.getKonsul);
+router.get("/getKonsul", isAuth, dokterOrStaff, konsulControl.getKonsul);
 
 router.get(
   "/get-pasien-konsul/:id",
   isAuth,
-  dokterRole,
+  dokterOrStaff,
   konsulControl.getKonsulById
 );
 

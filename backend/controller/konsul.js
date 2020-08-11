@@ -57,6 +57,7 @@ exports.postPemeriksaan = (req, res, next) => {
   const catatan = req.body.catatan;
   const diagnosis = req.body.diagnosis;
   const konsulId = req.body.konsulId;
+  console.log(intensitasMinum);
   Konsul.findById(konsulId)
     .then(konsul => {
       if (!konsul) {
@@ -65,7 +66,7 @@ exports.postPemeriksaan = (req, res, next) => {
         throw err;
       }
       konsul.gejalaUmum = gejalaUmum;
-      konsul.intensitsMinum = intensitasMinum;
+      konsul.intensitasMinum = intensitasMinum;
       konsul.waktuTidur = waktuTidur;
       konsul.intensitasOlahraga = intensitasOlahraga;
       konsul.pekerjaan = pekerjaan;

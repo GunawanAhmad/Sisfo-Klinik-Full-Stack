@@ -33,7 +33,25 @@ function staffRole(req, res, next) {
     });
 }
 
+function dokterOrStaff(req, res, next) {
+  const userId = req.userId;
+  User.findById(userId)
+    .then(user => {
+      if (user.role === "staff" || user.role === "dokter") {
+        next();
+      } else {
+        const error = new Error("Acces Denied");
+        error.statusCode = 402;
+        throw error;
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+}
+
 module.exports = {
   dokterRole,
-  staffRole
+  staffRole,
+  dokterOrStaff
 };
