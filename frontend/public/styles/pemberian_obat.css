@@ -38,7 +38,7 @@ nav {
 
 .title {
   font-size: 5.4rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.2rem;
   margin-bottom: 20px;
 }
@@ -50,7 +50,7 @@ nav {
   align-items: center;
   margin-bottom: 15px;
 }
-.info h2 {
+.title-2 {
   color: #0d7286;
 }
 .telpon button {
@@ -104,15 +104,10 @@ nav {
   background-color: #f1f1f1;
 }
 
-.ttl .input {
-  width: 12rem;
-}
-
 .makan .input,
 .alamat .input,
 .nama .input,
 .pekerjaan .input,
-.ttl .input,
 .catatan .input,
 .lain .input {
   background-color: #f1f1f1;
@@ -126,18 +121,36 @@ nav {
   width: 20rem;
 }
 
-span.penyakit {
+span.penyakit,
+.ttl span {
   background-color: #f1f1f1;
   margin-right: 1rem;
   border-radius: 5px;
-  height: 100%;
-  font-size: 1.1rem;
-  padding: 3px 5px;
+  font-size: 1.3rem;
+  display: inline-block;
+  padding: 0 5px;
+  height: 2rem;
+  align-items: center;
+  display: flex;
+}
+
+.tinggi span,
+.berat span {
+  font-size: 1.3rem;
+}
+
+.ttl .input {
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
 }
 
 .radio {
   display: flex;
   align-items: center;
+  border-radius: 5px;
 }
 
 .radio label {
@@ -165,129 +178,142 @@ span.penyakit {
   margin: 20px 0;
 }
 
-/* .chat {
-    position: fixed;
-    right: 2rem;
-    bottom: 2rem;
-    height: 40rem;
-    width: 25rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: #e0e0e0;
-    animation: animate 0.5s ease;
-  }
-  .chat .user {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    background-color: #0d7286;
-    color: white;
-    font-size: 1.6rem;
-    height: 15%;
-  }
-  
-  .chat .message {
-    height: 75%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-  
-    width: 100%;
-  }
-  
-  .chat .control input {
-    border-radius: 7px;
-    outline: none;
-    border: none;
-    height: 50%;
-    padding: 5px;
-  }
-  
-  .chat .control button {
-    border-radius: 6px;
-    outline: none;
-    border: none;
-    background-color: #0d7286;
-    padding: 1.5px 10px;
-    color: white;
-    font-size: 1.6rem;
-    margin-left: 1rem;
-    box-sizing: border-box;
-  }
-  .chat .control {
-    height: 15%;
-  }
-  .chat .user .photo {
-    background-color: #2c2c2c;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 50%;
-    margin: 1rem;
-  }
-  
-  .chat .user .photo img {
-    height: 4rem;
-    width: 4rem;
-    border-radius: 50%;
-  }
-  
-  .chat .message .from {
-    background-color: #8b8787;
-    color: white;
-    height: auto;
-    width: auto;
-    padding: 3px 5px;
-    border-radius: 5px;
-    align-self: flex-end;
-    margin: 0.5rem 2rem;
-    max-width: 15rem;
-  }
-  
-  .chat .message .to {
-    background-color: #0d7286;
-    color: white;
-    height: auto;
-    width: auto;
-    padding: 3px 5px;
-    border-radius: 5px;
-    align-self: flex-start;
-    margin: 0.5rem 2rem;
-    max-width: 15rem;
-  }
-  .chat .close {
-    position: absolute;
-    right: 1rem;
-    top: 0.5rem;
-    color: white;
-    font-size: 1.6rem;
-    cursor: pointer;
-  }
-  .fas {
-    pointer-events: none;
-  }
-  
-  @keyframes animate {
-    from {
-      transform: translateX(5rem);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes back {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(5rem);
-    }
-  } */
+.input-obat {
+  width: 100%;
+  display: flex;
+}
+
+.input-obat .nama-obat {
+  width: 90%;
+  margin-right: 2rem;
+  background-color: #efefef;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+.nama-obat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.input-obat .jumlah-obat {
+  width: 7%;
+  background-color: #efefef;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+.list-obat {
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  min-height: 30px;
+  max-height: 30px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  border-radius: 5px;
+  margin: 5px 0;
+  height: 2rem;
+  padding: 2.5px 20px;
+}
+.ada {
+  background-color: #c1e2e0;
+}
+.tidak-ada {
+  background-color: #f9c941;
+}
+
+.list {
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 1px solid black;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 99;
+  height: 40rem;
+  width: 80rem;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.top {
+  display: flex;
+  margin-top: 3rem;
+
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kosong {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.ready .kosong {
+  background-color: #c1e2e0;
+}
+
+.notready .kosong {
+  background-color: #f9c941;
+}
+
+.ready,
+.notready {
+  display: flex;
+  align-items: center;
+}
+
+.top .search {
+  margin-right: 5rem;
+  position: relative;
+}
+.search input {
+  background-color: #efefef;
+  height: 3rem;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: 1rem;
+}
+
+.search img {
+  position: absolute;
+  top: 0.7rem;
+  left: 85%;
+}
+
+.top .stock {
+  margin-right: auto;
+}
+
+.top h1 {
+  font-size: 4.4rem;
+}
+
+.form.hidden {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 @media only screen and (max-width: 550px) {
   .img img {
     display: none;

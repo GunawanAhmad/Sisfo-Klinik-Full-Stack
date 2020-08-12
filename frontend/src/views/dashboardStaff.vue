@@ -16,24 +16,24 @@
     </div>
     <div class="list">
       <ul>
-        <a href="daftar_pasien.html">
+        <router-link to="/list-pemberian-obat">
           <li class="list-fungsi">
             <p>daftar Pasien</p>
             <img src="img/arrow.png" alt />
           </li>
-        </a>
-        <a href>
+        </router-link>
+        <router-link to="/daftar-obat">
           <li class="list-fungsi">
             <p>daftar obat</p>
             <img src="img/arrow.png" alt />
           </li>
-        </a>
-        <a href>
+        </router-link>
+        <router-link to="/list-pemberian-obat">
           <li class="list-fungsi">
             <p>Distribusi obat</p>
             <img src="img/arrow.png" alt />
           </li>
-        </a>
+        </router-link>
       </ul>
     </div>
   </div>

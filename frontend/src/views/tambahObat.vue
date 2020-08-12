@@ -4,9 +4,9 @@
       <div class="flexlogo">
         <div class="back">
           <img src="../../public/img/arrow.png" alt />
-          <a href="dashboard_pasien.html">
+          <router-link to="/daftar-obat">
             <p>kembali</p>
-          </a>
+          </router-link>
         </div>
         <div class="logo">
           <a href="index.html">
