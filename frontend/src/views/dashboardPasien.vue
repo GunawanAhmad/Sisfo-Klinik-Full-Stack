@@ -13,7 +13,7 @@
           <h1 class="username" @click="showMenu">{{ username }}</h1>
           <p class="status">patient account</p>
           <div class="activity">
-            <div class="kelola-akun">
+            <div class="kelola-akun" @click="$router.push({path :'/account'})">
               <p>kelola akun</p>
               <img src="../../public/img/arrow.png" alt />
             </div>

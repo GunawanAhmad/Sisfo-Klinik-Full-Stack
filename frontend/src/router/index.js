@@ -19,6 +19,7 @@ import gantiUsername from "../views/gantiUsername.vue";
 import gantiPass from "../views/gantiPass.vue";
 import formPemberianObat from "../views/formPemberianObat.vue";
 import listPemberianObat from "../views/listPemberianObat.vue";
+import antrian from "../views/antrian.vue";
 
 Vue.use(VueRouter);
 
@@ -117,6 +118,11 @@ const routes = [
     path: "/list-pemberian-obat",
     name: "List Pemberian Obat",
     component: listPemberianObat
+  },
+  {
+    path: "/antrian",
+    name: "Antrian",
+    component: antrian
   }
 
   // {

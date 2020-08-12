@@ -16,6 +16,12 @@ body {
   border-radius: 50%;
 }
 
+.foto-user img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
 .wave img {
   position: absolute;
   top: 0;
@@ -56,9 +62,78 @@ nav {
 .user {
   display: flex;
   margin-right: 10rem;
+  align-items: flex-start;
+  height: 15rem;
+  padding: 2rem;
+  transition: height 0.5s ease;
+  position: relative;
+}
+.help {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.help.show {
+  opacity: 1;
+  position: absolute;
+  background-color: white;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 20rem;
+  z-index: -99;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.user .username {
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.user .status {
+  color: #888888;
+}
+.foto .data {
+  display: flex;
+  align-items: center;
+}
+.data {
+  cursor: pointer;
+}
+
+.foto .data a {
+  color: #f7b702;
+  text-decoration: none;
+}
+
+.activity {
+  margin-top: 2.5rem;
+  color: #f7b702;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.kelola-akun,
+.logout {
+  cursor: pointer;
+}
+
+.activity.show {
+  display: block;
+}
+
+.activity div {
+  display: flex;
+  align-items: center;
+}
+.activity img,
+.foto .data img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 .user .nama {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-right: 2rem;
   color: black;
 }
@@ -81,10 +156,7 @@ nav {
   top: 5rem;
   right: 45rem;
 }
-.foto .data a {
-  text-decoration: none;
-  color: black;
-}
+
 .container {
   margin-top: 4rem;
   position: relative;
@@ -93,14 +165,15 @@ nav {
 }
 .dokter img {
   position: absolute;
-  width: 20rem;
-  height: 50rem;
+  width: 15rem;
+  height: 40rem;
 }
 .teks {
   position: absolute;
   left: 25rem;
-  top: 5rem;
-  font-size: 2.5rem;
+  top: 0rem;
+  font-size: 3.5rem;
+  font-weight: 500;
 }
 .teks p {
   font-size: 1.5rem;
@@ -109,10 +182,32 @@ nav {
 
 .bunga img {
   position: absolute;
-  bottom: 5rem;
+  bottom: 2rem;
   right: 5rem;
-  width: 20rem;
+  width: 13rem;
   height: 20rem;
+}
+
+.info {
+  margin-top: 2rem;
+}
+
+.info h6 {
+  opacity: 0.5;
+}
+
+.info h4 {
+  font-size: 3.4rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.info h4 span {
+  color: #f7b702;
+  font-size: 6.5rem;
+  position: absolute;
+  top: 0;
+  margin-left: 2rem;
 }
 @media only screen and (max-width: 1110px) {
   body {

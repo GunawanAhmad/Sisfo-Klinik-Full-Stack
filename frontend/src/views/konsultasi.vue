@@ -3,33 +3,41 @@
     <nav>
       <div class="flexlogo">
         <div class="logo">
-          <a href="index.html">
+          <router-link to="/">
             <img src="img/kliniku.png" alt />
-          </a>
+          </router-link>
         </div>
         <div class="back">
           <img src="img/arrow.png" alt />
-          <a href="dashboard_pasien.html">
+          <router-link to="dashboard-pasien">
             <p>kembali ke halaman utama</p>
-          </a>
+          </router-link>
         </div>
       </div>
       <div class="user">
+        <div class="help"></div>
         <div class="nama">
           <!--username dan status sesuai dengan username yang sudah login/register-->
-          <h1 id="user">{{ username }}</h1>
-          <p id="status">verified account</p>
+          <h1 class="username" @click="showMenu">{{ username }}</h1>
+          <p class="status">patient account</p>
+          <div class="activity">
+            <div class="kelola-akun" @click="$router.push({path :'/account'})">
+              <p>kelola akun</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+            <div class="logout" @click="logout">
+              <p>logout</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+          </div>
         </div>
         <div class="foto">
           <div class="foto-user">
             <img :src="avatar" alt />
           </div>
           <div class="data">
-            <a href>
-              <p>
-                <router-link to="/edit-data-pasien">kelola data ></router-link>
-              </p>
-            </a>
+            <router-link to="/edit-data-pasien">kelola data</router-link>
+            <img src="../../public/img/arrow.png" alt />
           </div>
         </div>
       </div>
@@ -69,7 +77,16 @@
         </div>
         <form action class="keluhan">
           <div>
-            <textarea name="keluhan" id="keluhan" cols="30" rows="10" v-model="keluhan"></textarea>
+            <textarea
+              name="keluhan"
+              id="keluhan"
+              cols="30"
+              rows="10"
+              v-model="keluhan"
+              placeholder="keluhan meliputi  gejala, sejak kapan mengalami keluhan,  metode penyembuhan 
+yang pernah dicoba, dsb."
+            ></textarea>
+            <p class="error">{{ errorMsg }}</p>
           </div>
           <div class="submit">
             <button type="submit" @click="submitKonsul">KONSUL</button>
@@ -88,8 +105,10 @@
 </template>
 
 <script>
+import { logout } from "../../mixin";
 import axios from "axios";
 export default {
+  mixins: [logout],
   created() {
     let token = localStorage.getItem("token");
     axios
@@ -120,6 +139,7 @@ export default {
       avatar: "",
       username: "",
       keluhan: "",
+      errorMsg: "",
     };
   },
   methods: {
@@ -139,8 +159,15 @@ export default {
           console.log(res);
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.response);
+          this.errorMsg = err.response.data.message;
         });
+    },
+    showMenu() {
+      const help = document.querySelector(".help");
+      const activity = document.querySelector(".activity");
+      help.classList.toggle("show");
+      activity.classList.toggle("show");
     },
   },
 };
