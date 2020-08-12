@@ -22,4 +22,6 @@ router.post(
   konsulControl.postPemeriksaan
 );
 
+router.get("/antrian", isAuth, konsulControl.antrian);
+
 module.exports = router;

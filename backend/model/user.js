@@ -35,7 +35,13 @@ const userSchema = new Schema({
   role: {
     type: String,
     required: true
-  }
+  },
+  konsultasi: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Konsul"
+    }
+  ]
 });
 
 module.exports = mongoose.model("User", userSchema);

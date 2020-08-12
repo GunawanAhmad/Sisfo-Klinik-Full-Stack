@@ -4,13 +4,32 @@ const Konsul = require("../model/konsul");
 exports.postKeluhan = (req, res, next) => {
   const userId = req.userId;
   const keluhan = req.body.keluhan;
-  const konsul = new Konsul({
-    userId: userId,
-    keluhan: keluhan,
-    tanggal: new Date()
-  });
-  return konsul
-    .save()
+  Konsul.find({ userId: userId, telahDiperiksa: false })
+    .then(konsulData => {
+      if (konsulData.length > 0) {
+        console.log(konsulData);
+        const err = new Error("Keluhan anda sebelumnya belum ditanggapi");
+        err.statusCode = 402;
+        throw err;
+      }
+      const konsul = new Konsul({
+        userId: userId,
+        keluhan: keluhan,
+        telahDiperiksa: false,
+        tanggal: new Date()
+      });
+      return konsul.save();
+    })
+    .then(result => {
+      User.findById(userId).then(user => {
+        if (!user) {
+          const err = new Error("Acces Denied, user tidak ditemukan");
+          throw err;
+        }
+        user.konsultasi.push(result);
+        return user.save();
+      });
+    })
     .then(result => {
       res.status(200).json({ msg: "mengeluh sukses", keluhan: result });
     })
@@ -84,4 +103,18 @@ exports.postPemeriksaan = (req, res, next) => {
     .catch(err => {
       next(err);
     });
+};
+
+exports.antrian = (req, res, next) => {
+  let id = req.userId;
+  let index = 0;
+  Konsul.find({ telahDiperiksa: false }, (err, data) => {
+    data.forEach(konsul => {
+      index++;
+
+      if (konsul.userId == id) {
+        return res.status(200).json({ index: index, data: konsul });
+      }
+    });
+  });
 };
