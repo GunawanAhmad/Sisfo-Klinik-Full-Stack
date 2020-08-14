@@ -76,7 +76,13 @@ exports.postPemeriksaan = (req, res, next) => {
   const catatan = req.body.catatan;
   const diagnosis = req.body.diagnosis;
   const konsulId = req.body.konsulId;
-  console.log(intensitasMinum);
+  const name = req.body.name;
+  const alamat = req.body.alamat;
+  const tinggi = req.body.tinggi;
+  const berat = req.body.berat;
+  const riwayat = req.body.riwayat;
+  const ttl = req.body.ttl;
+  const username = req.body.username;
   Konsul.findById(konsulId)
     .then(konsul => {
       if (!konsul) {
@@ -96,6 +102,17 @@ exports.postPemeriksaan = (req, res, next) => {
       konsul.perokok = perokok;
       konsul.telahDiperiksa = true;
       return konsul.save();
+    })
+    .then(result => {
+      User.findOne({ username: username }).then(user => {
+        user.name = name;
+        user.alamat = alamat;
+        user.tinggi = tinggi;
+        user.berat = berat;
+        user.riwayat = riwayat;
+        user.ttl = ttl;
+        return user.save();
+      });
     })
     .then(result => {
       res.status(200).json({ msg: "succes", konsul: result });

@@ -3,6 +3,8 @@ const router = express.Router();
 const konsulControl = require("../controller/konsul");
 const isAuth = require("../middleware/isAuth");
 const { dokterRole, dokterOrStaff } = require("../middleware/roleCheck");
+const { konsulCheck } = require("../middleware/konsulDataCheck");
+const { check, body } = require("express-validator/check");
 
 router.post("/pasien/konsultasi", isAuth, konsulControl.postKeluhan);
 
@@ -17,6 +19,8 @@ router.get(
 
 router.post(
   "/pemeriksaan-pasien",
+  konsulCheck,
+  [body("catatan").not().isEmpty()],
   isAuth,
   dokterRole,
   konsulControl.postPemeriksaan
