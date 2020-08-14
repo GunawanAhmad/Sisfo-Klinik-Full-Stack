@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <div class="logo">
-      <a href="index.html">
+      <router-link to="/">
         <img src="img/kliniku.png" alt />
-      </a>
+      </router-link>
     </div>
     <div class="wave">
       <img src="img/wave3.png" alt id="waveleft" />
@@ -36,12 +36,18 @@
         <div class="daftar hidden">
           <span @click="showPasien('.daftar', '.daftar-user')">daftar pasien</span>
           <div class="daftar-user hidden">
-            <div class="user" v-for="(user,index) in daftarPasien" :key="index">
+            <div
+              class="user"
+              v-for="(user,index) in daftarPasien"
+              :key="index"
+              @click="goToForm(index)"
+              style="cursor:pointer;"
+            >
               <div class="info">
                 <h2>{{ user.userId.name }}</h2>
                 <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt @click="goToForm(index)" style="cursor:pointer;" />
+              <img src="img/arrow2.png" alt />
             </div>
             <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
           </div>
@@ -49,12 +55,18 @@
         <div class="riwayat hidden">
           <span @click="showPasien('.riwayat', '.riwayat-user')">riwayat pemeriksaan</span>
           <div class="riwayat-user hidden">
-            <div class="user" v-for="(user,index) in riwayatPemeriksaan" :key="index">
+            <div
+              class="user"
+              v-for="(user,index) in riwayatPemeriksaan"
+              :key="index"
+              @click="goToForm(index)"
+              style="cursor:pointer;"
+            >
               <div class="info">
                 <h2>{{ user.userId.name }}</h2>
                 <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt @click="goToForm(index)" style="cursor:pointer;" />
+              <img src="img/arrow2.png" alt />
             </div>
             <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
           </div>

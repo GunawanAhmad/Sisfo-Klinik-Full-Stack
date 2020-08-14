@@ -9,7 +9,7 @@
         </div>
         <div class="back">
           <img src="img/arrow.png" alt />
-          <router-link to="dashboard-pasien">
+          <router-link to="/dashboard-pasien">
             <p>kembali ke halaman utama</p>
           </router-link>
         </div>
@@ -42,56 +42,24 @@
         </div>
       </div>
     </nav>
-
-    <div class="teks">
-      <h1>konsultasi</h1>
-      <p>kamu punya keluhan apa? sini biar kami bantu</p>
-    </div>
-
     <div class="container">
-      <div class="img">
-        <img src="img/konsultasi.png" alt />
+      <div class="teks">
+        <h1>hasil</h1>
+        <h1>pemeriksaan</h1>
+        <h1 class="small-ver">hasil pemeriksaan</h1>
+        <p>cek hasil pemeriksaan kamu dari dokter</p>
       </div>
-      <div class="form">
-        <div class="table">
-          <div class="kiri">
-            <p>tinggi badan</p>
-            <p>berat badan</p>
-
-            <p>keluhan</p>
+      <div class="dokter">
+        <img src="../../public/img/hasil.png" alt />
+      </div>
+      <div class="fungsi">
+        <router-link to="/riwayat">
+          <div class="riwayat">
+            <img src="../../public/img/frame.png" alt />
+            <h1>riwayat</h1>
+            <p>riwayat konsultasi kamu ada di sini</p>
           </div>
-          <div class="kanan">
-            <!--tinggi sesuai dengan username yang sudah login/register-->
-            <p id="tinggi">{{ tinggi }} cm</p>
-
-            <!--berat sesuai dengan username yang sudah login/register-->
-            <p id="berat">{{ berat }} kg</p>
-
-            <!--spesialis sesuai dengan username yang sudah login/register-->
-
-            <p id="zero">a</p>
-          </div>
-          <p id="salah">
-            <router-link to="/edit-data-pasien">kelola data ></router-link>
-          </p>
-        </div>
-        <form action class="keluhan">
-          <div>
-            <textarea
-              name="keluhan"
-              id="keluhan"
-              cols="30"
-              rows="10"
-              v-model="keluhan"
-              placeholder="keluhan meliputi  gejala, sejak kapan mengalami keluhan,  metode penyembuhan 
-yang pernah dicoba, dsb."
-            ></textarea>
-            <p class="error">{{ errorMsg }}</p>
-          </div>
-          <div class="submit">
-            <button type="submit" @click="submitKonsul">KONSUL</button>
-          </div>
-        </form>
+        </router-link>
       </div>
     </div>
 
@@ -109,6 +77,12 @@ import { logout } from "../../mixin";
 import axios from "axios";
 export default {
   mixins: [logout],
+  data() {
+    return {
+      username: "",
+      avatar: "",
+    };
+  },
   created() {
     let token = localStorage.getItem("token");
     axios
@@ -118,11 +92,7 @@ export default {
         },
       })
       .then((res) => {
-        console.log(res);
-
         this.username = res.data.user.username;
-        this.berat = res.data.user.berat;
-        this.tinggi = res.data.user.tinggi;
         this.avatar = "http://localhost:5000/" + res.data.user.avatar;
       })
       .catch((err) => {
@@ -132,38 +102,7 @@ export default {
         }
       });
   },
-  data() {
-    return {
-      berat: "",
-      tinggi: "",
-      avatar: "",
-      username: "",
-      keluhan: "",
-      errorMsg: "",
-    };
-  },
   methods: {
-    submitKonsul(e) {
-      e.preventDefault();
-      let token = localStorage.getItem("token");
-      let body = {
-        keluhan: this.keluhan,
-      };
-      axios
-        .post("/pasien/konsultasi", body, {
-          headers: {
-            Authorization: "Barier " + token,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          this.$router.push({ path: "/antrian" });
-        })
-        .catch((err) => {
-          console.log(err.response);
-          this.errorMsg = err.response.data.message;
-        });
-    },
     showMenu() {
       const help = document.querySelector(".help");
       const activity = document.querySelector(".activity");
@@ -174,5 +113,5 @@ export default {
 };
 </script>
 
-<style scoped src="../../public/styles/konsultasi.css">
+<style scoped src="../../public/styles/hasil_pemeriksaan.css">
 </style>

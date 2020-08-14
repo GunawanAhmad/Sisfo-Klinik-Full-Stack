@@ -35,7 +35,7 @@
         <h1>daftar obat</h1>
       </div>
       <div class="container">
-        <button class="btn">
+        <button class="btn" @click="$router.push({path : '/staff/tambah-obat'})">
           tambah obat
           <span>
             <img src="img/circle-plus.png" alt />

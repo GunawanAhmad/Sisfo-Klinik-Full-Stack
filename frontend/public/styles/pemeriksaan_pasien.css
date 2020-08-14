@@ -89,35 +89,86 @@ nav {
   outline: none;
   height: 2rem;
   border-radius: 7px;
-  padding: 5px;
 }
 
 .riwayat.section .input {
   padding: 0;
   display: flex;
   align-items: center;
+  min-height: 2rem;
+  height: auto;
 }
 
 .berat .input,
 .tinggi .input {
   width: 5rem;
   background-color: #f1f1f1;
+  text-align: center;
 }
-
-.ttl .input {
-  width: 12rem;
+.berat span,
+.tinggi span {
+  font-size: 1.3rem;
 }
 
 .makan .input,
 .alamat .input,
 .nama .input,
 .pekerjaan .input,
-.ttl .input,
 .catatan .input,
 .lain .input {
   background-color: #f1f1f1;
+  padding: 5px;
+}
+.riwayat .input input {
+  background-color: #f1f1f1;
+  padding: 5px;
+  border: none;
+  outline: none;
+  height: 2rem;
+  border-radius: 7px;
 }
 
+.riwayat .input span .penyakit {
+  margin-bottom: 0.5rem;
+}
+.ttl .input {
+  display: flex;
+  height: 20px;
+  justify-content: flex-start;
+}
+
+.ttl .input .ttl-option {
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+#day {
+  width: 50px;
+  margin-right: 1rem;
+  text-align: center;
+}
+#bulan {
+  width: 100px;
+  margin-right: 1rem;
+  text-align: center;
+}
+#tahun {
+  width: 50px;
+  margin-right: 1rem;
+  text-align: center;
+}
 .diagnosis {
   color: #0d7286;
 }
@@ -131,8 +182,8 @@ span.penyakit {
   margin-right: 1rem;
   border-radius: 5px;
   height: 100%;
-  font-size: 1.1rem;
-  padding: 3px 5px;
+  font-size: 1.4rem;
+  padding: 1px 5px;
 }
 
 .radio {
@@ -165,129 +216,6 @@ span.penyakit {
   margin: 20px 0;
 }
 
-/* .chat {
-  position: fixed;
-  right: 2rem;
-  bottom: 2rem;
-  height: 40rem;
-  width: 25rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: #e0e0e0;
-  animation: animate 0.5s ease;
-}
-.chat .user {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  background-color: #0d7286;
-  color: white;
-  font-size: 1.6rem;
-  height: 15%;
-}
-
-.chat .message {
-  height: 75%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-}
-
-.chat .control input {
-  border-radius: 7px;
-  outline: none;
-  border: none;
-  height: 50%;
-  padding: 5px;
-}
-
-.chat .control button {
-  border-radius: 6px;
-  outline: none;
-  border: none;
-  background-color: #0d7286;
-  padding: 1.5px 10px;
-  color: white;
-  font-size: 1.6rem;
-  margin-left: 1rem;
-  box-sizing: border-box;
-}
-.chat .control {
-  height: 15%;
-}
-.chat .user .photo {
-  background-color: #2c2c2c;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-  margin: 1rem;
-}
-
-.chat .user .photo img {
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-}
-
-.chat .message .from {
-  background-color: #8b8787;
-  color: white;
-  height: auto;
-  width: auto;
-  padding: 3px 5px;
-  border-radius: 5px;
-  align-self: flex-end;
-  margin: 0.5rem 2rem;
-  max-width: 15rem;
-}
-
-.chat .message .to {
-  background-color: #0d7286;
-  color: white;
-  height: auto;
-  width: auto;
-  padding: 3px 5px;
-  border-radius: 5px;
-  align-self: flex-start;
-  margin: 0.5rem 2rem;
-  max-width: 15rem;
-}
-.chat .close {
-  position: absolute;
-  right: 1rem;
-  top: 0.5rem;
-  color: white;
-  font-size: 1.6rem;
-  cursor: pointer;
-}
-.fas {
-  pointer-events: none;
-}
-
-@keyframes animate {
-  from {
-    transform: translateX(5rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes back {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(5rem);
-  }
-} */
 @media only screen and (max-width: 550px) {
   .img img {
     display: none;

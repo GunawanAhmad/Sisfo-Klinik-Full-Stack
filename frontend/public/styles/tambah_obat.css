@@ -88,6 +88,10 @@ h1 {
   width: 7rem;
 }
 
+button.input {
+  cursor: pointer;
+}
+
 .tombol .input {
   background-color: black;
   color: white;

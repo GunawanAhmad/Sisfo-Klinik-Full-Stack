@@ -1,10 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: Poppins;
+}
 .foto-user {
   background-color: rgb(117, 117, 117);
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
 }
-
 .foto-user img {
   width: 6rem;
   height: 6rem;
@@ -15,15 +25,17 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 70rem;
-  height: 30rem;
+  width: 60%;
+
   z-index: -999;
 }
 
 .logo {
   margin-left: 10rem;
 }
-
+.flexlogo {
+  padding: 2rem 0;
+}
 .back img {
   transform: rotate(180deg);
   width: 2.5rem;
@@ -43,12 +55,11 @@
   margin: auto;
   font-size: 1.5rem;
 }
-
 nav {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .user {
   display: flex;
@@ -137,130 +148,127 @@ nav {
   right: 45rem;
 }
 
-.img img {
-  width: 45rem;
-  height: 30rem;
-}
 .container {
-  display: flex;
-  justify-content: space-evenly;
-
-  margin: auto;
-  width: 90%;
-  font-size: 1.5rem;
-  color: #0d7286;
-  font-weight: bolder;
+  margin-top: -4rem;
+  padding-left: 10rem;
 }
-.table {
-  display: flex;
-  justify-content: space-evenly;
-  justify-content: left;
-  align-items: center;
-  width: 100%;
-}
-#salah a {
-  text-decoration: none;
-  color: #f7b702;
-}
-#salah {
-  flex: 1.5;
-  text-align: right;
-}
-.form {
-  flex: 1.5;
-  margin-left: 100px;
-}
-.kiri {
-  flex: 1;
-}
-.kiri p {
-  margin-bottom: 5px;
-}
-.kanan p {
-  margin-bottom: 5px;
-}
-.kanan {
-  flex: 1;
-}
-#zero {
-  opacity: 0;
-}
-.keluhan textarea {
-  width: 100%;
-  background-color: #e2f1f4;
-  height: 20rem;
-  font-family: Poppins;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.keluhan textarea::placeholder {
-  opacity: 0.3;
-  color: #575989;
-}
-.submit button {
-  background-color: black;
-  color: white;
-  width: 100%;
-  border: none;
-  height: 40px;
-  border-radius: 5px;
-  cursor: pointer;
+.dokter img {
+  position: absolute;
+  bottom: 8rem;
+  width: 30rem;
+  height: 40rem;
+  right: 0rem;
 }
 .teks {
-  margin: 2rem 10rem;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 .teks p {
   font-size: 1.5rem;
 }
-.user .nama {
-  margin-right: 0;
+.teks h1:nth-child(2) {
+  margin-top: -3.5rem;
 }
 
-.error {
-  color: red;
+h1.small-ver {
+  font-size: 5rem;
+  display: none;
+}
+.fungsi {
+  height: 25rem;
+  width: 15rem;
+}
+.fungsi .riwayat {
+  height: 25rem;
+  width: 15rem;
+  background-color: #5fb2bd;
+  border-radius: 1rem;
+  margin-right: 3rem;
+  box-shadow: 5px 8px 10px #888888;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+.riwayat img {
+  width: 10rem;
+  width: 7.7rem;
+  margin-top: 3rem;
+  margin-left: 3.2rem;
+}
+.riwayat h1 {
+  color: white;
+  margin-left: 1.2rem;
 }
 
-@media only screen and (max-width: 550px) {
-  .img img {
-    display: none;
-  }
-  nav {
-    width: 100%;
-  }
-  .user {
-    margin-right: 10px;
-  }
-  .logo {
-    margin-left: 10px;
-  }
-  .back {
-    margin-left: 10px;
-  }
+a {
+  text-decoration: none;
 }
-@media only screen and (max-width: 1230px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-  }
-  .img img {
-    margin-bottom: 50px;
-  }
-  .keluhan {
-    left: -80px;
-  }
-  .form {
-    flex-direction: column;
-    width: 100%;
-    margin-left: 30px;
+.riwayat p {
+  color: white;
+  font-weight: lighter;
+  margin-left: 1.2rem;
+}
+@media only screen and (max-width: 1110px) {
+  body {
+    overflow-x: hidden;
   }
   .dot {
     display: none;
   }
+
+  .dokter img {
+    display: none;
+  }
+  .container {
+    margin-top: 2rem;
+  }
+  .teks h1:nth-child(1),
+  .teks h1:nth-child(2) {
+    display: none;
+  }
+  h1.small-ver {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 550px) {
   .user {
-    flex-direction: column;
+    margin-right: 0;
+  }
+  .logo {
+    margin-left: 5rem;
+  }
+  .dokter {
+    display: none;
+  }
+  .back {
+    margin-left: 4rem;
+  }
+  .container {
+    width: 100%;
+  }
+  .teks h1:nth-child(1),
+  .teks h1:nth-child(2) {
+    display: none;
+  }
+  h1.small-ver {
+    display: block;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .bunga {
+    display: none;
+  }
+  .teks h1:nth-child(1),
+  .teks h1:nth-child(2) {
+    display: none;
+  }
+  h1.small-ver {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .dokter img {
+    width: 15rem;
+    height: 35rem;
   }
 }

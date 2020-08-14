@@ -20,6 +20,7 @@ import gantiPass from "../views/gantiPass.vue";
 import formPemberianObat from "../views/formPemberianObat.vue";
 import listPemberianObat from "../views/listPemberianObat.vue";
 import antrian from "../views/antrian.vue";
+import hasilPemeriksaan from "../views/hasilPemeriksaan.vue";
 
 Vue.use(VueRouter);
 
@@ -123,6 +124,11 @@ const routes = [
     path: "/antrian",
     name: "Antrian",
     component: antrian
+  },
+  {
+    path: "/hasil-pemeriksaan",
+    name: "Hasil Pemeriksaan",
+    component: hasilPemeriksaan
   }
 
   // {

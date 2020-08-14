@@ -74,6 +74,7 @@ export default {
         })
         .then((res) => {
           console.log(res);
+          this.$router.push({ path: "/daftar-obat" });
         })
         .catch((err) => {
           console.log(err);
