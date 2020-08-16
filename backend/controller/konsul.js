@@ -155,6 +155,7 @@ exports.postObatPasien = (req, res, next) => {
   console.log(obat);
   Konsul.findById(konsulId)
     .then(konsul => {
+      konsul.telahDiberiObat = true;
       obat.forEach(p => {
         konsul.obat.push({
           obat: p.namaObat,
