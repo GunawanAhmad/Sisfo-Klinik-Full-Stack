@@ -1,14 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: Poppins;
-}
 .foto-user {
   background-color: rgb(117, 117, 117);
   width: 6rem;
@@ -62,17 +51,6 @@ nav {
   margin-right: 2rem;
   color: black;
 }
-.halo {
-  margin-left: 10rem;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-.halo h1 {
-  font-size: 4rem;
-}
-.halo p {
-  font-size: 3rem;
-}
 
 .dot img {
   width: 10rem;
@@ -86,27 +64,34 @@ nav {
   color: black;
 }
 .container {
-  margin-top: -4rem;
-  position: relative;
+  margin-top: 1rem;
+  padding-left: 10rem;
   width: 100%;
-  margin-left: -15rem;
+}
+.riwayat {
+  width: 80rem;
+  margin-top: 3rem;
+}
+.riwayat p {
+  background-color: #c1e2e0;
+  height: 1.5rem;
+  margin-bottom: 0.7rem;
+  padding: 0rem 0.5rem;
+  border-radius: 5px;
+  font-weight: 600;
 }
 .dokter img {
   position: absolute;
-  top: 10rem;
-  width: 30rem;
-  height: 40rem;
-  right: -15rem;
+  bottom: 2rem;
+  width: 25rem;
+  height: 45rem;
+  right: 7rem;
 }
 .teks {
-  position: absolute;
-  left: 25rem;
-  top: 5rem;
   font-size: 2.5rem;
 }
 .teks p {
   font-size: 1.5rem;
-  margin-top: -1.5rem;
 }
 
 @media only screen and (max-width: 1110px) {

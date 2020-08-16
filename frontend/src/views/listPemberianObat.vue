@@ -43,7 +43,7 @@ export default {
     let token = localStorage.getItem("token");
 
     axios
-      .get("/getKonsul", {
+      .get("/konsul-belum-terobati", {
         headers: {
           Authorization: "Bearer " + token,
         },

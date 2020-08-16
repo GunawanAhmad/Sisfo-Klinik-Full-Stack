@@ -22,10 +22,12 @@
 .back {
   margin-top: 1rem;
   display: flex;
+  justify-content: flex-start;
 }
 .back p {
   margin: auto;
   color: #f7b702;
+  font-size: 1.5rem;
 }
 .back a {
   text-decoration: none;
@@ -162,7 +164,7 @@ span.penyakit,
 }
 
 .btn {
-  width: 100%;
+  width: 15%;
   background-color: #2c2c2c;
   border: none;
   outline: none;
@@ -172,6 +174,10 @@ span.penyakit,
   cursor: pointer;
   padding: 3px 0;
   margin-bottom: 20px;
+}
+.title-obat {
+  color: #0d7286;
+  margin-top: 2rem;
 }
 
 .warn {
@@ -192,6 +198,8 @@ span.penyakit,
   outline: none;
   border: none;
   padding: 5px;
+  font-size: 1rem;
+  color: #7c8886;
 }
 
 .nama-obat {
@@ -251,11 +259,12 @@ li {
   width: 80rem;
   background-color: white;
   border-radius: 8px;
+  padding-bottom: 2rem;
 }
 
 .top {
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
 
   justify-content: flex-start;
   align-items: center;
@@ -313,7 +322,75 @@ li {
   opacity: 0.5;
   pointer-events: none;
 }
+.two {
+  width: 10rem;
+}
+.list-pemberian {
+  width: 100%;
+}
+.obat-pemberian {
+  display: flex;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
 
+.obat-pemberian p {
+  background-color: #d4ebe9;
+  width: 90%;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.obat-pemberian input {
+  width: 7%;
+  background-color: #d4ebe9;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+.error {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+}
+
+.ket-obat {
+  width: 100%;
+}
+.keterangan {
+  display: flex;
+  margin-bottom: 2rem;
+}
+.keterangan p {
+  background-color: #d4ebe9;
+  width: 75%;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.keterangan input {
+  width: 25%;
+  background-color: #efefef;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
 @media only screen and (max-width: 550px) {
   .img img {
     display: none;

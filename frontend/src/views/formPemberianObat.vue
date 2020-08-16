@@ -161,19 +161,35 @@
           <label for="catatan" class="label">Catatan untuk pasien</label>
           <input type="text" name="catatan" class="input" v-model="catatan" readonly />
         </div>
-        <h2>obat</h2>
+        <h2 class="title-obat">obat</h2>
+        <div class="list-pemberian">
+          <div class="obat-pemberian" v-for="obat in pemberianObat" :key="obat._id">
+            <p>{{ obat.namaObat }}</p>
+            <input type="number" v-model="obat.quantity" min="1" :max="obat.jumlah" />
+          </div>
+        </div>
         <div class="input-obat">
           <button class="nama-obat" @click="showTambahObat">tambah obat</button>
-          <input type="Number" class="jumlah-obat" />
+          <input type="text" class="jumlah-obat" />
         </div>
         <p
           class="warn"
         >* data dimasukan setelah/saat konsultasi secara langsung melalui telepon atau keluhan pasien</p>
         <button class="btn" @click="submitData">SUBMIT</button>
+        <div class="ket-pemberian">
+          <div class="keterangan" v-for="obat in pemberianObat" :key="obat._id">
+            <p>{{ obat.namaObat }}</p>
+            <input type="text" v-model="obat.catatan" placeholder="catatan" />
+          </div>
+        </div>
       </div>
 
       <div class="container-daftar-obat" v-if="isTambahObat">
         <div class="list">
+          <div class="back two" @click="showTambahObat" style="cursor:pointer;">
+            <img src="../../public/img/arrow.png" alt />
+            <p>kembali</p>
+          </div>
           <div class="top">
             <div class="search">
               <input type="text" placeholder="search" />
@@ -193,8 +209,15 @@
           </div>
           <div class="container-list-obat">
             <ul class="list-obat">
-              <li class="ada">miksagrip</li>
+              <li
+                :class="obat.jumlah > 0 ? 'ada' : 'tidak-ada'"
+                style="cursor:pointer;"
+                v-for="(obat,index) in daftarObat"
+                :key="obat._id"
+                @click="tambahObat(index)"
+              >{{ obat.namaObat }}</li>
             </ul>
+            <h3 class="error">{{ errorMsg }}</h3>
           </div>
         </div>
       </div>
@@ -250,6 +273,10 @@ export default {
       })
       .catch((err) => {
         console.log(err);
+        console.log(err.response);
+        if (err.response.data.message === "jwt expired") {
+          this.$router.push({ path: "/login" });
+        }
       });
   },
   data() {
@@ -269,47 +296,22 @@ export default {
       tinggi: 0,
       berat: 0,
       isTambahObat: false,
+      daftarObat: [],
+      pemberianObat: [],
+      isReqDaftarObat: true,
+      errorMsg: "",
     };
   },
   methods: {
     submitData() {
-      const tidur = document.querySelectorAll("#tidur");
-      let tidurValue = this.findValue(tidur)[0];
+      let id = this.$route.params.id;
 
-      const minum = document.querySelectorAll("#minum");
-      let minumValue = this.findValue(minum)[0];
-
-      const olahraga = document.querySelectorAll("#olahraga");
-      let olahragaValue = this.findValue(olahraga)[0];
-
-      const rokok = document.querySelectorAll("#rokok");
-      let rokokValue = this.findValue(rokok)[0];
-
-      let gejala = document.querySelectorAll("#gejala");
-      let gejalaValue = this.findValue(gejala).join(",");
-      // console.log(
-      //   checkedValue,
-      //   tidurValue,
-      //   minumValue,
-      //   olahragaValue,
-      //   rokokValue
-      // );
-      const data = {
-        minum: minumValue,
-        olahraga: olahragaValue,
-        tidur: tidurValue,
-        pekerjaan: this.pekerjaan,
-        makanan: this.makanan,
-        catatan: this.catatan,
-        lain: this.lain,
-        rokok: rokokValue,
-        gejala: gejalaValue,
-        konsulId: this.$route.params.id,
-        diagnosis: this.diagnosis,
-      };
       let token = localStorage.getItem("token");
+      let data = {
+        obat: this.pemberianObat,
+      };
       axios
-        .post("pemeriksaan-pasien", data, {
+        .post("/post-obat-pasien/" + id, data, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -320,6 +322,7 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+      console.log(this.pemberianObat);
     },
     findValue(form, value) {
       for (let i = 0; i < form.length; i++) {
@@ -331,24 +334,27 @@ export default {
       }
     },
     monthName(mon) {
-      let month = mon.slice(6, 7);
+      let month = mon.slice(5, 7);
+
       if (month[0] === "0") {
         month.slice(1);
       }
       let monthName = [
-        "January",
-        "February",
-        "March",
+        "Januari",
+        "Februari",
+        "Maret",
         "April",
-        "May",
-        "June",
-        "July",
-        "August",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
         "September",
+        "Oktober",
         "November",
-        "December",
+        "Desember",
       ];
-      return [mon.slice(0, 4), monthName[month], mon.slice(8, 10)];
+
+      return [mon.slice(0, 4), monthName[month - 1], mon.slice(8, 10)];
     },
     findGejala(form, value) {
       let array = value.split(",");
@@ -367,8 +373,40 @@ export default {
       return false;
     },
     showTambahObat() {
-      this.isTambahObat = true;
+      this.isTambahObat = !this.isTambahObat;
       document.querySelector(".form").classList.toggle("hidden");
+      console.log(this.daftarObat);
+      if (this.isReqDaftarObat) {
+        this.isReqDaftarObat = false;
+        let token = localStorage.getItem("token");
+        axios
+          .get("/staff/daftar-obat", {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            this.daftarObat = res.data.obat;
+          })
+          .catch((err) => {
+            console.log(err.response);
+            if (err.response.data.message === "jwt expired") {
+              this.$router.push({ path: "/login" });
+            }
+          });
+      }
+    },
+    tambahObat(index) {
+      if (this.daftarObat[index].jumlah > 0) {
+        this.pemberianObat.push(this.daftarObat[index]);
+        this.isReqDaftarObat = true;
+        this.isTambahObat = !this.isTambahObat;
+        document.querySelector(".form").classList.toggle("hidden");
+        this.errorMsg = "";
+      } else {
+        this.errorMsg = "Obat sudah habis";
+      }
     },
   },
 };
