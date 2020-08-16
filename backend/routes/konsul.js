@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const konsulControl = require("../controller/konsul");
 const isAuth = require("../middleware/isAuth");
-const { dokterRole, dokterOrStaff } = require("../middleware/roleCheck");
+const {
+  dokterRole,
+  dokterOrStaff,
+  staffRole
+} = require("../middleware/roleCheck");
 const { konsulCheck } = require("../middleware/konsulDataCheck");
 const { check, body } = require("express-validator/check");
 
@@ -27,5 +31,19 @@ router.post(
 );
 
 router.get("/antrian", isAuth, konsulControl.antrian);
+
+router.get(
+  "/konsul-belum-terobati",
+  isAuth,
+  staffRole,
+  konsulControl.getKonsulBelumTerobati
+);
+
+router.post(
+  "/post-obat-pasien/:id",
+  isAuth,
+  staffRole,
+  konsulControl.postObatPasien
+);
 
 module.exports = router;

@@ -21,6 +21,7 @@ import formPemberianObat from "../views/formPemberianObat.vue";
 import listPemberianObat from "../views/listPemberianObat.vue";
 import antrian from "../views/antrian.vue";
 import hasilPemeriksaan from "../views/hasilPemeriksaan.vue";
+import riwayat from "../views/riwayat.vue";
 
 Vue.use(VueRouter);
 
@@ -129,6 +130,11 @@ const routes = [
     path: "/hasil-pemeriksaan",
     name: "Hasil Pemeriksaan",
     component: hasilPemeriksaan
+  },
+  {
+    path: "/riwayat",
+    name: "Riwayat Page",
+    component: riwayat
   }
 
   // {

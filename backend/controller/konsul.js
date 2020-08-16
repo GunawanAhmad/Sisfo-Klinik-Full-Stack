@@ -16,6 +16,7 @@ exports.postKeluhan = (req, res, next) => {
         userId: userId,
         keluhan: keluhan,
         telahDiperiksa: false,
+        telahDiberiObat: false,
         tanggal: new Date()
       });
       return konsul.save();
@@ -134,4 +135,40 @@ exports.antrian = (req, res, next) => {
       }
     });
   });
+};
+
+exports.getKonsulBelumTerobati = (req, res, next) => {
+  Konsul.find({ telahDiberiObat: false, telahDiperiksa: true })
+    .populate("userId", "name")
+    .exec()
+    .then(konsul => {
+      return res.status(200).json({ msg: "succes", konsul: konsul });
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+exports.postObatPasien = (req, res, next) => {
+  let konsulId = req.params.id;
+  let obat = req.body.obat;
+  console.log(obat);
+  Konsul.findById(konsulId)
+    .then(konsul => {
+      obat.forEach(p => {
+        konsul.obat.push({
+          obat: p.namaObat,
+          catatan: p.catatan,
+          quantity: p.quantity
+        });
+      });
+
+      return konsul.save();
+    })
+    .then(konsul => {
+      res.status(200).json({ msg: "succes", konsul: konsul });
+    })
+    .catch(err => {
+      next(err);
+    });
 };
