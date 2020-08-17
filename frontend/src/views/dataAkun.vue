@@ -46,7 +46,7 @@
         <div class="content"></div>
       </div>
       <div class="edit">
-        <router-link to="/edit-data-pasien">
+        <router-link to="/data-pasien">
           <h2>kelola data diri</h2>
         </router-link>
         <img src="../../public/img/arrow.png" alt />

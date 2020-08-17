@@ -36,6 +36,9 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  telepon: {
+    type: String
+  },
   konsultasi: [
     {
       type: Schema.Types.ObjectId,

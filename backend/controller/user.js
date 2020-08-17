@@ -8,12 +8,14 @@ exports.editDataPasien = (req, res, next) => {
   const berat = req.body.berat;
   const userId = req.userId;
   const riwayat = req.body.riwayat.split(",");
+  const telepon = req.body.telepon;
 
   let imageUrl = undefined;
 
   User.findById(userId)
     .then(user => {
       if (user) {
+        user.telepon = telepon;
         user.name = nama;
         user.alamat = alamat;
         user.ttl = ttl;

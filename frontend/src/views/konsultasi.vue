@@ -36,7 +36,7 @@
             <img :src="avatar" alt />
           </div>
           <div class="data">
-            <router-link to="/edit-data-pasien">kelola data</router-link>
+            <router-link to="/data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />
           </div>
         </div>

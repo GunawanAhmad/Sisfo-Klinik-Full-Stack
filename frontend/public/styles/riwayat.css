@@ -151,12 +151,13 @@ nav {
   margin-bottom: 0.5rem;
 }
 .obat .nama {
-  max-width: auto;
+  max-width: 50rem;
   min-width: 15rem;
   background-color: #d4ebe9;
   text-align: left;
   padding-left: 1rem;
-  height: 2rem;
+  min-height: 2rem;
+  max-height: auto;
   border-radius: 5px;
   margin-right: 1rem;
 }
@@ -166,18 +167,20 @@ nav {
   max-width: auto;
   background-color: #d4ebe9;
   text-align: center;
-  height: 2rem;
+  min-height: 2rem;
+  max-height: auto;
   border-radius: 5px;
   margin-right: 1rem;
 }
 
 .obat .catatan {
   min-width: 20rem;
-  max-width: auto;
+  max-width: 50rem;
   background-color: #efefef;
   text-align: left;
   padding-left: 1rem;
-  height: 2rem;
+  min-height: 2rem;
+  max-height: auto;
   border-radius: 5px;
   margin-right: 1rem;
   position: relative;

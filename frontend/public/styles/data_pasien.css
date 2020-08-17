@@ -10,7 +10,7 @@ body {
   font-family: Poppins;
 }
 .container {
-  margin: 8rem auto 2rem auto;
+  margin: 3rem auto 2rem auto;
 }
 .foto-user {
   width: 10rem;
@@ -79,10 +79,11 @@ h1 {
   display: grid;
   grid-template-areas: "label content";
   grid-template-columns: 1fr 1fr;
-  width: 40%;
+  width: auto;
   font-weight: lighter;
   position: relative;
   height: auto;
+  /* border: 1px solid black; */
 }
 .label {
   grid-area: "label";
@@ -184,6 +185,12 @@ input {
   height: 30px;
   background: transparent;
   border: none;
+}
+
+.ttl span {
+  font-size: 2rem;
+  margin-right: 1rem;
+  font-weight: 600;
 }
 ::placeholder {
   font-family: Poppins;
