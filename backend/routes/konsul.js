@@ -46,4 +46,6 @@ router.post(
   konsulControl.postObatPasien
 );
 
+router.get("/get-riwayat", isAuth, konsulControl.getRiwayat);
+
 module.exports = router;

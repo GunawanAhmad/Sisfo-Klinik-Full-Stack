@@ -1,5 +1,6 @@
 const User = require("../model/user");
 const Konsul = require("../model/konsul");
+const Mongoose = require("mongoose");
 
 exports.postKeluhan = (req, res, next) => {
   const userId = req.userId;
@@ -168,6 +169,20 @@ exports.postObatPasien = (req, res, next) => {
     })
     .then(konsul => {
       res.status(200).json({ msg: "succes", konsul: konsul });
+    })
+    .catch(err => {
+      next(err);
+    });
+};
+
+exports.getRiwayat = (req, res, next) => {
+  let id = Mongoose.Types.ObjectId(req.userId);
+  Konsul.find({ userId: id, telahDiperiksa: true, telahDiberiObat: true })
+    .select("userId tanggal catatan obat keluhan")
+    .populate("userId", "username avatar")
+    .exec()
+    .then(konsul => {
+      res.status(200).json({ msg: "Succes", konsul: konsul });
     })
     .catch(err => {
       next(err);
