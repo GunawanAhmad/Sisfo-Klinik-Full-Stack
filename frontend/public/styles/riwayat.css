@@ -74,7 +74,6 @@ nav {
 
 .user .nama p {
   opacity: 0.5;
-  margin-top: -1rem;
 }
 
 .dot img {
@@ -99,11 +98,12 @@ nav {
 }
 .riwayat p {
   background-color: #c1e2e0;
-  height: 1.5rem;
+  height: 2rem;
   margin-bottom: 0.7rem;
-  padding: 0rem 0.5rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 5px;
   font-weight: 600;
+  cursor: pointer;
 }
 .dokter img {
   position: absolute;
@@ -124,7 +124,8 @@ nav {
 }
 
 .keluhan-title,
-.tanggapan-title {
+.tanggapan-title,
+.obat-title {
   color: #0d7286;
   font-size: 1.4rem;
 }
@@ -147,6 +148,7 @@ nav {
   display: flex;
   width: 100%;
   font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 .obat .nama {
   max-width: auto;
@@ -172,13 +174,24 @@ nav {
 .obat .catatan {
   min-width: 20rem;
   max-width: auto;
-  background-color: #d4ebe9;
+  background-color: #efefef;
   text-align: left;
   padding-left: 1rem;
   height: 2rem;
   border-radius: 5px;
   margin-right: 1rem;
+  position: relative;
 }
+
+.riwayat-detail div:first-of-type p:last-of-type::after {
+  content: "catatan";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  color: #9a9898;
+  font: 1.2rem;
+}
+
 @media only screen and (max-width: 1110px) {
   body {
     overflow-x: hidden;

@@ -45,24 +45,23 @@
         <p>riwayat konsultasi kamu ada disini</p>
       </div>
       <div class="riwayat" v-if="isShow">
-        <p @click="switchPage">20 maret 2020</p>
-        <p>20 maret 2020</p>
-        <p>20 maret 2020</p>
+        <p
+          @click="loadDetail(index)"
+          v-for="(data,index) in riwayat"
+          :key="data._id"
+        >{{ data.tanggal.slice(4,16) }}</p>
       </div>
       <div class="riwayat-detail" v-else>
         <h4 class="tanggal">20 Maret 2020</h4>
         <h3 class="keluhan-title">Keluhan</h3>
-        <p
-          class="keluhan"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, illum.</p>
+        <p class="keluhan">{{ keluhan }}</p>
         <h3 class="tanggapan-title">Tanggapan Dokter</h3>
-        <p
-          class="tanggapan"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, voluptas.</p>
-        <div class="obat">
-          <p class="nama">nama Obat</p>
-          <p class="jumlah">2</p>
-          <p class="catatan">catatan</p>
+        <p class="tanggapan">{{ tanggapan }}</p>
+        <h4 class="obat-title">Obat</h4>
+        <div class="obat" v-for="obat in obat" :key="obat._id">
+          <p class="nama">{{ obat.obat }}</p>
+          <p class="jumlah">{{ obat.quantity }}</p>
+          <p class="catatan">{{ obat.catatan }}</p>
         </div>
       </div>
       <div class="dokter">
@@ -87,6 +86,10 @@ export default {
       isShow: true,
       username: "",
       avatar: "",
+      riwayat: [],
+      keluhan: "",
+      tanggapan: "",
+      obat: [],
     };
   },
   methods: {
@@ -94,19 +97,29 @@ export default {
       this.isShow = !this.isShow;
       this.$refs.waveImg.classList.toggle("hidden");
     },
+    loadDetail(index) {
+      console.log("test");
+      this.switchPage();
+      let detail = this.riwayat[index];
+      this.keluhan = detail.keluhan;
+      this.tanggapan = detail.catatan;
+      this.obat = detail.obat;
+    },
   },
   created() {
     let token = localStorage.getItem("token");
     axios
-      .get("/getUser", {
+      .get("/get-riwayat", {
         headers: {
           Authorization: "Bearer " + token,
         },
       })
       .then((res) => {
         console.log(res);
-        this.username = res.data.user.username;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        this.username = res.data.konsul[0].userId.username;
+        this.avatar =
+          "http://localhost:5000/" + res.data.konsul[0].userId.avatar;
+        this.riwayat = res.data.konsul;
       })
       .catch((err) => {
         console.log(err);
