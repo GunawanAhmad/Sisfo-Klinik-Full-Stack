@@ -68,7 +68,7 @@
       </router-link>
 
       <div class="hasil">
-        <router-link to="/hasil">
+        <router-link to="/hasil-pemeriksaan">
           <img src="img/list.png" alt />
           <h1>hasil pemeriksaan</h1>
           <p>cek hasil pemeriksaan dari dokter</p>

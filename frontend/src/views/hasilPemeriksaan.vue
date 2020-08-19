@@ -7,11 +7,17 @@
             <img src="img/kliniku.png" alt />
           </router-link>
         </div>
-        <div class="back">
+        <div class="back" v-if="isFull">
           <img src="img/arrow.png" alt />
           <router-link to="/dashboard-pasien">
             <p>kembali ke halaman utama</p>
           </router-link>
+        </div>
+        <div class="back" v-else @click="switchPage" style="cursor:pointer;">
+          <img src="../../public/img/arrow.png" alt />
+          <a>
+            <p>kembali</p>
+          </a>
         </div>
       </div>
       <div class="user">
@@ -44,22 +50,49 @@
     </nav>
     <div class="container">
       <div class="teks">
-        <h1>hasil</h1>
-        <h1>pemeriksaan</h1>
-        <h1 class="small-ver">hasil pemeriksaan</h1>
+        <section v-if="isFull">
+          <h1>hasil</h1>
+          <h1>pemeriksaan</h1>
+        </section>
+        <h1 class="small-ver" v-else>hasil pemeriksaan</h1>
         <p>cek hasil pemeriksaan kamu dari dokter</p>
       </div>
       <div class="dokter">
         <img src="../../public/img/hasil.png" alt />
       </div>
-      <div class="fungsi">
-        <router-link to="/riwayat">
+      <div class="fungsi" v-if="isFull">
+        <section v-for="konsul in konsul" :key="konsul._id" @click="switchPage">
           <div class="riwayat">
             <img src="../../public/img/frame.png" alt />
-            <h1>riwayat</h1>
-            <p>riwayat konsultasi kamu ada di sini</p>
+            <h1>{{ konsul.tanggal.slice(4,16) }}</h1>
+            <p>
+              konsultasi kamu
+              sudah ditanggapi
+            </p>
           </div>
-        </router-link>
+        </section>
+      </div>
+      <div class="detail" v-else>
+        <h2 class="tanggal">mar 20 2020</h2>
+        <div class="diagnosis">
+          <h2>diagnosis penyakit</h2>
+          <p>masuk angin</p>
+        </div>
+        <div class="obat">
+          <h2>obat</h2>
+          <div class="nama">
+            <p>nama</p>
+            <p>2</p>
+          </div>
+          <div class="aturan">
+            <p>aturan pakai</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, fugiat.</p>
+          </div>
+        </div>
+        <div class="catatan">
+          <h2>catatan dokter</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis voluptatum veritatis molestias voluptas sapiente impedit tenetur fugit doloribus provident ea.</p>
+        </div>
       </div>
     </div>
 
@@ -81,25 +114,28 @@ export default {
     return {
       username: "",
       avatar: "",
+      konsul: [],
+      isFull: true,
     };
   },
   created() {
     let token = localStorage.getItem("token");
+
     axios
-      .get("/getUser", {
+      .get("/get-riwayat", {
         headers: {
-          Authorization: "Barier " + token,
+          Authorization: "Bearer " + token,
         },
       })
       .then((res) => {
-        this.username = res.data.user.username;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        console.log(res);
+        this.username = res.data.konsul[0].userId.username;
+        this.avatar =
+          "http://localhost:5000/" + res.data.konsul[0].userId.avatar;
+        this.konsul = res.data.konsul;
       })
       .catch((err) => {
-        console.log(err.response);
-        if (err.response.data.message === "jwt expired") {
-          this.$router.push({ path: "/login" });
-        }
+        console.log(err);
       });
   },
   methods: {
@@ -108,6 +144,9 @@ export default {
       const activity = document.querySelector(".activity");
       help.classList.toggle("show");
       activity.classList.toggle("show");
+    },
+    switchPage() {
+      this.isFull = !this.isFull;
     },
   },
 };

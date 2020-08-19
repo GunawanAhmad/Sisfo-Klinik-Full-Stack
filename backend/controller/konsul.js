@@ -188,3 +188,17 @@ exports.getRiwayat = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getHasil = (req, res, next) => {
+  let id = Mongoose.Types.ObjectId(req.userId);
+  Konsul.find({ userId: id, telahDiperiksa: true, telahDiberiObat: true })
+    .select("userId tanggal catatan obat diagnosis")
+    .populate("userId", "username avatar")
+    .exec()
+    .then(konsul => {
+      res.status(200).json({ msg: "Succes", konsul: konsul });
+    })
+    .catch(err => {
+      next(err);
+    });
+};

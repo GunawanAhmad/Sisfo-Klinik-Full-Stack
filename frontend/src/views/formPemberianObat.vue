@@ -166,22 +166,16 @@
           <div class="obat-pemberian" v-for="obat in pemberianObat" :key="obat._id">
             <p>{{ obat.namaObat }}</p>
             <input type="number" v-model="obat.quantity" min="1" :max="obat.jumlah" />
+            <input type="text" v-model="obat.catatan" />
           </div>
         </div>
         <div class="input-obat">
           <button class="nama-obat" @click="showTambahObat">tambah obat</button>
-          <input type="text" class="jumlah-obat" />
+          <input type="Number" class="jumlah-obat" />
+          <input type="text" class="catatan-obat" />
         </div>
-        <p
-          class="warn"
-        >* data dimasukan setelah/saat konsultasi secara langsung melalui telepon atau keluhan pasien</p>
+
         <button class="btn" @click="submitData">SUBMIT</button>
-        <div class="ket-pemberian">
-          <div class="keterangan" v-for="obat in pemberianObat" :key="obat._id">
-            <p>{{ obat.namaObat }}</p>
-            <input type="text" v-model="obat.catatan" placeholder="catatan" />
-          </div>
-        </div>
       </div>
 
       <div class="container-daftar-obat" v-if="isTambahObat">

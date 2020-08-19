@@ -1,14 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: Poppins;
-}
 .foto-user {
   background-color: rgb(117, 117, 117);
   width: 6rem;
@@ -165,17 +154,23 @@ nav {
 .teks p {
   font-size: 1.5rem;
 }
-.teks h1:nth-child(2) {
-  margin-top: -3.5rem;
+.teks section h1:nth-child(2) {
+  margin-top: -1.5rem;
+}
+.teks section {
+  font-size: 5rem;
+  font-weight: 500;
 }
 
 h1.small-ver {
   font-size: 5rem;
-  display: none;
 }
 .fungsi {
-  height: 25rem;
-  width: 15rem;
+  height: auto;
+  width: 80rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 1px solid black; */
 }
 .fungsi .riwayat {
   height: 25rem;
@@ -186,7 +181,15 @@ h1.small-ver {
   box-shadow: 5px 8px 10px #888888;
   margin-bottom: 3rem;
   margin-top: 2rem;
+  margin-right: 2rem;
 }
+.fungsi section {
+  cursor: pointer;
+}
+
+/* .fungsi.hidden {
+  display: none;
+} */
 .riwayat img {
   width: 10rem;
   width: 7.7rem;
@@ -206,6 +209,112 @@ a {
   font-weight: lighter;
   margin-left: 1.2rem;
 }
+
+.detail {
+  /* border: 1px solid black; */
+  width: 50rem;
+}
+.detail .tanggal {
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.diagnosis {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.diagnosis h2:first-child {
+  color: #0d7286;
+  font-size: 1.8rem;
+}
+
+.diagnosis p:last-child {
+  font-size: 1.8rem;
+  background-color: #d4ebe9;
+  padding: 0 2.5rem;
+  border-radius: 5px;
+}
+
+.obat h2:first-child {
+  color: #0d7286;
+  font-size: 1.8rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.obat .nama {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.obat .nama p:first-of-type {
+  background-color: #d4ebe9;
+  width: 90%;
+
+  border-radius: 5px;
+  margin-right: 1rem;
+  min-height: 2rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.obat .nama p:last-of-type {
+  background-color: #d4ebe9;
+  width: 7%;
+  text-align: center;
+  border-radius: 5px;
+  min-height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.obat .aturan {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.obat .aturan p:first-of-type {
+  margin-right: 1rem;
+  color: #9a9898;
+  width: auto;
+}
+.obat .aturan p:last-of-type {
+  width: 83%;
+  background-color: #efefef;
+  text-align: center;
+  min-height: 2rem;
+  height: auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.catatan h2 {
+  color: #0d7286;
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+.catatan p {
+  background-color: #efefef;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
 @media only screen and (max-width: 1110px) {
   body {
     overflow-x: hidden;

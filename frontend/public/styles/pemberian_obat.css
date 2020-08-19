@@ -174,14 +174,11 @@ span.penyakit,
   cursor: pointer;
   padding: 3px 0;
   margin-bottom: 20px;
+  margin-top: 5rem;
 }
 .title-obat {
   color: #0d7286;
   margin-top: 2rem;
-}
-
-.warn {
-  margin: 20px 0;
 }
 
 .input-obat {
@@ -190,8 +187,8 @@ span.penyakit,
 }
 
 .input-obat .nama-obat {
-  width: 90%;
-  margin-right: 2rem;
+  width: 60%;
+  margin-right: 1rem;
   background-color: #efefef;
   height: 20px;
   border-radius: 5px;
@@ -210,6 +207,17 @@ span.penyakit,
 }
 .input-obat .jumlah-obat {
   width: 7%;
+  background-color: #efefef;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  margin-right: 2rem;
+}
+
+.input-obat .catatan-obat {
+  width: 30%;
   background-color: #efefef;
   height: 20px;
   border-radius: 5px;
@@ -336,8 +344,8 @@ li {
 
 .obat-pemberian p {
   background-color: #d4ebe9;
-  width: 90%;
-  margin-right: 2rem;
+  width: 60%;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,6 +362,12 @@ li {
   outline: none;
   border: none;
   padding: 5px;
+  margin-right: 2rem;
+}
+
+.obat-pemberian input:last-child {
+  width: 30%;
+  margin-right: 0;
 }
 
 .error {
@@ -364,33 +378,6 @@ li {
   color: red;
 }
 
-.ket-obat {
-  width: 100%;
-}
-.keterangan {
-  display: flex;
-  margin-bottom: 2rem;
-}
-.keterangan p {
-  background-color: #d4ebe9;
-  width: 75%;
-  margin-right: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 20px;
-  border-radius: 5px;
-  padding: 5px;
-}
-.keterangan input {
-  width: 25%;
-  background-color: #efefef;
-  height: 20px;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  padding: 5px;
-}
 @media only screen and (max-width: 550px) {
   .img img {
     display: none;
