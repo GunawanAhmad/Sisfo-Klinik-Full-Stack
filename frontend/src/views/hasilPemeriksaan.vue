@@ -13,7 +13,7 @@
             <p>kembali ke halaman utama</p>
           </router-link>
         </div>
-        <div class="back" v-else @click="switchPage" style="cursor:pointer;">
+        <div class="back" v-else @click="switchPage(false)" style="cursor:pointer;">
           <img src="../../public/img/arrow.png" alt />
           <a>
             <p>kembali</p>
@@ -42,7 +42,7 @@
             <img :src="avatar" alt />
           </div>
           <div class="data">
-            <router-link to="/edit-data-pasien">kelola data</router-link>
+            <router-link to="/data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />
           </div>
         </div>
@@ -61,7 +61,7 @@
         <img src="../../public/img/hasil.png" alt />
       </div>
       <div class="fungsi" v-if="isFull">
-        <section v-for="konsul in konsul" :key="konsul._id" @click="switchPage">
+        <section v-for="(konsul,index) in konsul" :key="konsul._id" @click="switchPage(index)">
           <div class="riwayat">
             <img src="../../public/img/frame.png" alt />
             <h1>{{ konsul.tanggal.slice(4,16) }}</h1>
@@ -73,25 +73,28 @@
         </section>
       </div>
       <div class="detail" v-else>
-        <h2 class="tanggal">mar 20 2020</h2>
+        <h2 class="tanggal">{{ tanggal.slice(4,16) }}</h2>
         <div class="diagnosis">
           <h2>diagnosis penyakit</h2>
-          <p>masuk angin</p>
+          <p>{{ diagnosis }}</p>
         </div>
         <div class="obat">
           <h2>obat</h2>
-          <div class="nama">
-            <p>nama</p>
-            <p>2</p>
-          </div>
-          <div class="aturan">
-            <p>aturan pakai</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, fugiat.</p>
+          <div class="list-obat" v-for="obat in obat" :key="obat._id">
+            <div class="nama">
+              <p>{{ obat.obat }}</p>
+              <p>{{ obat.quantity }}</p>
+            </div>
+            <div class="aturan">
+              <p>aturan pakai</p>
+              <p>{{ obat.catatan }}</p>
+            </div>
           </div>
         </div>
+
         <div class="catatan">
           <h2>catatan dokter</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis voluptatum veritatis molestias voluptas sapiente impedit tenetur fugit doloribus provident ea.</p>
+          <p>{{ catatan }}</p>
         </div>
       </div>
     </div>
@@ -116,13 +119,17 @@ export default {
       avatar: "",
       konsul: [],
       isFull: true,
+      tanggal: "",
+      diagnosis: "",
+      obat: [],
+      catatan: "",
     };
   },
   created() {
     let token = localStorage.getItem("token");
 
     axios
-      .get("/get-riwayat", {
+      .get("/get-hasil", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -145,8 +152,18 @@ export default {
       help.classList.toggle("show");
       activity.classList.toggle("show");
     },
-    switchPage() {
+    switchPage(index) {
+      if (index === false) {
+        this.isFull = !this.isFull;
+
+        return;
+      }
+
       this.isFull = !this.isFull;
+      this.tanggal = this.konsul[index].tanggal;
+      this.diagnosis = this.konsul[index].diagnosis;
+      this.obat = this.konsul[index].obat;
+      this.catatan = this.konsul[index].catatan;
     },
   },
 };

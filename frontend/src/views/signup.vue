@@ -131,7 +131,8 @@ export default {
         })
         .then((res) => {
           console.log(res);
-          this.$router.push({ path: "/login" });
+          localStorage.setItem("token", res.data.token);
+          this.$router.push({ path: "/edit-data-pasien" });
         })
         .catch((err) => {
           console.log(err.response);

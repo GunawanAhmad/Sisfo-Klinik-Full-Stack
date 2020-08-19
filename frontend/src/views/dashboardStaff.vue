@@ -16,7 +16,7 @@
     </div>
     <div class="list">
       <ul>
-        <router-link to="/list-pemberian-obat">
+        <router-link to="/daftar-pasien">
           <li class="list-fungsi">
             <p>daftar Pasien</p>
             <img src="img/arrow.png" alt />
@@ -30,7 +30,7 @@
         </router-link>
         <router-link to="/list-pemberian-obat">
           <li class="list-fungsi">
-            <p>Distribusi obat</p>
+            <p>pemberian obat</p>
             <img src="img/arrow.png" alt />
           </li>
         </router-link>

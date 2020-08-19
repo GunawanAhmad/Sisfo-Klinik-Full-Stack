@@ -72,7 +72,7 @@ const routes = [
     component: dashboardStaff
   },
   {
-    path: "/dashboard-dokter/daftar-pasien",
+    path: "/daftar-pasien",
     name: "Daftar Pasien",
     component: daftarPasien
   },

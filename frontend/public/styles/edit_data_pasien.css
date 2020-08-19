@@ -18,8 +18,10 @@ body {
 
 .tinggi input,
 .berat input {
-  width: 22%;
+  width: 25%;
+  text-align: center;
 }
+
 .berat span,
 .tinggi span {
   font-size: 2.4rem;
@@ -78,8 +80,12 @@ form {
   font-weight: bolder;
 }
 
+select {
+  text-align: center;
+}
+
 #bulan-val {
-  width: 11rem;
+  width: auto;
 }
 .account {
   font-size: 2rem;

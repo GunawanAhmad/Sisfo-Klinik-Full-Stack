@@ -2,9 +2,9 @@
   <div class="app">
     <nav>
       <div class="logo">
-        <a href="index.html">
+        <router-link to="/">
           <img src="img/kliniku.png" alt />
-        </a>
+        </router-link>
       </div>
       <div class="user">
         <div class="help"></div>

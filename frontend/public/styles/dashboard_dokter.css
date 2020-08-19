@@ -115,7 +115,8 @@ body {
   margin: 5rem;
   height: auto;
   position: relative;
-  transition: all 0.5s ease;
+
+  transform-origin: 0 0;
 }
 
 .daftar .lain,
@@ -166,8 +167,9 @@ body {
   align-items: center;
   font-size: 1.8rem;
   z-index: 999;
-  transition: all 0.5s ease;
+
   cursor: pointer;
+  transform-origin: center;
 }
 
 .daftar span.hidden,

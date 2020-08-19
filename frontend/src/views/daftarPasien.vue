@@ -1,9 +1,9 @@
 <template>
   <div class="app">
     <div class="logo">
-      <a href="index.html">
+      <router-link to="/">
         <img src="img/kliniku.png" alt />
-      </a>
+      </router-link>
     </div>
     <div class="wave">
       <img src="../../public/img/wave3.png" alt id="waveleft" />
@@ -18,29 +18,28 @@
     <div class="title">daftar pasien</div>
     <div class="container">
       <div class="daftar-pasien">
-        <div class="user" v-for="user in konsul" :key="user._id">
+        <div class="user" v-for="(user,index) in konsul" :key="user._id">
           <div class="teks">
             <!--Nama, tanggal dan keluhan disesuaikan-->
-            <h1 id="nama">{{ user.userId.name }}</h1>
-            <p id="tanggal">{{ user.tanggal.slice(4,15) }}</p>
-            <p id="keluhan">{{ user.keluhan }}</p>
+            <h1 class="nama">{{ user.userId.name }}</h1>
+            <p class="tanggal">{{ user.tanggal.slice(4,15) }}</p>
+            <p class="keluhan">{{ user.keluhan }}</p>
 
             <!--Riwayat sakit disesuaikan-->
             <div class="sakit">
-              <span v-for="(riwayat,index) in user.userId.riwayat" :key="index">{{ riwayat}}</span>
+              <div
+                class="item"
+                v-for="(riwayat,index) in user.userId.riwayat"
+                :key="index"
+              >{{ riwayat}}</div>
             </div>
-            <div class="tombol">
+            <div class="tombol" @click="tanggapi(index)">
               <button>TANGGAPI</button>
             </div>
           </div>
         </div>
         <!--Jumlah Pasien disesuaikan-->
       </div>
-    </div>
-    <div class="logo-bot">
-      <router-link to="/">
-        <img src="../../public/img/kliniku.png" alt />
-      </router-link>
     </div>
   </div>
 </template>
@@ -63,9 +62,16 @@ export default {
       })
       .then((res) => {
         this.konsul = res.data.konsul;
+        console.log(this.konsul);
         console.log(res);
       })
       .catch((err) => console.log(err));
+  },
+  methods: {
+    tanggapi(index) {
+      let id = this.konsul[index]._id;
+      this.$router.push({ path: "/dokter/form-pemeriksaan-pasien/" + id });
+    },
   },
 };
 </script>

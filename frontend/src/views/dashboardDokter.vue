@@ -49,7 +49,7 @@
               </div>
               <img src="img/arrow2.png" alt />
             </div>
-            <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
+            <router-link to="/daftar-pasien" class="lain">lainnya</router-link>
           </div>
         </div>
         <div class="riwayat hidden">

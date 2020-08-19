@@ -244,6 +244,10 @@ a {
   margin-top: 1rem;
 }
 
+.list-obat {
+  margin-bottom: 1.5rem;
+}
+
 .obat .nama {
   display: flex;
   justify-content: space-between;
@@ -303,14 +307,13 @@ a {
 .catatan h2 {
   color: #0d7286;
   font-size: 1.8rem;
-  margin-top: 1.5rem;
 }
 
 .catatan p {
   background-color: #efefef;
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 0.2rem 1rem;
   border-radius: 5px;
   font-size: 1rem;
 }
@@ -353,6 +356,7 @@ a {
   }
   .container {
     width: 100%;
+    padding-left: 0;
   }
   .teks h1:nth-child(1),
   .teks h1:nth-child(2) {
@@ -360,6 +364,10 @@ a {
   }
   h1.small-ver {
     display: block;
+  }
+  .detail {
+    width: 90%;
+    margin: auto;
   }
 }
 @media only screen and (max-width: 900px) {

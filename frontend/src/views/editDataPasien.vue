@@ -12,7 +12,7 @@
       <div class="profil">
         <div class="foto-user">
           <div class="foto">
-            <img id="sourceImg" :src="avatar" />
+            <img id="sourceImg" :src="avatar" @error="hideImg" ref="img" />
           </div>
           <div class="edit-foto">
             <input type="file" @change="onFileSelected" />
@@ -50,6 +50,7 @@
         <div class="ttl content">
           <div class="input">
             <select id="day-val" ref="hari" class="ttl-option">
+              <option disabled selected value>tanggal</option>
               <option value="01">01</option>
               <option value="02">02</option>
               <option value="03">03</option>
@@ -85,6 +86,7 @@
 
             <select id="bulan-val" ref="bulan" class="ttl-option">
               Select Month
+              <option disabled selected value>bulan</option>
               <option value="01" class="data-bulan">Januari</option>
               <option value="02" class="data-bulan">Februari</option>
               <option value="03" class="data-bulan">Maret</option>
@@ -98,19 +100,19 @@
               <option value="11" class="data-bulan">November</option>
               <option value="12" class="data-bulan">Desember</option>
             </select>
-            <input type="text" class="ttl-option" id="tahun" v-model="tahun" />
+            <input type="text" class="ttl-option" id="tahun" v-model="tahun" placeholder="tahun" />
           </div>
         </div>
 
         <h1 class="label">tinggi badan</h1>
         <div class="content tinggi">
-          <input type="number" v-model="height" placeholder="tinggi badan" />
+          <input type="number" v-model="height" placeholder="tinggi" />
           <span>cm</span>
         </div>
 
         <h1 class="label berat">berat badan</h1>
         <div class="content berat">
-          <input type="number" class="content" v-model="weight" placeholder="berat badan" />
+          <input type="number" class="content" v-model="weight" placeholder="berat " />
           <span>Kg</span>
         </div>
 
@@ -196,6 +198,7 @@ export default {
       console.log(input);
     },
     onFileSelected(e) {
+      this.$refs.img.style.display = "";
       this.file = e.target.files[0];
       let img = document.getElementById("sourceImg");
       img.src = URL.createObjectURL(this.file);
@@ -234,6 +237,9 @@ export default {
         this.isInput = true;
       }
     },
+    hideImg() {
+      this.$refs.img.style.display = "none";
+    },
   },
   data() {
     return {
@@ -264,18 +270,24 @@ export default {
       .then((res) => {
         console.log(res);
         this.id = res.data.user._id;
-        this.monthFilter(res.data.user.ttl);
+        if (res.data.user.ttl) {
+          this.monthFilter(res.data.user.ttl);
+        }
         this.name = res.data.user.name;
-        this.address = res.data.user.alamat;
+        console.log(res.data.user.alamat);
+
         this.height = res.data.user.tinggi;
         this.weight = res.data.user.berat;
-        this.birthday = res.data.user.ttl || "";
-        this.avatar = res.data.user.avatar || "";
+        this.birthday = res.data.user.ttl;
+        this.avatar = res.data.user.avatar;
         this.username = res.data.user.username;
-        this.riwayat = res.data.user.riwayat;
+        this.riwayat = res.data.user.riwayat || [];
         this.telepon = res.data.user.telepon;
         this.riwayatInput = this.riwayat.join();
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        if (res.data.user.avatar) {
+          this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        }
+
         if (this.riwayat.length > 0) this.isInput = false;
       })
       .catch((err) => {
