@@ -48,4 +48,6 @@ router.post(
 
 router.get("/get-riwayat", isAuth, konsulControl.getRiwayat);
 
+router.get("/get-hasil", isAuth, konsulControl.getHasil);
+
 module.exports = router;

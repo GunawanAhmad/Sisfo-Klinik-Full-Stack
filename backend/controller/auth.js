@@ -8,6 +8,7 @@ exports.createUser = (req, res, next) => {
   const username = req.body.username;
   const name = req.body.name;
   const password = req.body.password;
+  let loadedUser;
   // let image = undefined;
   // if(req.files) {
   //     image = req.files['avatar'][0].path.replace("\\" ,"/")
@@ -32,12 +33,28 @@ exports.createUser = (req, res, next) => {
           role: "pasien"
           // imageProfile : image
         });
-        return user.save();
+        loadedUser = user;
+        user.save((err, doc) => {
+          if (err) {
+            throw new Error("register failed");
+          }
+          const token = jwt.sign(
+            {
+              username: doc.username,
+              userId: doc._id.toString()
+            },
+            "thisissecretkey",
+            { expiresIn: "2h" }
+          );
+          res.status(200).json({
+            token: token,
+            username: doc.username,
+            role: doc.role
+          });
+        });
       });
     })
-    .then(result => {
-      res.status(200).json({ message: "Signup succes" });
-    })
+
     .catch(err => {
       if (!err.statusCode) {
         err.statusCode = 500;

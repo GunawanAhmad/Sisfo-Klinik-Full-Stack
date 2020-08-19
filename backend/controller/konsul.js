@@ -43,7 +43,7 @@ exports.postKeluhan = (req, res, next) => {
 exports.getKonsul = (req, res, next) => {
   Konsul.find()
     .select("userId tanggal keluhan telahDiperiksa")
-    .populate("userId", "name username")
+    .populate("userId", "name username riwayat")
     .exec()
     .then(result => {
       res.status(201).json({ msg: "succes", konsul: result });
