@@ -1,16 +1,5 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: Poppins;
-}
 .container {
-  margin: 3rem auto 2rem auto;
+  margin: 0rem auto 2rem auto;
 }
 .foto-user {
   width: 10rem;
@@ -40,7 +29,8 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
-  margin-left: 25rem;
+  margin-left: 34rem;
+  margin-top: 3rem;
 }
 .username {
   font-size: 4rem;
@@ -62,6 +52,7 @@ body {
 h1 {
   display: inline;
   font-size: 2rem;
+  font-weight: 600 !important;
 }
 .edit-foto {
   background-color: white;
@@ -79,7 +70,7 @@ h1 {
   display: grid;
   grid-template-areas: "label content";
   grid-template-columns: 1fr 1fr;
-  width: auto;
+  width: 52rem;
   font-weight: lighter;
   position: relative;
   height: auto;
@@ -108,21 +99,23 @@ h1 {
   border: none;
   border-radius: 5px;
 }
-.tulisan {
+.bottom {
   position: absolute;
-  left: 8rem;
-  bottom: 3rem;
+  display: flex;
+  z-index: -99;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 3rem 0rem 3rem;
+  transform: translate(-50%, -10rem);
   font-size: 1.4rem;
-}
-.kanan {
-  position: absolute;
-  right: 8rem;
-  bottom: 2rem;
+  /* border: 1px solid black; */
+  width: 90%;
+  left: 50%;
 }
 
 #logo {
-  height: 3rem;
-  width: 7rem;
+  height: 2rem;
+  width: 9rem;
   margin-bottom: 2rem;
 }
 #bunga {
@@ -137,6 +130,7 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-left: 5rem;
+  margin-top: 5rem;
 }
 .edit a {
   text-decoration: none;
@@ -155,7 +149,7 @@ h1 {
 }
 .back {
   width: 30rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   display: flex;
   margin-left: 5.5rem;
 }
@@ -167,18 +161,23 @@ h1 {
   color: #f7b702;
   width: 90%;
 }
-#ubah {
+.ubah {
   display: flex;
   margin-top: 3rem;
-}
-#ubah a {
-  text-decoration: none;
   color: #f7b702;
+  cursor: pointer;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  background: none;
+  border: none;
+  outline: none;
 }
 
-#ubah img {
-  width: 2.5rem;
-  height: 2.5rem;
+.ubah img {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 5rem;
 }
 
 input {
@@ -199,7 +198,10 @@ input {
 }
 @media only screen and (max-width: 1110px) {
   .info {
-    width: 60%;
+    width: 80rem;
+  }
+  .form {
+    margin-left: 20rem;
   }
   .kanan {
     position: static;
@@ -215,10 +217,50 @@ input {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
+  .profil {
+    margin-left: 10rem;
+    margin-top: 2rem;
+  }
 }
 
 @media only screen and (max-width: 700px) {
   .info {
+    width: 100%;
+  }
+  .form {
+    margin-left: 5rem;
+  }
+  #bunga {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .info {
+    grid-template-areas:
+      "label"
+      "content";
+    grid-template-columns: 1fr;
+  }
+  .content {
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+  }
+  .img img {
     width: 90%;
+  }
+  .form {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .edit {
+    margin-left: 0;
+  }
+  .bottom {
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }

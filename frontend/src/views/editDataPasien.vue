@@ -1,9 +1,5 @@
 <template>
   <div class="app">
-    <!-- <div class="back">
-      <img src="img/arrow.png" alt />
-      <a href="dashboard_pasien.html">kembali ke halaman utama</a>
-    </div>-->
     <div class="container">
       <div class="back">
         <img src="../../public/img/arrow.png" alt />
@@ -12,10 +8,10 @@
       <div class="profil">
         <div class="foto-user">
           <div class="foto">
-            <img id="sourceImg" :src="avatar" @error="hideImg" ref="img" />
+            <img id="sourceImg" :src="avatar" ref="img" />
           </div>
           <div class="edit-foto">
-            <input type="file" @change="onFileSelected" />
+            <input type="file" @change="onFileSelected" ref="realFile" />
             <p
               style="position: relative; z-index: 10; cursor:pointer;"
               @click="getFile"
@@ -32,25 +28,25 @@
     <div class="img">
       <img src="img/bg.png" alt />
     </div>
-    <form action>
+    <form action @submit="editData">
       <div class="info">
         <h1 class="label">username</h1>
         <h1 class="content user-username">{{ username }}</h1>
 
         <h1 class="label">no telepon</h1>
-        <input type="text" class="content" v-model="telepon" placeholder="no telepon" />
+        <input type="text" class="content" v-model="telepon" placeholder="no telepon" required />
 
         <h1 class="label">nama lengkap</h1>
-        <input type="text" class="content" v-model="name" placeholder="nama" />
+        <input type="text" class="content" v-model="name" placeholder="nama" required />
 
         <h1 class="label">alamat</h1>
-        <input type="text" class="content" v-model="address" placeholder="alamat" />
+        <input type="text" class="content" v-model="address" placeholder="alamat" required />
 
         <h1 class="label">tanggal lahir</h1>
         <div class="ttl content">
           <div class="input">
             <select id="day-val" ref="hari" class="ttl-option">
-              <option disabled selected value>tanggal</option>
+              <!-- <option disabled selected value>tanggal</option> -->
               <option value="01">01</option>
               <option value="02">02</option>
               <option value="03">03</option>
@@ -86,7 +82,7 @@
 
             <select id="bulan-val" ref="bulan" class="ttl-option">
               Select Month
-              <option disabled selected value>bulan</option>
+              <!-- <option disabled selected value>bulan</option> -->
               <option value="01" class="data-bulan">Januari</option>
               <option value="02" class="data-bulan">Februari</option>
               <option value="03" class="data-bulan">Maret</option>
@@ -100,19 +96,27 @@
               <option value="11" class="data-bulan">November</option>
               <option value="12" class="data-bulan">Desember</option>
             </select>
-            <input type="text" class="ttl-option" id="tahun" v-model="tahun" placeholder="tahun" />
+            <input
+              type="text"
+              class="ttl-option"
+              id="tahun"
+              v-model="tahun"
+              placeholder="tahun"
+              autocomplete="off"
+              required
+            />
           </div>
         </div>
 
         <h1 class="label">tinggi badan</h1>
         <div class="content tinggi">
-          <input type="number" v-model="height" placeholder="tinggi" />
+          <input type="number" v-model="height" placeholder="0" required />
           <span>cm</span>
         </div>
 
         <h1 class="label berat">berat badan</h1>
         <div class="content berat">
-          <input type="number" class="content" v-model="weight" placeholder="berat " />
+          <input type="number" class="content" v-model="weight" placeholder="0" required />
           <span>Kg</span>
         </div>
 
@@ -135,10 +139,10 @@
             >{{riwayat[index]}}&nbsp;</span>
           </span>
         </h1>
-        <div class="label" id="ubah" @click="editData">
-          <h2>Simpan</h2>
+        <button class="ubah" type="submit">
+          <h2>simpan</h2>
           <img src="img/arrow.png" alt />
-        </div>
+        </button>
       </div>
       <div class="edit">
         <router-link to="/account">
@@ -170,11 +174,15 @@ import axios from "axios";
 
 export default {
   methods: {
-    editData() {
+    editData(e) {
+      e.preventDefault();
       const formData = new FormData();
       formData.append("nama", this.name);
       formData.append("alamat", this.address);
-      formData.append("ttl", this.birthday);
+      formData.append(
+        "ttl",
+        `${this.tahun}-${this.$refs.bulan.value}-${this.$refs.hari.value}`
+      );
       formData.append("tinggi", this.height);
       formData.append("berat", this.weight);
       formData.append("avatar", this.file);
@@ -189,19 +197,17 @@ export default {
         })
         .then((res) => {
           console.log(res);
-          this.$router.push({ path: "/konsultasi" });
+          this.$router.push({ path: "/data-pasien" });
         })
         .catch((err) => console.log(err));
     },
     getFile() {
-      let input = document.querySelector(".edit-foto input").click();
-      console.log(input);
+      this.$refs.realFile.click();
     },
     onFileSelected(e) {
       this.$refs.img.style.display = "";
       this.file = e.target.files[0];
-      let img = document.getElementById("sourceImg");
-      img.src = URL.createObjectURL(this.file);
+      this.avatar = URL.createObjectURL(this.file);
     },
     inputing() {
       console.log("asd");
@@ -248,7 +254,6 @@ export default {
       address: "",
       height: 0,
       weight: 0,
-      birthday: "",
       avatar: "",
       username: "",
       riwayatInput: "",
@@ -278,7 +283,7 @@ export default {
 
         this.height = res.data.user.tinggi;
         this.weight = res.data.user.berat;
-        this.birthday = res.data.user.ttl;
+        this.address = res.data.user.alamat;
         this.avatar = res.data.user.avatar;
         this.username = res.data.user.username;
         this.riwayat = res.data.user.riwayat || [];

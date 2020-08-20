@@ -60,12 +60,10 @@
             class="penyakit"
           >{{riwayat[index]}}&nbsp;</span>
         </h1>
-        <div class="label" id="ubah">
-          <router-link to="/edit-data-pasien">
-            <h2>ubah data</h2>
-          </router-link>
+        <button class="ubah" @click="$router.push({path : '/edit-data-pasien'})">
+          <h2>ubah data</h2>
           <img src="img/arrow.png" alt />
-        </div>
+        </button>
       </div>
       <div class="edit">
         <router-link to="/account">
@@ -75,18 +73,20 @@
       </div>
     </div>
 
-    <div class="tulisan">
-      <p id="1">kenapa kami tanyakan tinggi dan berat badan?</p>
-      <p id="2">
-        tinggi badan dan berat badan digunakan untuk dosis yang pas buat
-        kamu
-      </p>
-    </div>
-    <div class="kanan">
-      <router-link to="/">
-        <img id="logo" src="img/kliniku.png" alt />
-      </router-link>
-      <img id="bunga" src="img/bunga.png" alt />
+    <div class="bottom">
+      <div class="tulisan">
+        <p id="1">kenapa kami tanyakan tinggi dan berat badan?</p>
+        <p id="2">
+          tinggi badan dan berat badan digunakan untuk dosis yang pas buat
+          kamu
+        </p>
+      </div>
+      <div class="kanan">
+        <router-link to="/">
+          <img id="logo" src="img/kliniku.png" alt />
+        </router-link>
+        <img id="bunga" src="img/bunga.png" alt />
+      </div>
     </div>
   </div>
 </template>
