@@ -59,7 +59,7 @@
               class="user"
               v-for="(user,index) in riwayatPemeriksaan"
               :key="index"
-              @click="goToForm(index)"
+              @click="goToFormm(index)"
               style="cursor:pointer;"
             >
               <div class="info">
@@ -128,6 +128,10 @@ export default {
     },
     goToForm(index) {
       let id = this.daftarPasien[index]._id;
+      this.$router.push({ path: "/dokter/form-pemeriksaan-pasien/" + id });
+    },
+    goToFormm(index) {
+      let id = this.riwayatPemeriksaan[index]._id;
       this.$router.push({ path: "/dokter/form-pemeriksaan-pasien/" + id });
     },
     daftarKonsulFilter(konsul) {

@@ -271,6 +271,9 @@ input {
     margin-left: 10rem;
     margin-top: 2rem;
   }
+  .bottom {
+    transform: translate(-50%, 0);
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -283,9 +286,15 @@ input {
   #bunga {
     display: none;
   }
+  .bottom {
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .info {
     grid-template-areas:
       "label"

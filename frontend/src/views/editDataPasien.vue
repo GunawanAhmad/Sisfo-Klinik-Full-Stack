@@ -153,8 +153,8 @@
     </form>
     <div class="bottom">
       <div class="tulisan">
-        <p id="1">kenapa kami tanyakan tinggi dan berat badan?</p>
-        <p id="2">
+        <p>kenapa kami tanyakan tinggi dan berat badan?</p>
+        <p>
           tinggi badan dan berat badan digunakan untuk dosis yang pas buat
           kamu
         </p>

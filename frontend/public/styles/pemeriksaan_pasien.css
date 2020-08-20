@@ -175,6 +175,7 @@ input[type="number"] {
 .diagnosis .input {
   background-color: #d4ebe9;
   width: 20rem;
+  padding-left: 5px;
 }
 
 span.penyakit {

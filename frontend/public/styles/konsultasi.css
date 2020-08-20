@@ -239,6 +239,9 @@ nav {
   .back {
     margin-left: 10px;
   }
+  .wave {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1230px) {
   .container {

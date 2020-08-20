@@ -249,8 +249,28 @@ export default {
         this.berat = res.data.konsul.userId.berat;
         this.tinggi = res.data.konsul.userId.tinggi;
         this.riwayatInput = this.riwayat.join();
+        this.lain = res.data.konsul.lain;
+        this.catatan = res.data.konsul.catatan;
+        this.diagnosis = res.data.konsul.diagnosis;
+        this.makanan = res.data.konsul.makanan;
+        this.pekerjaan = res.data.konsul.pekerjaan;
         this.username = res.data.konsul.userId.username;
         if (this.riwayat.length > 0) this.isInput = false;
+
+        const tidur = document.querySelectorAll("#tidur");
+        this.findValue(tidur, res.data.konsul.waktuTidur);
+
+        const minum = document.querySelectorAll("#minum");
+        this.findValue(minum, res.data.konsul.intensitasMinum);
+
+        const olahraga = document.querySelectorAll("#olahraga");
+        this.findValue(olahraga, res.data.konsul.intensitasOlahraga);
+
+        const rokok = document.querySelectorAll("#rokok");
+        this.findValue(rokok, res.data.konsul.perokok);
+
+        const gejala = document.querySelectorAll("#gejala");
+        this.findGejala(gejala, res.data.konsul.gejalaUmum);
       })
       .catch((err) => {
         console.log(err.response);
@@ -367,14 +387,23 @@ export default {
           console.log(err);
         });
     },
-    findValue(form) {
-      let value = [];
+    findValue(form, value) {
       for (let i = 0; i < form.length; i++) {
-        if (form[i].checked) {
-          value.push(form[i].value);
+        if (form[i].getAttribute("value") === value) {
+          form[i].checked = true;
+          return;
         }
       }
-      return value;
+    },
+    findGejala(form, value) {
+      let array = value.split(",");
+      form.forEach((el) => {
+        array.forEach((val) => {
+          if (val === el.getAttribute("value")) {
+            el.checked = true;
+          }
+        });
+      });
     },
   },
 };
