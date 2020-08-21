@@ -34,8 +34,8 @@
           <br />hubungi dokter anda kapan saja dan di mana saja
         </p>
         <div class="started">
-          <router-link to="/dashboard-pasien">get started</router-link>
-          <router-link to="/dashboard-pasien">
+          <router-link to="/about">get started</router-link>
+          <router-link to="/about">
             <img src="../../public/img/arrow.png" alt />
           </router-link>
         </div>

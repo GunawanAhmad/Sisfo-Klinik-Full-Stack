@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import about from "../views/about.vue";
 import Login from "../views/login.vue";
 import Signup from "../views/signup.vue";
 import DashboardPasien from "../views/dashboardPasien.vue";
@@ -135,6 +136,11 @@ const routes = [
     path: "/riwayat",
     name: "Riwayat Page",
     component: riwayat
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: about
   }
 
   // {
