@@ -9,6 +9,87 @@
   height: 6rem;
   border-radius: 50%;
 }
+.user {
+  display: flex;
+  margin-right: 10rem;
+  align-items: flex-start;
+  height: 15rem;
+  padding: 2rem;
+  transition: height 0.5s ease;
+  position: relative;
+}
+.help {
+  height: 0;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.help.show {
+  opacity: 1;
+  position: absolute;
+  background-color: white;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 20rem;
+  z-index: -99;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.user .username {
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.foto .data {
+  display: flex;
+  align-items: center;
+}
+.data {
+  cursor: pointer;
+}
+
+.foto .data a {
+  color: #f7b702;
+  text-decoration: none;
+}
+
+.activity {
+  margin-top: 2.5rem;
+  color: #f7b702;
+  font-size: 1.2rem;
+  display: none;
+}
+
+.kelola-akun,
+.logout {
+  cursor: pointer;
+}
+
+.activity.show {
+  display: block;
+}
+
+.activity div {
+  display: flex;
+  align-items: center;
+}
+.activity img,
+.foto .data img {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.user .username {
+  font-size: 1.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.user .nama {
+  margin-top: 1rem;
+  margin-right: 2rem;
+  color: black;
+}
 
 .wave img {
   position: absolute;
@@ -41,18 +122,14 @@
   margin: auto;
   font-size: 1.5rem;
 }
+
 nav {
-  margin-top: 5rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.user {
-  display: flex;
-  margin-right: 10rem;
-  align-items: center;
-  justify-content: center;
-}
+
 .user .nama {
   margin-right: 2rem;
   color: black;
@@ -66,10 +143,6 @@ nav {
   height: 1rem;
   width: 1rem;
   margin-left: 0.1rem;
-}
-
-.user .nama h1 {
-  font-size: 2.5rem;
 }
 
 .user .nama p {

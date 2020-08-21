@@ -47,13 +47,16 @@
         <h1>antrian</h1>
         <p>cek antrian kamu udah sampai mana</p>
 
-        <div class="info">
+        <div class="info" v-if="antrian">
           <h6>keluhan {{ tanggal[1]}} {{ tanggal[0] }} {{ tanggal[2] }}</h6>
           <h4>anda berada pada</h4>
           <h4>
             antrian ke
             <span>{{ antrian }}</span>
           </h4>
+        </div>
+        <div class="msg" v-else>
+          <h4>kamu belum melakukan konsultasi</h4>
         </div>
       </div>
       <div class="dokter">
@@ -127,38 +130,26 @@ export default {
   },
   created() {
     let token = localStorage.getItem("token");
-    let one = "/getUser";
-    let two = "/antrian";
-    let data = {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
-
-    const requestOne = axios.get(one, data);
-    const requestTwo = axios.get(two, data);
+    axios
+      .get("/getUser", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        this.username = res.data.user.username;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+      });
 
     axios
-      .all([requestOne, requestTwo])
-      .then(
-        axios.spread((...responses) => {
-          // use/access the results
-          const responseOne = responses[0];
-          const responseTwo = responses[1];
-          this.username = responseOne.data.user.username;
-          this.avatar = "http://localhost:5000/" + responseOne.data.user.avatar;
-          this.antrian = responseTwo.data.index;
-          this.tanggal = responseTwo.data.data.tanggal.slice(4, 15).split(" ");
-          console.log(responseTwo);
-        })
-      )
-      .catch((err) => {
-        // react on errors.
-        // console.log(err.response);
-        console.log(err);
-        if (err.response.data.message === "jwt expired") {
-          this.$router.push({ path: "/login" });
-        }
+      .get("/antrian", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        this.antrian = res.data.index;
       });
   },
 };

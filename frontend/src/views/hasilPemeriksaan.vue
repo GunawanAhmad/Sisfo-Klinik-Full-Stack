@@ -129,6 +129,17 @@ export default {
     let token = localStorage.getItem("token");
 
     axios
+      .get("/getUser", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        this.username = res.data.user.username;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+      });
+
+    axios
       .get("/get-hasil", {
         headers: {
           Authorization: "Bearer " + token,
@@ -136,9 +147,7 @@ export default {
       })
       .then((res) => {
         console.log(res);
-        this.username = res.data.konsul[0].userId.username;
-        this.avatar =
-          "http://localhost:5000/" + res.data.konsul[0].userId.avatar;
+
         this.konsul = res.data.konsul;
       })
       .catch((err) => {

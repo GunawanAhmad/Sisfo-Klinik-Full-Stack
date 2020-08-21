@@ -81,32 +81,25 @@ import axios from "axios";
 export default {
   created() {
     let token = localStorage.getItem("token");
-    let requestDataUser = axios.get("/getUser", {
-      headers: {
-        Authorization: "Barier " + token,
-      },
-    });
-    let requestKonsul = axios.get("/getKonsul", {
-      headers: {
-        Authorization: "Barier " + token,
-      },
-    });
     axios
-      .all([requestDataUser, requestKonsul])
-      .then(
-        axios.spread((...responses) => {
-          const dataUser = responses[0];
-          const dataKonsul = responses[1];
-          console.log(dataKonsul);
-          this.nama = dataUser.data.user.name;
-          this.avatar = "http://localhost:5000/" + dataUser.data.user.avatar;
-          this.daftarKonsulFilter(dataKonsul.data.konsul);
+      .get("/getUser", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        this.nama = res.data.user.name;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+      });
 
-          // console.log(dataUser, dataKonsul);
-        })
-      )
-      .catch((err) => {
-        console.log(err);
+    axios
+      .get("/getKonsul", {
+        headers: {
+          Authorization: "bearer " + token,
+        },
+      })
+      .then((res) => {
+        this.daftarKonsulFilter(res.data.konsul);
       });
   },
   data() {
@@ -136,7 +129,6 @@ export default {
     },
     daftarKonsulFilter(konsul) {
       for (let i = 0; i < konsul.length; i++) {
-        console.log(konsul[i].telahDiperiksa);
         if (konsul[i].telahDiperiksa) {
           this.riwayatPemeriksaan.push(konsul[i]);
         } else {

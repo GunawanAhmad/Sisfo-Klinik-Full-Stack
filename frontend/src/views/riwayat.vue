@@ -21,17 +21,28 @@
         </div>
       </div>
       <div class="user">
+        <div class="help"></div>
         <div class="nama">
           <!--username dan status sesuai dengan username yang sudah login/register-->
-          <h1 id="user">{{ username }}</h1>
-          <p id="status">Patient account</p>
+          <h1 class="username" @click="showMenu">{{ username }}</h1>
+          <p class="status">patient account</p>
+          <div class="activity">
+            <div class="kelola-akun" @click="$router.push({path :'/account'})">
+              <p>kelola akun</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+            <div class="logout" @click="logout">
+              <p>logout</p>
+              <img src="../../public/img/arrow.png" alt />
+            </div>
+          </div>
         </div>
         <div class="foto">
           <div class="foto-user">
             <img :src="avatar" alt />
           </div>
           <div class="data">
-            <router-link to="/data-pasien">kelola data</router-link>
+            <router-link to="/edit-data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />
           </div>
         </div>
@@ -78,7 +89,9 @@
 
 <script>
 import axios from "axios";
+import { logout } from "../../mixin";
 export default {
+  mixins: [logout],
   data() {
     return {
       isShow: true,
@@ -103,9 +116,26 @@ export default {
       this.tanggapan = detail.catatan;
       this.obat = detail.obat;
     },
+    showMenu() {
+      const help = document.querySelector(".help");
+      const activity = document.querySelector(".activity");
+      help.classList.toggle("show");
+      activity.classList.toggle("show");
+    },
   },
   created() {
     let token = localStorage.getItem("token");
+
+    axios
+      .get("/getUser", {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((res) => {
+        this.username = res.data.user.username;
+        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+      });
     axios
       .get("/get-riwayat", {
         headers: {
@@ -114,9 +144,7 @@ export default {
       })
       .then((res) => {
         console.log(res);
-        this.username = res.data.konsul[0].userId.username;
-        this.avatar =
-          "http://localhost:5000/" + res.data.konsul[0].userId.avatar;
+
         this.riwayat = res.data.konsul;
       })
       .catch((err) => {

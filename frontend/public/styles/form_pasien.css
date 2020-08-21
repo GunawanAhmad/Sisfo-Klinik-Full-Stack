@@ -1,0 +1,329 @@
+.tinggi,
+.berat {
+  display: flex;
+  align-items: center;
+}
+
+.tinggi input,
+.berat input {
+  width: 20%;
+}
+
+.berat span,
+.tinggi span {
+  font-size: 2.4rem;
+}
+.container {
+  margin: 3rem auto 2rem auto;
+}
+.foto-user {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: lightgray;
+  position: relative;
+  margin-right: 3rem;
+}
+.foto-user a {
+  text-decoration: none;
+  color: black;
+}
+
+.profil {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 40rem;
+}
+.edit-foto {
+  position: absolute;
+  right: -2.5rem;
+  bottom: 1rem;
+}
+
+form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-left: 35rem;
+  margin-top: 3rem;
+
+  /* border: 1px solid black; */
+}
+.ttl .input {
+  display: flex;
+}
+
+.ttl .input select {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  font-weight: 600;
+
+  margin-right: 1rem;
+  font-weight: 600;
+}
+.ttl .input input {
+  max-width: 10rem;
+}
+.username {
+  font-size: 4rem;
+  font-weight: bolder;
+}
+
+#bulan-val {
+  width: auto;
+}
+.account {
+  font-size: 2rem;
+  color: grey;
+}
+.img img {
+  width: 60rem;
+  height: 40rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+h1 {
+  display: inline;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.edit-foto {
+  background-color: white;
+  border-radius: 20px;
+  padding: 0 5px;
+}
+.edit-foto input {
+  display: none;
+}
+input {
+  font-size: 2rem;
+  padding: 5px;
+}
+
+.foto img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+}
+
+.info {
+  display: grid;
+  grid-template-areas: "label content";
+  grid-template-columns: 1fr 1fr;
+  width: 55rem;
+  font-weight: lighter;
+  position: relative;
+  height: auto;
+  /* border: 1px solid black; */
+}
+
+.user-username {
+  margin-left: 0.5rem;
+  font-size: 2rem;
+}
+.label {
+  grid-area: "label";
+  margin-bottom: 10px;
+  color: grey;
+}
+.content {
+  grid-area: "content";
+}
+.penyakit {
+  background-color: #e0e0e0;
+  padding: 5px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 1rem;
+  /* border: 10px solod black; */
+  display: inline-block;
+}
+.tombol button {
+  width: 50rem;
+  height: 3.5rem;
+  margin-top: 1.5rem;
+  background-color: #2c2c2c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.bottom {
+  position: absolute;
+  display: flex;
+  z-index: -99;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 3rem 0rem 3rem;
+  transform: translate(-50%, -10rem);
+  font-size: 1.4rem;
+  /* border: 1px solid black; */
+  width: 90%;
+  left: 50%;
+}
+
+#logo {
+  height: 2rem;
+  width: 9rem;
+  margin-bottom: 2rem;
+}
+#bunga {
+  height: 18rem;
+  width: 10rem;
+}
+
+.edit {
+  display: flex;
+  align-items: center;
+  font-style: Poppins;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-left: 5rem;
+  opacity: 0;
+  pointer-events: none;
+  /* border: 1px solid black; */
+}
+.edit a {
+  text-decoration: none;
+  color: #808080;
+}
+
+.edit img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.back img {
+  transform: rotate(180deg);
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.back {
+  width: 30rem;
+  margin-top: 2rem;
+  display: flex;
+  margin-left: 5.5rem;
+}
+
+.back a {
+  text-decoration: none;
+  margin: auto;
+  font-size: 1.5rem;
+  color: #f7b702;
+  width: 90%;
+}
+.btn {
+  background-color: #2c2c2c;
+  width: 200%;
+  outline: none;
+  border: none;
+  color: white;
+  height: 4rem;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+option {
+  font-size: 2rem;
+}
+
+input {
+  height: 30px;
+  background: transparent;
+  border: none;
+  font-weight: 600;
+}
+::placeholder {
+  font-weight: bolder;
+  font-size: 2rem;
+}
+@media only screen and (max-width: 1110px) {
+  .info {
+    width: 80rem;
+  }
+  form {
+    margin-left: 20rem;
+  }
+  .kanan {
+    position: static;
+    margin-left: 30%;
+  }
+  .tulisan {
+    position: static;
+  }
+  .edit {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .profil {
+    margin-left: 10rem;
+    margin-top: 2rem;
+  }
+  .bottom {
+    transform: translate(-50%, 0);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .info {
+    width: 100%;
+  }
+  form {
+    margin-left: 5rem;
+  }
+  #bunga {
+    display: none;
+  }
+  .bottom {
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .info {
+    grid-template-areas:
+      "label"
+      "content";
+    grid-template-columns: 1fr;
+  }
+  .content {
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+  }
+  .berat span {
+    margin-bottom: 2rem;
+  }
+  .img img {
+    width: 90%;
+  }
+  form {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .edit {
+    margin-left: 0;
+  }
+  .bottom {
+    transform: translate(-50%, 0);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .btn {
+    width: 80%;
+  }
+  .label {
+    padding-left: 5px;
+  }
+}

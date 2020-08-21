@@ -23,6 +23,7 @@ import listPemberianObat from "../views/listPemberianObat.vue";
 import antrian from "../views/antrian.vue";
 import hasilPemeriksaan from "../views/hasilPemeriksaan.vue";
 import riwayat from "../views/riwayat.vue";
+import formPasien from "../views/formPasien";
 
 Vue.use(VueRouter);
 
@@ -141,6 +142,11 @@ const routes = [
     path: "/about",
     name: "About",
     component: about
+  },
+  {
+    path: "/signup/form",
+    name: "Form Pasien",
+    component: formPasien
   }
 
   // {

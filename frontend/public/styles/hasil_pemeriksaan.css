@@ -45,10 +45,10 @@
   font-size: 1.5rem;
 }
 nav {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 .user {
   display: flex;
