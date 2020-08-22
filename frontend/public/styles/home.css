@@ -96,4 +96,7 @@ nav {
   .navigasi li {
     margin-left: 1rem;
   }
+  .navigasi {
+    width: 35%;
+  }
 }

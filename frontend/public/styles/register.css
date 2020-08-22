@@ -191,6 +191,7 @@ button {
 @media only screen and (max-width: 900px) {
   .container {
     flex-wrap: wrap;
+    margin: 5rem;
   }
   .teks {
     margin: auto;
@@ -200,7 +201,8 @@ button {
   }
   .logo {
     left: 50%;
-    transform: translate(-50% -50%);
+    transform: translateX(-50%);
+    right: unset;
     bottom: unset;
   }
   .wave {

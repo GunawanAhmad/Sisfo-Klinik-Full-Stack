@@ -39,7 +39,7 @@
     </div>
     <div class="halo">
       <!--nama sesuai dengan username yang sudah login/register-->
-      <h1 id="nama">Halo Gunawan!</h1>
+      <h1 id="nama">Halo {{nama}}!</h1>
 
       <p>ada yang bisa kami bantu?</p>
     </div>
@@ -108,6 +108,7 @@ export default {
       .then((res) => {
         this.username = res.data.user.username;
         this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
+        this.nama = res.data.user.name;
       })
       .catch((err) => {
         console.log(err.response);
@@ -119,6 +120,7 @@ export default {
   data() {
     return {
       username: "",
+      nama: "",
       avatar: "",
     };
   },

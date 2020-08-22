@@ -331,13 +331,13 @@ a {
   }
   .container {
     margin-top: 2rem;
+    margin-left: 1rem;
   }
-  .teks h1:nth-child(1),
-  .teks h1:nth-child(2) {
-    display: none;
+  .fungsi {
+    width: 30rem;
   }
-  h1.small-ver {
-    display: block;
+  .teks section h1 {
+    font-size: 4.5rem;
   }
 }
 
@@ -358,28 +358,18 @@ a {
     width: 100%;
     padding-left: 0;
   }
-  .teks h1:nth-child(1),
-  .teks h1:nth-child(2) {
-    display: none;
-  }
-  h1.small-ver {
-    display: block;
-  }
+
   .detail {
     width: 90%;
+    margin: auto;
+  }
+  .teks {
     margin: auto;
   }
 }
 @media only screen and (max-width: 900px) {
   .bunga {
     display: none;
-  }
-  .teks h1:nth-child(1),
-  .teks h1:nth-child(2) {
-    display: none;
-  }
-  h1.small-ver {
-    display: block;
   }
 }
 

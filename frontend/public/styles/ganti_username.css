@@ -84,8 +84,8 @@ h1 {
 }
 
 #logo {
-  height: 3rem;
-  width: 7rem;
+  height: 2rem;
+  width: 9rem;
   margin-bottom: 2rem;
 }
 #bunga {
@@ -186,27 +186,63 @@ h1 {
   grid-area: "content";
 }
 @media only screen and (max-width: 1110px) {
+  .profil {
+    margin-left: 15rem;
+  }
   .info {
-    width: 60%;
+    width: 70%;
   }
-  .kanan {
-    position: static;
-    margin-left: 30%;
-  }
-  .tulisan {
-    position: static;
-  }
-  .edit {
-    position: static;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .form {
+    margin-left: 10rem;
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 740px) {
+  .profil {
+    margin-left: 10rem;
+  }
+  .info {
+    width: 80%;
+  }
+  .form {
+    margin-left: 5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .img img {
+    width: 100%;
+  }
+  #bunga {
+    display: none;
+  }
   .info {
     width: 90%;
+    grid-template-areas:
+      "label"
+      "content";
+    grid-template-columns: 1fr;
+  }
+  .content {
+    margin-bottom: 1rem;
+  }
+  .form {
+    flex-direction: column;
+  }
+  .edit {
+    margin-left: unset;
+  }
+  .profil {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: unset;
+  }
+  .nama .username {
+    font-size: 2.5rem;
+  }
+  .nama .account {
+    font-size: 1.4rem;
+    margin-top: unset;
   }
 }

@@ -275,11 +275,12 @@ nav {
   .dot {
     display: none;
   }
-  .fungsi {
+  .riwayat {
     justify-content: center;
-    margin: auto;
+    margin: 0;
+    width: 50rem;
   }
-  .suster img {
+  .dokter img {
     display: none;
   }
 }
@@ -312,5 +313,11 @@ nav {
   .dokter img {
     width: 15rem;
     height: 35rem;
+  }
+  .riwayat {
+    width: 30rem;
+  }
+  .container {
+    padding-left: 3rem;
   }
 }

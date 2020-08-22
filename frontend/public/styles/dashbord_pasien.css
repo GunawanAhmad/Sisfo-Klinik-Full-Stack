@@ -266,6 +266,12 @@ nav {
     margin-right: 5rem;
   }
   .logo {
-    margin-left: 5rem;
+    margin-left: 2rem;
+  }
+  .user {
+    margin-right: 0rem;
+  }
+  .halo {
+    margin-left: 2rem;
   }
 }

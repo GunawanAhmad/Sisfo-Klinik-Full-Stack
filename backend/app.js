@@ -10,6 +10,7 @@ const userRoutes = require("./routes/user");
 const konsulRoutes = require("./routes/konsul");
 const staffRoutes = require("./routes/staff");
 const user = require("./model/user");
+const ngrok = require("ngrok");
 
 const fileStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -70,7 +71,7 @@ app.use((error, req, res, next) => {
 });
 
 let users = [];
-
+const port = 5000;
 mongoose
   .connect("mongodb://localhost:27017/db", {
     dbName: "Sisfo-Klinik",
@@ -78,42 +79,9 @@ mongoose
     useUnifiedTopology: true
   })
   .then(result => {
-    app.listen(5000);
-    // const server = app.listen(5000);
-    // const io = require("socket.io")(server);
-    // io.on("connection", socket => {
-    //   console.log("socket connected", socket.id);
-    //   socket.on("chat", function (data) {
-    //     for (let i = 0; i < users.length; i++) {
-    //       if (users[i].username == data.user) {
-    //         console.log("sama");
-    //         // users[i].socketId = socket.id;
-    //         io.to(users[i].socketId).emit("chat", data);
-    //         return;
-    //       }
-    //     }
-    //     console.log(users);
-    //     let user = {
-    //       username: data.user,
-    //       socketId: socket.id
-    //     };
-    //     users.push(user);
-    //     // io.sockets.emit("chat", data);
-    //     // io.to("5RpdQZJNYt_zXUKYAAAj").emit("chat", data);
-    //   });
-    //   socket.on("username", data => {
-    //     console.log(data);
-    //     socket.username = data;
-    //     let user = {
-    //       username: data.user,
-    //       socketId: socket.id
-    //     };
-    //     users.push(user);
-    //     io.sockets.emit(
-    //       "username",
-    //       JSON.stringify(user.username) + JSON.stringify(users)
-    //     );
-    //   });
-    // });
+    app.listen(port, err => {
+      if (err) return console.log(`Something bad happened: ${err}`);
+      console.log(`Node.js server listening on ${port}`);
+    });
   })
   .catch(err => console.log(err));

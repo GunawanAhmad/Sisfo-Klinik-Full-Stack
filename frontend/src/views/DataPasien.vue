@@ -10,9 +10,6 @@
           <div class="foto">
             <img :src="avatar" alt />
           </div>
-          <div class="edit-foto">
-            <a href="#" style="position: relative; z-index: 10;">ubah foto profil</a>
-          </div>
         </div>
         <div class="nama">
           <!--nama dan status akun sesuai dengan user yang login/register-->
