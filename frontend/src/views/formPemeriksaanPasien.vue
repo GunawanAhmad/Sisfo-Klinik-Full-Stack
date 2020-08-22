@@ -257,20 +257,27 @@ export default {
         this.username = res.data.konsul.userId.username;
         if (this.riwayat.length > 0) this.isInput = false;
 
-        const tidur = document.querySelectorAll("#tidur");
-        this.findValue(tidur, res.data.konsul.waktuTidur);
+        if (res.data.konsul.waktuTidur) {
+          const tidur = document.querySelectorAll("#tidur");
+          this.getValue(tidur, res.data.konsul.waktuTidur);
+        }
+        if (res.data.konsul.intensitasMinum) {
+          const minum = document.querySelectorAll("#minum");
+          this.getValue(minum, res.data.konsul.intensitasMinum);
+        }
+        if (res.data.konsul.intensitasOlahraga) {
+          const olahraga = document.querySelectorAll("#olahraga");
+          this.getValue(olahraga, res.data.konsul.intensitasOlahraga);
+        }
+        if (res.data.konsul.perokok) {
+          const rokok = document.querySelectorAll("#rokok");
+          this.getValue(rokok, res.data.konsul.perokok);
+        }
 
-        const minum = document.querySelectorAll("#minum");
-        this.findValue(minum, res.data.konsul.intensitasMinum);
-
-        const olahraga = document.querySelectorAll("#olahraga");
-        this.findValue(olahraga, res.data.konsul.intensitasOlahraga);
-
-        const rokok = document.querySelectorAll("#rokok");
-        this.findValue(rokok, res.data.konsul.perokok);
-
-        const gejala = document.querySelectorAll("#gejala");
-        this.findGejala(gejala, res.data.konsul.gejalaUmum);
+        if (res.data.konsul.gejalaUmum) {
+          const gejala = document.querySelectorAll("#gejala");
+          this.findGejala(gejala, res.data.konsul.gejalaUmum);
+        }
       })
       .catch((err) => {
         console.log(err.response);
@@ -387,10 +394,18 @@ export default {
           console.log(err);
         });
     },
-    findValue(form, value) {
+    findValue(form) {
+      let value = [];
+      for (let i = 0; i < form.length; i++) {
+        if (form[i].checked) {
+          value.push(form[i].value);
+        }
+      }
+      return value;
+    },
+    getValue(form, value) {
       for (let i = 0; i < form.length; i++) {
         if (form[i].getAttribute("value") === value) {
-          form[i].checked = true;
           return;
         }
       }

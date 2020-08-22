@@ -1,14 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: "Poppins", sans-serif;
-}
 .container {
   padding-right: 20rem;
   padding-left: 5rem;
@@ -95,4 +84,32 @@ button.input {
 .tombol .input {
   background-color: black;
   color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    padding-right: 10rem;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  .form {
+    margin-left: 2rem;
+  }
+  nav {
+    padding-right: 5rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .form {
+    margin: 0;
+  }
 }

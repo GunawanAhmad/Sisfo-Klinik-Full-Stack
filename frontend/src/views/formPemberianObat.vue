@@ -165,14 +165,21 @@
         <div class="list-pemberian">
           <div class="obat-pemberian" v-for="obat in pemberianObat" :key="obat._id">
             <p>{{ obat.namaObat }}</p>
-            <input type="number" v-model="obat.quantity" min="1" :max="obat.jumlah" />
-            <input type="text" v-model="obat.catatan" />
+            <input
+              type="number"
+              v-model="obat.quantity"
+              min="1"
+              :max="obat.jumlah"
+              class="jumlah"
+              placeholder="0"
+            />
+            <input type="text" v-model="obat.catatan" class="catatan" placeholder="catatan" />
           </div>
         </div>
         <div class="input-obat">
           <button class="nama-obat" @click="showTambahObat">tambah obat</button>
-          <input type="Number" class="jumlah-obat" />
-          <input type="text" class="catatan-obat" />
+          <!-- <input type="Number" class="jumlah-obat" />
+          <input type="text" class="catatan-obat" />-->
         </div>
 
         <button class="btn" @click="submitData">SUBMIT</button>
@@ -312,6 +319,7 @@ export default {
         })
         .then((res) => {
           console.log(res);
+          this.$router.push({ path: "/pemberian-obat-selesai" });
         })
         .catch((err) => {
           console.log(err);

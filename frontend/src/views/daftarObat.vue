@@ -3,15 +3,15 @@
     <nav>
       <div class="flexlogo">
         <div class="back">
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
           <router-link to="/dashboard-staff">
             <p>kembali</p>
           </router-link>
         </div>
         <div class="logo">
-          <a href="index.html">
-            <img src="img/kliniku.png" alt />
-          </a>
+          <router-link to="/">
+            <img src="../../public/img/kliniku.png" alt />
+          </router-link>
         </div>
       </div>
     </nav>
@@ -19,7 +19,7 @@
       <div class="top">
         <div class="search">
           <input type="text" placeholder="search" v-model="filterInput" @keyup="filter" />
-          <img src="img/search.png" alt />
+          <img src="../../public/img/search.png" alt />
         </div>
 
         <div class="stock">
@@ -38,7 +38,7 @@
         <button class="btn" @click="$router.push({path : '/staff/tambah-obat'})">
           tambah obat
           <span>
-            <img src="img/circle-plus.png" alt />
+            <img src="../../public/img/circle-plus.png" alt />
           </span>
         </button>
         <ul class="list-obat">
@@ -46,7 +46,7 @@
             v-for="obat in list"
             :key="obat._id"
             :class="obat.jumlah > 0 ? 'ada' : 'tidak-ada'"
-          >{{ obat.namaObat }}&nbsp; {{ obat.satuan }}</li>
+          >{{ obat.namaObat }}&nbsp; {{ obat.jumlah }} &nbsp;{{ obat.satuan }}</li>
         </ul>
       </div>
     </div>

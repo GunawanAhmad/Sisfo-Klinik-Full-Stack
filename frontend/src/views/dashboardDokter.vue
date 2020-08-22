@@ -2,12 +2,12 @@
   <div class="app">
     <div class="logo">
       <router-link to="/">
-        <img src="img/kliniku.png" alt />
+        <img src="../../public/img/kliniku.png" alt />
       </router-link>
     </div>
     <div class="wave">
-      <img src="img/wave3.png" alt id="waveleft" />
-      <img src="img/dokter2.png" alt id="waveright" />
+      <img src="../../public/img/wave3.png" alt id="waveleft" />
+      <img src="../../public/img/dokter2.png" alt id="waveright" />
     </div>
     <div class="container">
       <div class="teks">
@@ -47,9 +47,9 @@
                 <h2>{{ user.userId.name }}</h2>
                 <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt />
+              <img src="../../public/img/arrow2.png" alt />
             </div>
-            <router-link to="/daftar-pasien" class="lain">lainnya</router-link>
+            <router-link to="/daftar-pasien" class="lain" v-if="daftarPasien.length > 0">lainnya</router-link>
           </div>
         </div>
         <div class="riwayat hidden">
@@ -66,9 +66,13 @@
                 <h2>{{ user.userId.name }}</h2>
                 <h4>{{ user.tanggal.slice(4, 15) }}</h4>
               </div>
-              <img src="img/arrow2.png" alt />
+              <img src="../../public/img/arrow2.png" alt />
             </div>
-            <router-link to="/dashboard-dokter/daftar-pasien" class="lain">lainnya</router-link>
+            <router-link
+              to="/daftar-pasien"
+              class="lain"
+              v-if="riwayatPemeriksaan.length > 0"
+            >lainnya</router-link>
           </div>
         </div>
       </div>

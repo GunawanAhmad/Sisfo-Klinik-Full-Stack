@@ -1,15 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  font-family: Poppins;
-  overflow: scroll;
-}
 .kelola-akun {
   display: flex;
   align-items: center;
@@ -193,4 +181,26 @@ a {
 }
 .kelola {
   color: crimson;
+}
+
+@media only screen and (max-width: 780px) {
+  .wave {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .daftar span,
+  .riwayat span {
+    width: 90%;
+  }
+  .daftar,
+  .riwayat {
+    width: 40rem;
+    margin: 5rem 0;
+  }
+  .account {
+    width: auto;
+    margin: 2rem auto;
+  }
 }

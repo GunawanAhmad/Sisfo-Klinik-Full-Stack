@@ -9,9 +9,9 @@
           </router-link>
         </div>
         <div class="logo">
-          <a href="index.html">
+          <router-link to="/">
             <img src="../../public/img/kliniku.png" alt />
-          </a>
+          </router-link>
         </div>
       </div>
       <h1>tambah obat</h1>

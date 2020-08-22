@@ -16,12 +16,6 @@
     </div>
     <div class="list">
       <ul>
-        <router-link to="/daftar-pasien">
-          <li class="list-fungsi">
-            <p>daftar Pasien</p>
-            <img src="img/arrow.png" alt />
-          </li>
-        </router-link>
         <router-link to="/daftar-obat">
           <li class="list-fungsi">
             <p>daftar obat</p>

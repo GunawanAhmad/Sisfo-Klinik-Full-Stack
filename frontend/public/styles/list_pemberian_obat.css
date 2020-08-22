@@ -61,3 +61,22 @@ nav {
 .pasien img {
   height: 15px;
 }
+
+@media only screen and (max-width: 800px) {
+  .app {
+    padding-left: 10rem;
+  }
+  .pasien {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .app {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .pasien {
+    width: 90%;
+  }
+}

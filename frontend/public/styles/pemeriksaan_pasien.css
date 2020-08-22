@@ -234,27 +234,45 @@ span.penyakit {
     margin-left: 10px;
   }
 }
+
 @media only screen and (max-width: 1230px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-  }
-  .img img {
-    margin-bottom: 50px;
-  }
-  .keluhan {
-    left: -80px;
-  }
   .form {
-    flex-direction: column;
-    width: 100%;
-    margin-left: 30px;
+    width: 90%;
   }
-  .dot {
-    display: none;
+  .app {
+    padding-left: 10rem;
   }
   .user {
-    flex-direction: column;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .form {
+    width: 100%;
+  }
+  .app {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .section {
+    grid-template-areas:
+      "label"
+      "input";
+    grid-template-columns: 1fr;
+  }
+  .label {
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .input {
+    margin-bottom: 1rem;
+  }
+  .user {
+    width: 70%;
   }
 }
