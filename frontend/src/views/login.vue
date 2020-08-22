@@ -32,9 +32,9 @@
       <img src="../../public/img/smile.png" alt />
     </div>
     <div class="logo">
-      <a href="index.html">
+      <router-link to="/">
         <img src="../../public/img/kliniku.png" alt />
-      </a>
+      </router-link>
     </div>
 
     <div class="kumpulan">
@@ -105,7 +105,7 @@ export default {
     return {
       username: "",
       password: "",
-      errorMsg: ""
+      errorMsg: "",
     };
   },
   mounted() {
@@ -115,7 +115,7 @@ export default {
     let i = 0;
     a[0].innerHTML = b[i].innerHTML;
     i = 1;
-    setInterval(function() {
+    setInterval(function () {
       if (i > 4) {
         i = 0;
       }
@@ -127,12 +127,12 @@ export default {
     login() {
       let body = {
         username: this.username,
-        password: this.password
+        password: this.password,
       };
 
       axios
         .post("/login", body)
-        .then(res => {
+        .then((res) => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("username", res.data.username);
           // console.log(res);
@@ -143,12 +143,12 @@ export default {
           else if (res.data.role === "staff")
             this.$router.push({ path: "/dashboard-staff" });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.response);
           this.errorMsg = err.response.data.message || "error";
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

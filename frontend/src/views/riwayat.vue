@@ -74,15 +74,15 @@
         </div>
       </div>
       <div class="dokter">
-        <img src="img/riwayat.png" alt />
+        <img src="../../public/img/riwayat.png" alt />
       </div>
     </div>
 
     <div class="wave" ref="waveImg">
-      <img src="img/wave2.png" alt />
+      <img src="../../public/img/wave2.png" alt />
     </div>
     <div class="dot">
-      <img src="img/dot.png" alt />
+      <img src="../../public/img/dot.png" alt />
     </div>
   </div>
 </template>
@@ -134,7 +134,7 @@ export default {
       })
       .then((res) => {
         this.username = res.data.user.username;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
       });
     axios
       .get("/get-riwayat", {

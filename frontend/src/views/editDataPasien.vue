@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="img">
-      <img src="img/bg.png" alt />
+      <img src="../../public/img/bg.png" alt />
     </div>
     <form action @submit="editData">
       <div class="info">
@@ -141,14 +141,14 @@
         </h1>
         <button class="ubah" type="submit">
           <h2>simpan</h2>
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
         </button>
       </div>
       <div class="edit">
         <router-link to="/account">
           <h2>kelola akun</h2>
         </router-link>
-        <img src="img/arrow.png" alt />
+        <img src="../../public/img/arrow.png" alt />
       </div>
     </form>
     <div class="bottom">
@@ -161,9 +161,9 @@
       </div>
       <div class="kanan">
         <router-link to="/">
-          <img id="logo" src="img/kliniku.png" alt />
+          <img id="logo" src="../../public/img/kliniku.png" alt />
         </router-link>
-        <img id="bunga" src="img/bunga.png" alt />
+        <img id="bunga" src="../../public/img/bunga.png" alt />
       </div>
     </div>
   </div>
@@ -290,7 +290,7 @@ export default {
         this.telepon = res.data.user.telepon;
         this.riwayatInput = this.riwayat.join();
         if (res.data.user.avatar) {
-          this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+          this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
         }
 
         if (this.riwayat.length > 0) this.isInput = false;

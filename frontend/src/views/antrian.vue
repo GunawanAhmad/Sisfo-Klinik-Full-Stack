@@ -138,7 +138,7 @@ export default {
       })
       .then((res) => {
         this.username = res.data.user.username;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
       });
 
     axios

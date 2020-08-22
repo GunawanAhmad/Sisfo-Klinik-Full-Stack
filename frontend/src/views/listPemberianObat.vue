@@ -3,14 +3,14 @@
     <nav>
       <div class="flexlogo">
         <div class="back">
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
           <router-link to="/dashboard-staff">
             <p>kembali</p>
           </router-link>
         </div>
         <div class="logo">
           <router-link to="/">
-            <img src="img/kliniku.png" alt />
+            <img src="../../public/img/kliniku.png" alt />
           </router-link>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <h3>{{ pasien.tanggal.slice(4,15) }}</h3>
         </div>
         <div class="img">
-          <img src="img/arrow2.png" alt />
+          <img src="../../public/img/arrow2.png" alt />
         </div>
       </div>
     </div>

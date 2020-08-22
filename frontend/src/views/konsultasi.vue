@@ -4,11 +4,11 @@
       <div class="flexlogo">
         <div class="logo">
           <router-link to="/">
-            <img src="img/kliniku.png" alt />
+            <img src="../../public/img/kliniku.png" alt />
           </router-link>
         </div>
         <div class="back">
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
           <router-link to="dashboard-pasien">
             <p>kembali ke halaman utama</p>
           </router-link>
@@ -50,7 +50,7 @@
 
     <div class="container">
       <div class="img">
-        <img src="img/konsultasi.png" alt />
+        <img src="../../public/img/konsultasi.png" alt />
       </div>
       <div class="form">
         <div class="table">
@@ -96,10 +96,10 @@ yang pernah dicoba, dsb."
     </div>
 
     <div class="wave">
-      <img src="img/wave2.png" alt />
+      <img src="../../public/img/wave2.png" alt />
     </div>
     <div class="dot">
-      <img src="img/dot.png" alt />
+      <img src="../../public/img/dot.png" alt />
     </div>
   </div>
 </template>
@@ -123,7 +123,7 @@ export default {
         this.username = res.data.user.username;
         this.berat = res.data.user.berat;
         this.tinggi = res.data.user.tinggi;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
       })
       .catch((err) => {
         console.log(err.response);

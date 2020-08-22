@@ -67,7 +67,7 @@ export default {
         console.log(res);
         this.username = res.data.user.username;
         this.name = res.data.user.name;
-        this.avatar = "http://localhost:5000/" + res.data.user.avatar;
+        this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
       })
       .catch((err) => {
         console.log(err);
