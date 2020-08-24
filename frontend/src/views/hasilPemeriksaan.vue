@@ -4,7 +4,7 @@
       <div class="flexlogo">
         <div class="logo">
           <router-link to="/">
-            <img src="img/kliniku.png" alt />
+            <img src="../../public/img/kliniku.svg" alt />
           </router-link>
         </div>
         <div class="back" v-if="isFull">
@@ -38,9 +38,7 @@
           </div>
         </div>
         <div class="foto">
-          <div class="foto-user">
-            <img :src="avatar" alt />
-          </div>
+          <div class="foto-user" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>
           <div class="data">
             <router-link to="/data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />

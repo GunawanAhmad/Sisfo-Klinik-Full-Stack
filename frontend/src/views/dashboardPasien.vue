@@ -3,7 +3,7 @@
     <nav>
       <div class="logo">
         <router-link to="/">
-          <img src="img/kliniku.png" alt />
+          <img src="../../public/img/kliniku.svg" alt />
         </router-link>
       </div>
       <div class="user">
@@ -24,9 +24,7 @@
           </div>
         </div>
         <div class="foto">
-          <div class="foto-user">
-            <img :src="avatar" alt />
-          </div>
+          <div class="foto-user" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>
           <div class="data">
             <router-link to="/data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />
@@ -35,7 +33,7 @@
       </div>
     </nav>
     <div class="wave">
-      <img src="img/wave2.png" alt />
+      <img src="../../public/img/wave2.png" alt />
     </div>
     <div class="halo">
       <!--nama sesuai dengan username yang sudah login/register-->
@@ -46,7 +44,7 @@
     <div class="fungsi">
       <router-link to="/konsultasi">
         <div class="konsultasi">
-          <img src="img/heart.png" alt />
+          <img src="../../public/img/heart.png" alt />
           <h1>konsultasi</h1>
           <p>kamu punya keluhan apa? kami siap bantu.</p>
         </div>
@@ -54,14 +52,14 @@
 
       <div class="antrian">
         <router-link to="/antrian">
-          <img src="img/antri.png" alt />
+          <img src="../../public/img/antri.png" alt />
           <h1>antrian</h1>
           <p>cek antrian kamu udah sampai mana</p>
         </router-link>
       </div>
       <router-link to="/riwayat">
         <div class="riwayat">
-          <img src="img/frame.png" alt />
+          <img src="../../public/img/frame.png" alt />
           <h1>riwayat</h1>
           <p>riwayat konsultasi kamu ada di sini</p>
         </div>
@@ -69,17 +67,17 @@
 
       <div class="hasil">
         <router-link to="/hasil-pemeriksaan">
-          <img src="img/list.png" alt />
+          <img src="../../public/img/list.png" alt />
           <h1>hasil pemeriksaan</h1>
           <p>cek hasil pemeriksaan dari dokter</p>
         </router-link>
       </div>
     </div>
     <div class="dot">
-      <img src="img/dot.png" alt />
+      <img src="../../public/img/dot.png" alt />
     </div>
     <div class="suster">
-      <img src="img/suster.png" alt />
+      <img src="../../public/img/suster.png" alt />
     </div>
   </div>
 </template>

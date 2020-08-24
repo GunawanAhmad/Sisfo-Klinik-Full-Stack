@@ -4,11 +4,11 @@
       <div class="flexlogo">
         <div class="logo">
           <router-link to="/">
-            <img src="img/kliniku.png" alt />
+            <img src="../../public/img/kliniku.svg" alt />
           </router-link>
         </div>
         <div class="back">
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
           <router-link to="/dashboard-pasien">
             <p>kembali ke halaman utama</p>
           </router-link>
@@ -32,9 +32,7 @@
           </div>
         </div>
         <div class="foto">
-          <div class="foto-user">
-            <img :src="avatar" alt />
-          </div>
+          <div class="foto-user" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>
           <div class="data">
             <router-link to="/edit-data-pasien">kelola data</router-link>
             <img src="../../public/img/arrow.png" alt />
@@ -60,18 +58,18 @@
         </div>
       </div>
       <div class="dokter">
-        <img src="img/dokter.png" alt />
+        <img src="../../public/img/dokter.png" alt />
       </div>
     </div>
 
     <div class="wave">
-      <img src="img/wave2.png" alt />
+      <img src="../../public/img/wave2.png" alt />
     </div>
     <div class="dot">
-      <img src="img/dot.png" alt />
+      <img src="../../public/img/dot.png" alt />
     </div>
     <div class="bunga">
-      <img src="img/bunga.png" alt />
+      <img src="../../public/img/bunga.svg" alt />
     </div>
   </div>
 </template>

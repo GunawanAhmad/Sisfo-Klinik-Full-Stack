@@ -2,7 +2,7 @@
   <div class="app">
     <div class="logo">
       <router-link to="/">
-        <img src="../../public/img/kliniku.png" alt />
+        <img src="../../public/img/kliniku.svg" alt />
       </router-link>
     </div>
     <div class="wave">
@@ -16,9 +16,7 @@
       </div>
       <div class="account">
         <div class="foto">
-          <div class="photo">
-            <img :src="avatar" alt />
-          </div>
+          <div class="photo" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>
           <p>
             <router-link to="/account" class="kelola-akun">
               <p>kelola akun</p>

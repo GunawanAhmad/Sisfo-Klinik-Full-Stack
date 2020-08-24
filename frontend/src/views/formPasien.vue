@@ -164,9 +164,9 @@
         </div>
         <div class="kanan">
           <router-link to="/">
-            <img id="logo" src="../../public/img/kliniku.png" alt />
+            <img id="logo" src="../../public/img/kliniku.svg" alt />
           </router-link>
-          <img id="bunga" src="../../public/img/bunga.png" alt />
+          <img id="bunga" src="../../public/img/bunga.svg" alt />
         </div>
       </div>
     </div>

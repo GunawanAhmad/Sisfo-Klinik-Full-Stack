@@ -3,8 +3,9 @@
     <!--Navigasi Bar-->
     <nav>
       <div class="logo">
-        <img src="../../public/img/kliniku.png" alt />
+        <img src="../../public/img/kliniku.svg" alt />
       </div>
+
       <ul class="navigasi">
         <li>
           <router-link to="/about">about</router-link>

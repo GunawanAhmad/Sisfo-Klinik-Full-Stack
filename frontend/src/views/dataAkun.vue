@@ -6,11 +6,7 @@
     </div>
     <div class="container">
       <div class="profil">
-        <div class="foto-user">
-          <div class="foto">
-            <img alt :src="avatar" />
-          </div>
-        </div>
+        <div class="foto-user" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>>
         <div class="nama">
           <!--nama dan status akun sesuai dengan user yang login/register-->
           <div class="username">{{ name }}</div>
@@ -55,9 +51,9 @@
 
     <div class="kanan">
       <router-link to="/">
-        <img id="logo" src="../../public/img/kliniku.png" alt />
+        <img id="logo" src="../../public/img/kliniku.svg" alt />
       </router-link>
-      <img id="bunga" src="../../public/img/bunga.png" alt />
+      <img id="bunga" src="../../public/img/bunga.svg" alt />
     </div>
   </div>
 </template>

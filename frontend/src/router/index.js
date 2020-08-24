@@ -14,7 +14,6 @@ import daftarPasien from "../views/daftarPasien.vue";
 import tambahObat from "../views/tambahObat.vue";
 import daftarObat from "../views/daftarObat.vue";
 import formPemeriksaanPasien from "../views/formPemeriksaanPasien.vue";
-import chat from "../views/chat.vue";
 import dataAkun from "../views/dataAkun.vue";
 import gantiUsername from "../views/gantiUsername.vue";
 import gantiPass from "../views/gantiPass.vue";
@@ -94,11 +93,7 @@ const routes = [
     name: "Form Pemeriksaan Pasien",
     component: formPemeriksaanPasien
   },
-  {
-    path: "/chat",
-    name: "chat",
-    component: chat
-  },
+
   {
     path: "/account",
     name: "data akun",

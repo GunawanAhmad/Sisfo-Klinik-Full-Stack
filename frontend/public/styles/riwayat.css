@@ -3,6 +3,7 @@
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
+  background-size: cover;
 }
 .foto-user img {
   width: 6rem;

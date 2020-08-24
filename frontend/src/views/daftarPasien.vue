@@ -2,7 +2,7 @@
   <div class="app">
     <div class="logo">
       <router-link to="/">
-        <img src="img/kliniku.png" alt />
+        <img src="../../public/img/kliniku.svg" alt />
       </router-link>
     </div>
     <div class="wave">

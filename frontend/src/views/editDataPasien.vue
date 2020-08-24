@@ -12,10 +12,11 @@
           <router-link to="/data-pasien">kembali</router-link>
         </div>
         <div class="profil">
-          <div class="foto-user">
-            <div class="foto">
-              <img id="sourceImg" :src="avatar" ref="img" />
-            </div>
+          <div
+            class="foto-user"
+            ref="img"
+            v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"
+          >
             <div class="edit-foto">
               <input type="file" @change="onFileSelected" ref="realFile" />
               <p
@@ -167,9 +168,9 @@
         </div>
         <div class="kanan">
           <router-link to="/">
-            <img id="logo" src="../../public/img/kliniku.png" alt />
+            <img id="logo" src="../../public/img/kliniku.svg" alt />
           </router-link>
-          <img id="bunga" src="../../public/img/bunga.png" alt />
+          <img id="bunga" src="../../public/img/bunga.svg" alt />
         </div>
       </div>
     </div>
@@ -220,9 +221,9 @@ export default {
       this.$refs.realFile.click();
     },
     onFileSelected(e) {
-      this.$refs.img.style.display = "";
       this.file = e.target.files[0];
       this.avatar = URL.createObjectURL(this.file);
+      this.$refs.style.backgroundImage = "url(" + this.avatar + ")";
     },
     inputing() {
       console.log("asd");

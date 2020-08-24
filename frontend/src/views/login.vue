@@ -39,7 +39,7 @@
       </div>
       <div class="logo">
         <router-link to="/">
-          <img src="../../public/img/kliniku.png" alt />
+          <img src="../../public/img/kliniku.svg" alt />
         </router-link>
       </div>
 

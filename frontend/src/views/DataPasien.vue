@@ -1,16 +1,12 @@
 <template>
   <div class="app">
     <div class="back">
-      <img src="img/arrow.png" alt />
+      <img src="../../public/img/arrow.png" alt />
       <router-link to="/dashboard-pasien">kembali ke halaman utama</router-link>
     </div>
     <div class="container">
       <div class="profil">
-        <div class="foto-user">
-          <div class="foto">
-            <img :src="avatar" alt />
-          </div>
-        </div>
+        <div class="foto-user" v-bind:style="{ backgroundImage: 'url(' + avatar + ')' }"></div>
         <div class="nama">
           <!--nama dan status akun sesuai dengan user yang login/register-->
           <div class="username">{{ nama }}</div>
@@ -19,7 +15,7 @@
       </div>
     </div>
     <div class="img">
-      <img src="img/bg.png" alt />
+      <img src="../../public/img/bg.png" alt />
     </div>
     <div class="form">
       <div class="info">
@@ -59,14 +55,14 @@
         </h1>
         <button class="ubah" @click="$router.push({path : '/edit-data-pasien'})">
           <h2>ubah data</h2>
-          <img src="img/arrow.png" alt />
+          <img src="../../public/img/arrow.png" alt />
         </button>
       </div>
       <div class="edit">
         <router-link to="/account">
           <h2>kelola akun</h2>
         </router-link>
-        <img src="img/arrow.png" alt />
+        <img src="../../public/img/arrow.png" alt />
       </div>
     </div>
 
@@ -80,9 +76,9 @@
       </div>
       <div class="kanan">
         <router-link to="/">
-          <img id="logo" src="img/kliniku.png" alt />
+          <img id="logo" src="../../public/img/kliniku.svg" alt />
         </router-link>
-        <img id="bunga" src="img/bunga.png" alt />
+        <img id="bunga" src="../../public/img/bunga.svg" alt />
       </div>
     </div>
   </div>
