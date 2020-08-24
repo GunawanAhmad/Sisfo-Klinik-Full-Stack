@@ -5,7 +5,7 @@ import store from "./store";
 import axios from "axios";
 
 Vue.config.productionTip = false;
-axios.defaults.baseURL = "http://d20c4427db3a.ngrok.io";
+axios.defaults.baseURL = "http://d95bb98b8b2b.ngrok.io";
 
 new Vue({
   router,

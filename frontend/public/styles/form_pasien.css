@@ -1,3 +1,8 @@
+.app.hide {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .tinggi,
 .berat {
   display: flex;

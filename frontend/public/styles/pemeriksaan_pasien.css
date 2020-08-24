@@ -2,6 +2,10 @@
   padding-left: 20rem;
   padding-right: 10rem;
 }
+.app.hide {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
 .flexlogo {
   display: flex;

@@ -1,3 +1,7 @@
+.app.hide {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .container {
   padding-right: 20rem;
   padding-left: 5rem;

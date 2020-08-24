@@ -1,3 +1,8 @@
+.app.hide {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .foto-user {
   background-color: rgb(117, 117, 117);
   width: 6rem;
