@@ -2,7 +2,8 @@
   <div class="app">
     <div class="back">
       <img src="../../public/img/arrow.png" alt />
-      <router-link to="/dashboard-pasien">kembali ke halaman utama</router-link>
+      <router-link to="/dashboard-dokter" v-if="role== 'dokter'">kembali ke halaman utama</router-link>
+      <router-link to="/dashboard-pasien" v-else>kembali ke halaman utama</router-link>
     </div>
     <div class="container">
       <div class="profil">
@@ -10,7 +11,8 @@
         <div class="nama">
           <!--nama dan status akun sesuai dengan user yang login/register-->
           <div class="username">{{ name }}</div>
-          <div class="account">Unverfied account</div>
+          <div class="account" v-if="role== 'dokter'">Docter Account</div>
+          <div class="account" v-else>Patient Account</div>
         </div>
       </div>
     </div>
@@ -74,6 +76,7 @@ export default {
         this.username = res.data.user.username;
         this.name = res.data.user.name;
         this.avatar = axios.defaults.baseURL + "/" + res.data.user.avatar;
+        this.role = res.data.user.role;
       })
       .catch((err) => {
         console.log(err);
@@ -84,6 +87,7 @@ export default {
       username: "",
       name: "",
       avatar: "",
+      role: "",
     };
   },
 };

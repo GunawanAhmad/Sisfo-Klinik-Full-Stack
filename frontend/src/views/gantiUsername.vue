@@ -16,7 +16,8 @@
           <div class="nama">
             <!--nama dan status akun sesuai dengan user yang login/register-->
             <div class="username">{{ name }}</div>
-            <div class="account">Unverfied account</div>
+            <div class="account" v-if="role== 'dokter'">Docter Account</div>
+            <div class="account" v-else>Patient Account</div>
           </div>
         </div>
       </div>
