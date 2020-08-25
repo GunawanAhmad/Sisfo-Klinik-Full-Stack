@@ -156,6 +156,7 @@ export default {
         })
         .catch((err) => {
           this.$refs.loader.classList.toggle("hide");
+          this.$refs.app.classList.toggle("hide");
           console.log(err.response);
           this.errorMsg = err.response.data.message || "error";
         });

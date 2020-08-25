@@ -91,15 +91,15 @@
   flex-direction: column;
   align-items: center;
 }
-
+.fungsi {
+  /* border: 1px solid black; */
+}
 .fungsi img {
   height: 1.5rem;
   width: 1rem;
 }
 .daftar,
 .riwayat {
-  border: 4px solid black;
-  padding: 2rem;
   width: 50rem;
   margin: 5rem;
   height: auto;
@@ -118,13 +118,24 @@
 
 .daftar.hidden,
 .riwayat.hidden {
-  height: 0;
+  /* height: 0; */
+  /* transform: scaleY(0); */
   border: none;
 }
-
+.daftar-user,
+.riwayat-user {
+  overflow: hidden;
+  transform: scaleY(1);
+  height: auto;
+  transition: transform 250ms ease-in-out;
+  transform-origin: top center;
+  border: 4px solid black;
+  padding: 2rem;
+}
 .daftar-user.hidden,
 .riwayat-user.hidden {
-  display: none;
+  transform: scaleY(0);
+  height: 0;
 }
 .daftar-user,
 .riwayat-user {
@@ -154,14 +165,14 @@
   align-items: center;
   font-size: 1.8rem;
   z-index: 999;
-
+  transition: all 200ms ease-in-out;
   cursor: pointer;
-  transform-origin: center;
+  transform-origin: top center;
 }
 
 .daftar span.hidden,
 .riwayat span.hidden {
-  height: 40px;
+  transform: scaleY(0.8) translateX(-50%);
 }
 
 .daftar h2,

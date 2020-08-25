@@ -62,7 +62,7 @@
         <section v-for="(konsul,index) in konsul" :key="konsul._id" @click="switchPage(index)">
           <div class="riwayat">
             <img src="../../public/img/frame.png" alt />
-            <h1>{{ konsul.tanggal.slice(4,16) }}</h1>
+            <h1>{{ date(konsul.tanggal) }}</h1>
             <p>
               konsultasi kamu
               sudah ditanggapi
@@ -71,7 +71,7 @@
         </section>
       </div>
       <div class="detail" v-else>
-        <h2 class="tanggal">{{ tanggal.slice(4,16) }}</h2>
+        <h2 class="tanggal">{{ tanggal }}</h2>
         <div class="diagnosis">
           <h2>diagnosis penyakit</h2>
           <p>{{ diagnosis }}</p>
@@ -98,10 +98,10 @@
     </div>
 
     <div class="wave">
-      <img src="img/wave2.png" alt />
+      <img src="../../public/img/wave2.png" alt />
     </div>
     <div class="dot">
-      <img src="img/dot.png" alt />
+      <img src="../../public/img/dot.png" alt />
     </div>
   </div>
 </template>
@@ -159,6 +159,11 @@ export default {
       help.classList.toggle("show");
       activity.classList.toggle("show");
     },
+    date(detail) {
+      console.log(detail);
+      let dt = this.monthChange(detail.slice(4, 8).replace(/\s/g, ""));
+      return detail.slice(8, 11) + dt + detail.slice(10, 16);
+    },
     switchPage(index) {
       if (index === false) {
         this.isFull = !this.isFull;
@@ -171,6 +176,55 @@ export default {
       this.diagnosis = this.konsul[index].diagnosis;
       this.obat = this.konsul[index].obat;
       this.catatan = this.konsul[index].catatan;
+      let dt = this.monthChange(this.tanggal.slice(4, 8).replace(/\s/g, ""));
+      this.tanggal =
+        this.tanggal.slice(8, 11) + dt + this.tanggal.slice(10, 16);
+      console.log(this.tanggal);
+    },
+    monthChange(month) {
+      let name;
+
+      switch (month) {
+        case "Jan":
+          name = "Januari";
+          break;
+        case "Feb":
+          name = "Februari";
+          break;
+        case "Mar":
+          name = "Maret";
+          break;
+        case "Apr":
+          name = "April";
+          break;
+        case "May":
+          name = "Mei";
+          break;
+        case "Jun":
+          name = "Juni";
+          break;
+        case "Jul":
+          name = "Juli";
+          break;
+        case "Aug":
+          name = "Agustus";
+          break;
+        case "Sep":
+          name = "September";
+          break;
+        case "Oct":
+          name = "Oktober";
+          break;
+        case "Nov":
+          name = "September";
+          break;
+        case "Dec":
+          name = "Desember";
+          break;
+        default:
+          name = month;
+      }
+      return name;
     },
   },
 };

@@ -38,8 +38,8 @@ nav {
 
 .image img {
   margin-right: 0;
-  width: 50rem;
-  height: 52rem;
+  width: 55rem;
+  height: auto;
 }
 
 .teks {
@@ -85,7 +85,13 @@ nav {
   color: #77bfbb;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (min-width: 1460px) {
+  .image img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 890px) {
   .image img {
     display: none;
   }
